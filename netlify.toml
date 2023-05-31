@@ -6,11 +6,11 @@
 [[redirects]]
   from = "/"
   to = "https://xpertnet.framer.website/"
-  status = 301
+  status = 200
   force = true # COMMENT: ensure that we always redirect
 
 [[redirects]]
   from = "/sitemap.xml"
   to = "https://xpertnet.framer.website/sitemap.xml"
-  status = 301
+  status = 200
   force = true # COMMENT: ensure that we always redirect
