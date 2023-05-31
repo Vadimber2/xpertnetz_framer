@@ -5,6 +5,6 @@
 
 [[redirects]]
   from = "/"
-  to = "https://contextual-times-650328.framer.app/"
+  to = "https://xpertnet.framer.website/"
   status = 200
   force = true # COMMENT: ensure that we always redirect
