@@ -5,7 +5,7 @@
 
 [[redirects]]
   from = "/*"
-  to = "https://xpertnet.framer.website/*"
+  to = "https://xpertnet.framer.website/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect
 
