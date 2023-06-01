@@ -1,0 +1,17 @@
+{
+  "name": "XperNetCX",
+  "version": "1.0.0",
+  "description": "XpertNet 2.0 site",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "node generateRedirects.js"
+  },
+  "author": "Vadim Berkovich",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "xml2js": "^0.4.23",
+    "toml": "^3.0.0",
+    "tomlify-j0.4": "^1.6.3"
+  }
+}
