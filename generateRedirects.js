@@ -22,7 +22,7 @@ async function generateRedirects() {
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Exclude 'public/static' folder
-        if (!path.includes('static')) {
+/*        if (!path.includes('/static')) {
           // Add new redirect to the parsed TOML
           parsedToml.redirects.push({
             from: path,
@@ -31,8 +31,8 @@ async function generateRedirects() {
             force: true
           });
         }
-      });
-/*      urls.forEach((url) => {
+      });*/
+      urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
         parsedToml.redirects.push({
@@ -41,7 +41,7 @@ async function generateRedirects() {
           status: 200,
           force: true
         });
-      });*/
+      });
 
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
