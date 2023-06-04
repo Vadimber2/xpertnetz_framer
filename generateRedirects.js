@@ -33,6 +33,23 @@ const downloadSitemap = async () => {
   }
 };
 
+const downloadAndchangeUrlInSitemap = async () => {
+  try {
+    // Download the sitemap and get the data
+    const data = await downloadSitemap();
+
+    // Replace all instances of the old URL with the new one
+    const modifiedData = data.replace(/https:\/\/xpertnet.framer.website/g, 'https://xpertnet.cx');
+
+    // Define the path to the sitemap file
+    const filepath = path.resolve(__dirname, 'public', 'sitemap.xml');
+
+    // Write the modified data back to the file
+    fs.writeFileSync(filepath, modifiedData);
+  } catch (error) {
+    console.error('Failed to change URLs in sitemap:', error);
+  }
+};
 async function generateRedirects() {
   try {
     const { data } = await axios.get('https://xpertnet.framer.website/sitemap.xml');
@@ -93,5 +110,5 @@ async function generateRedirects() {
   }
 }
 
-downloadSitemap();
+downloadAndchangeUrlInSitemap();
 generateRedirects();
