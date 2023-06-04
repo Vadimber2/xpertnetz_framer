@@ -6,7 +6,6 @@ const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 const path = require('path');
 const cheerio = require('cheerio');
-const xml2js = require('xml2js');
 const { Feed } = require('feed');
 
 const createRSSfromSitemap = async () => {
