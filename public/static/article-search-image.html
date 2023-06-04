@@ -107,7 +107,6 @@ gen_kwargs = {"max_length": max_length, "num_beams": num_beams}
         pixel_values = pixel_values.to(device)
 
         output_ids = model.generate(pixel_values, **gen_kwargs)
-
         preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
 
         preds = [pred.strip() for pred in preds]
