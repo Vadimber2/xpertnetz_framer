@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Importing the highlight.js library styles -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <style>
+        #contentDiv pre code.hljs {
+            font-size: 1.125em; /* Adjust as needed */
+            padding: 1em;
+            box-sizing: border-box;
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+
+        #contentDiv p {
+            font-size: 1.25em; /* Adjust this value as needed */
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        #contentDiv {
+            font-family: Inter, sans-serif;
+            max-width: 1200px;
+            margin: auto;
+            box-sizing: border-box;
+            overflow-x: auto;
+            height: auto;
+        }
+        @media only screen and (max-width: 810px) {
+            #contentDiv {
+                font-family: Inter, sans-serif;
+                max-width: 790px;
+                margin: auto;
+                box-sizing: border-box;
+                overflow-x: auto;
+                height: auto;
+            }
+
+            pre {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #contentDiv {
+                padding: 0 10px;
+                max-width: 580px;
+                height: auto;
+            }
+            #contentDiv pre {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="contentDiv">
+
+    <p>В этой статье мы рассмотрим Python скрипт, который использует несколько библиотек, включая модель CLIP от OpenAI, MarianMT для перевода и Pinecone для управления векторной базой данных.</p>
+
+    <h2>1. Импорт необходимых библиотек</h2>
+    <p>Сначала нам нужно импортировать необходимые библиотеки.</p>
+    <pre><code class="language-python">
+import open_clip
+import torch
+from transformers import MarianMTModel, MarianTokenizer
+from PIL import Image
+import pinecone
+import os
+import requests
+from io import BytesIO
+from lxml import etree
+from tqdm import tqdm
+    </code></pre>
+
+    <h2>2. Проверка доступного устройства</h2>
+    <p>Мы проверяем, доступна ли GPU для наших вычислений. Если нет, мы будем использовать CPU.</p>
+    <pre><code class="language-python">
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(device)
+    </code></pre>
+
+    <h2>3. Настройка модели перевода</h2>
+    <p>Мы будем использовать модель MarianMT для перевода с русского на английский. Модель и её токенизатор загружаются и перемещаются на доступное устройство.</p>
+    <pre><code class="language-python">
+model_name = 'Helsinki-NLP/opus-mt-ru-en'
+tr_tokenizer = MarianTokenizer.from_pretrained(model_name)
+tr_model = MarianMTModel.from_pretrained(model_name).to(device)
+    </code></pre>
+
+    <h2>4. Инициализация Pinecone</h2>
+    <p>Мы инициализируем Pinecone с помощью вашего API-ключа. Затем создаем новый индекс в Pinecone, если он еще не существует.</p>
+    <pre><code class="language-python">
+api_key = "YOUR_API_KEY"
+pinecone.init(api_key, environment="us-central1-gcp")
+index_name = "clip-embeddings"
+if index_name not in pinecone.list_indexes():
+    pinecone.create_index(
+      index_name,
+      dimension=1536,
+      metric="cosine",
+      pod_type="s1"
+    )
+index = pinecone.Index(index_name)
+    </code></pre>
+    <h2>5. Работа с XML лентой</h2>
+    <p>Мы загружаем XML ленту, извлекаем нужные поля и загружаем изображения.</p>
+    <pre><code class="language-python">
+from open_clip import tokenizer
+url = "https://www.stolplit.ru/yml/mb_moscow.xml"
+response = requests.get(url)
+xml_content = response.content
+root = etree.fromstring(xml_content)
+print('Загружено')
+    </code></pre>
+
+    <h2>6. Обработка и загрузка изображений в Pinecone</h2>
+    <p>Мы обрабатываем изображения, вычисляем векторные представления и загружаем их в Pinecone. Это происходит в партиях для повышения эффективности.</p>
+    <pre><code class="language-python">
+offers = root.xpath("//offers/offer")
+BATCH_SIZE = 100
+offers = offers[59500:]
+    </code></pre>
+
+    <h2>7. Вычисление эмбеддингов и загрузка в Pinecone</h2>
+    <p>Мы предобрабатываем изображения, вычисляем эмбеддинги и объединяем их. Затем мы загружаем эмбеддинги в Pinecone.</p>
+    <pre><code class="language-python">
+with torch.no_grad():
+    image_embeddings = im_model.encode_image(preprocessed_images)
+    text_embeddings = im_model.encode_text(text_inputs)
+combined_embeddings = torch.cat((image_embeddings, text_embeddings), dim=1)
+    </code></pre>
+
+    <h2>8. Загрузка в Pinecone</h2>
+    <p>Мы готовим данные и загружаем их в Pinecone.</p>
+    <pre><code class="language-python">
+upserts = []
+for name, name_en, autoname_en, embedding, image_url, image_descr, product_url in zip(image_names, image_names_en, image_autocapts_en, combined_embeddings, image_urls, image_descriptions, product_urls):
+    idx_s = str(hash(image_url))
+    image_descr = image_descr if image_descr is not None else ""
+    upserts.append({
+        "id": idx_s,
+        "values": embedding.tolist(),
+        "metadata": {"name_ru": name, "name_en": name_en, "autoname_en":autoname_en, "image_url": image_url, 'image_descr': image_descr, 'product_url':product_url},
+    })
+index.upsert(upserts)
+    </code></pre>
+
+    <p>Итак, мы рассмотрели полный цикл обработки изображений, генерации их векторных представлений и загрузки в Pinecone.</p>
+
+</div>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        var myDiv = document.getElementById('contentDiv');
+        if (myDiv) {
+            myDiv.style.height = 'auto';
+            var script = document.createElement('script');
+            script.src = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js";
+            script.onload = function () {
+                hljs.highlightAll();
+            };
+            document.body.appendChild(script);
+        }
+    }, 0);
+</script>
+</body>
+</html>
