@@ -6,50 +6,31 @@ const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 const path = require('path');
 
-const downloadSitemap = async () => {
+
+const downloadAndChangeUrlInSitemap = async () => {
   try {
     // Fetch sitemap.xml from the target URL
     const response = await axios({
       url: 'https://xpertnet.framer.website/sitemap.xml',
       method: 'GET',
-      responseType: 'stream',
+      responseType: 'text', // Update to text to handle the data as a string
     });
+
+    // Replace all instances of the old URL with the new one (excluding https://)
+    const modifiedData = response.data.replace(/xpertnet.framer.website/g, 'xpertnet.cx');
 
     // Define the path to the public folder and sitemap.xml filename
     const filepath = path.resolve(__dirname, 'public', 'sitemap.xml');
 
-    // Create a write stream to the filepath
-    const writer = fs.createWriteStream(filepath);
-
-    // Pipe the response data to the writer
-    response.data.pipe(writer);
-
-    return new Promise((resolve, reject) => {
-      writer.on('finish', resolve);
-      writer.on('error', reject);
-    });
-  } catch (error) {
-    console.error('Failed to download sitemap:', error);
-  }
-};
-
-const downloadAndchangeUrlInSitemap = async () => {
-  try {
-    // Download the sitemap and get the data
-    const data = await downloadSitemap();
-
-    // Replace all instances of the old URL with the new one
-    const modifiedData = data.replace(/https:\/\/xpertnet.framer.website/g, 'https://xpertnet.cx');
-
-    // Define the path to the sitemap file
-    const filepath = path.resolve(__dirname, 'public', 'sitemap.xml');
-
-    // Write the modified data back to the file
+    // Write the modified data to the file
     fs.writeFileSync(filepath, modifiedData);
+
+    console.log('Successfully downloaded and updated sitemap.xml');
   } catch (error) {
-    console.error('Failed to change URLs in sitemap:', error);
+    console.error('Failed to download and update sitemap:', error);
   }
 };
+
 async function generateRedirects() {
   try {
     const { data } = await axios.get('https://xpertnet.framer.website/sitemap.xml');
@@ -110,5 +91,5 @@ async function generateRedirects() {
   }
 }
 
-downloadAndchangeUrlInSitemap();
+downloadAndChangeUrlInSitemap();
 generateRedirects();
