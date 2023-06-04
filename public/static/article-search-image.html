@@ -92,51 +92,43 @@ num_beams = 4
 gen_kwargs = {"max_length": max_length, "num_beams": num_beams}
 </code></pre>
     <h2>Предсказание подписи к изображению</h2>
-    <p>Теперь, когда мы импортировали необходимые библиотеки и загрузили модель, мы можем предсказать подпись к
-        изображению. Это поможет нам связать изображение с текстовым описанием.</p>
+    <p>Теперь, когда мы импортировали необходимые библиотеки и загрузили модель, мы можем предсказать подпись к изображению. Это поможет нам связать изображение с текстовым описанием.</p>
     <pre><code class="hljs python">
-        from io import BytesIO
+def predict_caption(image_bytes):
+    images = []
+    i_image = Image.open(BytesIO(image_bytes))
 
-        def predict_caption(image_bytes):
-        images = []
-        i_image = Image.open(BytesIO(image_bytes))
+    images.append(i_image)
 
-        images.append(i_image)
+    pixel_values = feature_extractor(images=images, return_tensors="pt").pixel_values
+    pixel_values = pixel_values.to(device)
 
-        pixel_values = feature_extractor(images=images, return_tensors="pt").pixel_values
-        pixel_values = pixel_values.to(device)
+    output_ids = model.generate(pixel_values, **gen_kwargs)
+    preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
 
-        output_ids = model.generate(pixel_values, **gen_kwargs)
-        preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
-
-        preds = [pred.strip() for pred in preds]
-        return preds
+    preds = [pred.strip() for pred in preds]
+    return preds
 </code></pre>
 
     <h2>Загрузка изображения</h2>
-    <p>После того, как мы определили функцию для предсказания подписи, нам нужно загрузить изображение. Мы будем
-        использовать функциональность Google Colab для загрузки файла, но вы можете использовать любой другой подход
-        для получения изображения.</p>
+    <p>После того, как мы определили функцию для предсказания подписи, нам нужно загрузить изображение. Мы будем использовать функциональность Google Colab для загрузки файла, но вы можете использовать любой другой подход для получения изображения.</p>
     <pre><code class="hljs python">
 from google.colab import files
-    uploaded = files.upload()
+uploaded = files.upload()
 
 if uploaded:
-# Get the first uploaded file (as we set multiple=False)
-uploaded_image = list(uploaded.values())[0]
-capt= predict_caption(uploaded_image)
-new_image = Image.open(BytesIO(uploaded_image))
-# Display the new image
-print(capt)
-print("New Image:")
-display(new_image)
+    # Get the first uploaded file (as we set multiple=False)
+    uploaded_image = list(uploaded.values())[0]
+    capt= predict_caption(uploaded_image)
+    new_image = Image.open(BytesIO(uploaded_image))
+    # Display the new image
+    print(capt)
+    print("New Image:")
+    display(new_image)
 </code></pre>
 
     <h2>Заключение</h2>
-    <p>В этой статье мы рассмотрели, как можно использовать Python и библиотеку transformers для поиска изображений.
-        Мы использовали модель VisionEncoderDecoder для генерации текстового описания изображения, которое затем
-        можно использовать для поиска соответствующих изображений. Такой подход может быть полезен в многочисленных
-        приложениях, от поиска визуального контента до разработки систем компьютерного зрения.</p>
+    <p>В этой статье мы рассмотрели, как можно использовать Python и библиотеку transformers для поиска изображений. Мы использовали модель VisionEncoderDecoder для генерации текстового описания изображения, которое затем можно использовать для поиска соответствующих изображений. Такой подход может быть полезен в многочисленных приложениях, от поиска визуального контента до разработки систем компьютерного зрения.</p>
 
 </div>
 
