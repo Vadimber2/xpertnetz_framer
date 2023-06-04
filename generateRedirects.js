@@ -49,6 +49,8 @@ async function generateRedirects() {
       // Convert the parsed TOML back to a string
       const newToml = tomlify.toToml(parsedToml, { space: 2 });
 
+      // Print the contents of the new TOML file to the console
+      console.log(newToml);
       // Write the new TOML string back to the file
       fs.writeFileSync('./netlify.toml', newToml);
     });

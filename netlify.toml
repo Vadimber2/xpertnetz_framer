@@ -9,11 +9,11 @@
 #  status = 200
 #  force = true # COMMENT: ensure that we always redirect
 
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "https://xpertnet.framer.website/sitemap.xml"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
+#[[redirects]]
+#  from = "/sitemap.xml"
+#  to = "https://xpertnet.framer.website/sitemap.xml"
+#  status = 200
+#  force = true # COMMENT: ensure that we always redirect
 
 #[[redirects]]
 #  from = "/404"
