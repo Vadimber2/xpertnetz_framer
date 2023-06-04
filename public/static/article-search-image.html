@@ -95,23 +95,23 @@ gen_kwargs = {"max_length": max_length, "num_beams": num_beams}
     <p>Теперь, когда мы импортировали необходимые библиотеки и загрузили модель, мы можем предсказать подпись к
         изображению. Это поможет нам связать изображение с текстовым описанием.</p>
     <pre><code class="hljs python">
-    rom io import BytesIO
+        from io import BytesIO
 
-def predict_caption(image_bytes):
-images = []
-i_image = Image.open(BytesIO(image_bytes))
+        def predict_caption(image_bytes):
+        images = []
+        i_image = Image.open(BytesIO(image_bytes))
 
-images.append(i_image)
+        images.append(i_image)
 
-pixel_values = feature_extractor(images=images, return_tensors="pt").pixel_values
-pixel_values = pixel_values.to(device)
+        pixel_values = feature_extractor(images=images, return_tensors="pt").pixel_values
+        pixel_values = pixel_values.to(device)
 
-output_ids = model.generate(pixel_values, **gen_kwargs)
+        output_ids = model.generate(pixel_values, **gen_kwargs)
 
-preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
+        preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
 
-preds = [pred.strip() for pred in preds]
-return preds
+        preds = [pred.strip() for pred in preds]
+        return preds
 </code></pre>
 
     <h2>Загрузка изображения</h2>
