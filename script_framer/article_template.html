@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Importing the highlight.js library styles -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <style>
+        #contentDiv pre code.hljs {
+            font-size: 1.125em; /* Adjust as needed */
+            padding: 1em;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+        }
+
+        #contentDiv p {
+            font-size: 1.25em; /* Adjust this value as needed */
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        #contentDiv {
+            font-family: Inter, sans-serif;
+            max-width: 1200px;
+            margin: auto;
+            box-sizing: border-box;
+            overflow-x: auto;
+            height: auto;
+        }
+        @media only screen and (max-width: 810px) {
+            #contentDiv {
+                font-family: Inter, sans-serif;
+                max-width: 790px;
+                margin: auto;
+                box-sizing: border-box;
+                overflow-x: auto;
+                height: auto;
+            }
+
+            pre {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #contentDiv {
+                padding: 0 10px;
+                max-width: 580px;
+                height: auto;
+            }
+            #contentDiv pre {
+                white-space: pre-wrap;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="contentDiv">
+
+</div>
+
+<script type="text/javascript">
+    setTimeout(function () {
+        var myDiv = document.getElementById('contentDiv');
+        if (myDiv) {
+            myDiv.style.height = 'auto';
+            var script = document.createElement('script');
+            script.src = "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js";
+            script.onload = function () {
+                hljs.highlightAll();
+            };
+            document.body.appendChild(script);
+        }
+    }, 0);
+</script>
+</body>
+</html>
