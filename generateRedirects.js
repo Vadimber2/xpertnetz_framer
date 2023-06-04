@@ -43,6 +43,13 @@ async function generateRedirects() {
         });
       });*/
 
+      // Add redirect for 'public/static' to itself
+      parsedToml.redirects.push({
+        from: "/static/*",
+        to: "/static/:splat",
+        status: 200,
+        force: false
+      });
       // Add catch-all 404 redirect
       parsedToml.redirects.push({
         from: "/*",
