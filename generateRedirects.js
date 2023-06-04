@@ -5,9 +5,6 @@ const tomlify = require('tomlify-j0.4');
 const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 const path = require('path');
-
-const fs = require('fs');
-const axios = require('axios');
 const cheerio = require('cheerio');
 const xml2js = require('xml2js');
 const { Feed } = require('feed');
