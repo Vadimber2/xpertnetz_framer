@@ -47,7 +47,7 @@ const createRSSfromSitemap = async () => {
         description: pageData.description,
         content: pageData.description,
         date: new Date(),
-        author: 'Author Name', // use actual author name
+        author: 'Vadim Berkovich', // use actual author name
         customElements: [
           { 'turbo:source': pageData.source },
           { 'turbo:topic': pageData.topic },
