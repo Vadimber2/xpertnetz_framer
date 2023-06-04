@@ -68,13 +68,15 @@ const createRSSfromSitemap = async () => {
                 }
               }
             },
-            '_attr': { 'turbo': 'true' } // Adding the turbo attribute here
           }
         ]
       });
     }
 
-    fs.writeFileSync(rssOutputPath, feed.rss2());
+    const rssData = feed.rss2();
+    const modifiedRssData = rssData.replace(/<turbo>/g, '<item turbo="true">');
+
+    fs.writeFileSync(rssOutputPath, modifiedRssData);
 
   } catch (error) {
     console.error(`Failed to create RSS from sitemap: ${error}`);
