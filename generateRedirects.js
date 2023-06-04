@@ -29,11 +29,17 @@ const createRSSfromSitemap = async () => {
       feedLinks: {
         rss2: 'https://xpertnet.cx/rss.xml',
       },
+      customNamespaces: {
+        turbo: 'http://turbo.yandex.ru',
+        yandex: 'http://news.yandex.ru',
+        media: 'http://search.yahoo.com/mrss/'
+      }
     });
 
     for (let urlObj of result.urlset.url) {
       const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
       const pageData = await fetchPageData(url);
+
       feed.addItem({
         title: pageData.title,
         id: url,
@@ -41,6 +47,29 @@ const createRSSfromSitemap = async () => {
         description: pageData.description,
         content: pageData.description,
         date: new Date(),
+        author: 'Author Name', // use actual author name
+        customElements: [
+          { 'turbo:source': pageData.source },
+          { 'turbo:topic': pageData.topic },
+          { 'turbo:content': { _cdata: pageData.description } },
+          {
+            'turbo:extendedHtml': 'true',
+            'yandex:related': {},
+            'metrics': {
+              'yandex': {
+                _attr: { schema_identifier: 'Identifier' }, // use actual identifier
+                'breadcrumblist': {
+                  'breadcrumb': [
+                    { _attr: { url: 'http://example.com/', text: 'Домашняя' } },
+                    { _attr: { url: 'http://example.com/category/', text: 'Категория' } },
+                    { _attr: { url: 'http://example.com/category/sub-category/', text: 'Подкатегория' } },
+                    { _attr: { url: 'http://example.com/category/sub-category/page1.html', text: 'Пример страницы' } }
+                  ]
+                }
+              }
+            }
+          }
+        ]
       });
     }
 
@@ -55,16 +84,16 @@ const fetchPageData = async (url) => {
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
-
     const title = $('title').text();
-    const description = $('meta[name="description"]').attr('content') || '';
-
-    return { title, description };
+    const description = $('meta[name="description"]').attr('content');
+    const source = $('meta[name="source"]').attr('content'); // Assume the source is stored in a meta tag with name="source"
+    const topic = $('meta[name="topic"]').attr('content'); // Assume the topic is stored in a meta tag with name="topic"
+    return { title, description, source, topic };
   } catch (error) {
-    console.error(`Failed to fetch page content from ${url}`, error);
-    return { title: '', description: '' };
+    console.error(`Failed to fetch page data: ${error}`);
   }
 };
+
 
 const downloadAndChangeUrlInSitemap = async () => {
   try {
