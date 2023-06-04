@@ -38,13 +38,13 @@ async function generateRedirects() {
         force: true
       });
 
-      // Add catch-all 404 redirect
+/*      // Add catch-all 404 redirect
       parsedToml.redirects.push({
-        from: "/*",
+        from: "/!*",
         to: "/404",
         status: 404,
         force: false
-      });
+      });*/
 
       // Convert the parsed TOML back to a string
       const newToml = tomlify.toToml(parsedToml, { space: 2 });
