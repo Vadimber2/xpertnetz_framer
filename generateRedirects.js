@@ -6,6 +6,74 @@ const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 const path = require('path');
 
+const cheerio = require('cheerio');
+const xml2js = require('xml2js');
+const { Feed } = require('feed');
+
+
+const fs = require('fs');
+const axios = require('axios');
+const cheerio = require('cheerio');
+const xml2js = require('xml2js');
+const { Feed } = require('feed');
+
+const createRSSfromSitemap = async () => {
+  try {
+    const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml');
+    const rssOutputPath = path.resolve(__dirname, 'public', 'rss.xml');
+
+    const data = fs.readFileSync(sitemapPath, 'utf8');
+    const result = await xml2js.parseStringPromise(data);
+
+    const feed = new Feed({
+      title: 'Поиск по фотографиям для ритейла',
+      description: 'Поможем повысить конверсию и средний чек поиском товара по фотографиям.',
+      id: 'https://xpertnet.cx/',
+      link: 'https://xpertnet.cx/',
+      image: 'https://framerusercontent.com/images/Cc096DF3MFiPSFDJTtfM1XWG1G8.png',
+      favicon: 'https://framerusercontent.com/images/WAD7Am1W1eEEoQGk05lRJF0oLw.png',
+      copyright: '© 2023 ООО Экспертнэт Рус, ' + new Date().getFullYear(),
+      updated: new Date(),
+      generator: 'gen_1_0',
+      feedLinks: {
+        rss2: 'https://xpertnet.cx/rss.xml',
+      },
+    });
+
+    for (let urlObj of result.urlset.url) {
+      const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
+      const pageData = await fetchPageData(url);
+      feed.addItem({
+        title: pageData.title,
+        id: url,
+        link: url,
+        description: pageData.description,
+        content: pageData.description,
+        date: new Date(),
+      });
+    }
+
+    fs.writeFileSync(rssOutputPath, feed.rss2());
+
+  } catch (error) {
+    console.error(`Failed to create RSS from sitemap: ${error}`);
+  }
+};
+
+const fetchPageData = async (url) => {
+  try {
+    const { data } = await axios.get(url);
+    const $ = cheerio.load(data);
+
+    const title = $('title').text();
+    const description = $('meta[name="description"]').attr('content') || '';
+
+    return { title, description };
+  } catch (error) {
+    console.error(`Failed to fetch page content from ${url}`, error);
+    return { title: '', description: '' };
+  }
+};
 
 const downloadAndChangeUrlInSitemap = async () => {
   try {
@@ -64,11 +132,19 @@ async function generateRedirects() {
       });
 
       parsedToml.redirects.push({
+        from: "/rss.xml",
+        to: "/rss.xml",
+        status: 200,
+        force: true
+      });
+
+      parsedToml.redirects.push({
         from: "/robots.txt",
         to: "/robots.txt",
         status: 200,
         force: true
       });
+
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
         from: "/static/*",
@@ -99,4 +175,7 @@ async function generateRedirects() {
 }
 
 downloadAndChangeUrlInSitemap();
+
+createRSSfromSitemap();
+
 generateRedirects();
