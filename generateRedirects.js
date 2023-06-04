@@ -74,7 +74,7 @@ const createRSSfromSitemap = async () => {
     }
 
     const rssData = feed.rss2();
-    const modifiedRssData = rssData.replace(/<turbo>/g, '<item turbo="true">');
+    const modifiedRssData = rssData.replace(/<item>/g, '<item turbo="true">');
 
     fs.writeFileSync(rssOutputPath, modifiedRssData);
 
