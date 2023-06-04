@@ -60,14 +60,15 @@ const createRSSfromSitemap = async () => {
                 _attr: { schema_identifier: 'Identifier' }, // use actual identifier
                 'breadcrumblist': {
                   'breadcrumb': [
-                    { _attr: { url: 'http://example.com/', text: 'Домашняя' } },
-                    { _attr: { url: 'http://example.com/category/', text: 'Категория' } },
-                    { _attr: { url: 'http://example.com/category/sub-category/', text: 'Подкатегория' } },
-                    { _attr: { url: 'http://example.com/category/sub-category/page1.html', text: 'Пример страницы' } }
+                    { _attr: { url: 'http://xpertnet.cx/', text: 'Домашняя' } },
+                    { _attr: { url: 'http://xpertnet.cx/prices/', text: 'Цены' } },
+                    { _attr: { url: 'http://xpertnet.cx/articles/', text: 'Статьи' } },
+                    { _attr: { url: 'http://xpertnet.cx/blog/', text: 'Блог' } }
                   ]
                 }
               }
-            }
+            },
+            '_attr': { 'turbo': 'true' } // Adding the turbo attribute here
           }
         ]
       });
