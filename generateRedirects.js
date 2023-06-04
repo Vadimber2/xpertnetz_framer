@@ -3,8 +3,35 @@ const fs = require('fs');
 const toml = require('toml');
 const tomlify = require('tomlify-j0.4');
 const xml2js = require('xml2js');
-
 const parser = new xml2js.Parser();
+const path = require('path');
+
+const downloadSitemap = async () => {
+  try {
+    // Fetch sitemap.xml from the target URL
+    const response = await axios({
+      url: 'https://xpertnet.framer.website/sitemap.xml',
+      method: 'GET',
+      responseType: 'stream',
+    });
+
+    // Define the path to the public folder and sitemap.xml filename
+    const filepath = path.resolve(__dirname, 'public', 'sitemap.xml');
+
+    // Create a write stream to the filepath
+    const writer = fs.createWriteStream(filepath);
+
+    // Pipe the response data to the writer
+    response.data.pipe(writer);
+
+    return new Promise((resolve, reject) => {
+      writer.on('finish', resolve);
+      writer.on('error', reject);
+    });
+  } catch (error) {
+    console.error('Failed to download sitemap:', error);
+  }
+};
 
 async function generateRedirects() {
   try {
@@ -33,7 +60,7 @@ async function generateRedirects() {
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
         from: "/sitemap.xml",
-        to: "https://xpertnet.framer.website/sitemap.xml",
+        to: "/sitemap.xml",
         status: 200,
         force: true
       });
@@ -66,4 +93,5 @@ async function generateRedirects() {
   }
 }
 
+downloadSitemap();
 generateRedirects();
