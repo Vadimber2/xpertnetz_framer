@@ -32,6 +32,13 @@ async function generateRedirects() {
 
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
+        from: "/sitemap.xml",
+        to: "https://xpertnet.framer.website/sitemap.xml",
+        status: 200,
+        force: true
+      });
+      // Add redirect for 'public/static' to itself
+      parsedToml.redirects.push({
         from: "/static/*",
         to: "/static/:splat",
         status: 200,
@@ -40,7 +47,7 @@ async function generateRedirects() {
 
       // Add catch-all 404 redirect
       parsedToml.redirects.push({
-        from: "/!*",
+        from: "/*",
         to: "/404",
         status: 404,
         force: false
