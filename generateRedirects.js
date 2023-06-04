@@ -62,6 +62,13 @@ async function generateRedirects() {
         status: 200,
         force: true
       });
+
+      parsedToml.redirects.push({
+        from: "/robots.txt",
+        to: "/robots.txt",
+        status: 200,
+        force: true
+      });
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
         from: "/static/*",
