@@ -176,12 +176,12 @@ async function generateRedirects() {
         force: true
       });
 
-      parsedToml.redirects.push({
-        from: "https://xpertnet.cx/emotions/*",
+/*      parsedToml.redirects.push({
+        from: "https://xpertnet.cx/emotions/!*",
         to: "https://xpertnetz.com/:splat",
         status: 200,
         force: true
-      });
+      });*/
 
 
       // Add catch-all 404 redirect
