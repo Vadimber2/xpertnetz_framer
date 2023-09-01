@@ -17,13 +17,13 @@ const createRSSfromSitemap = async () => {
     const result = await xml2js.parseStringPromise(data);
 
     const feed = new Feed({
-      title: 'Поиск по фотографиям для ритейла',
+      title: 'СОЗДАЕМ УДОБНЫЕ И КАЧЕСТВЕННЫЕ ПЕРСОНАЛЬНЫЕ ПРЕДЛОЖЕНИЯ ТОВАРОВ',
       description: 'Поможем повысить конверсию и средний чек поиском товара по фотографиям.',
       id: 'https://xpertnet.cx/',
       link: 'https://xpertnet.cx/',
-      image: 'https://framerusercontent.com/images/Cc096DF3MFiPSFDJTtfM1XWG1G8.png',
-      favicon: 'https://framerusercontent.com/images/WAD7Am1W1eEEoQGk05lRJF0oLw.png',
-      copyright: '© 2023 ООО Экспертнэт Рус, ' + new Date().getFullYear(),
+      image: 'https://framerusercontent.com/images/4rBbMDifZOnU3GOKjXH2dv4sxqI.jpg',
+      favicon: 'https://framerusercontent.com/images/pqY7zilhKpYQcuyS5eLz0c9bbI.png',
+      copyright: '© ООО Экспертнэт Рус, ' + new Date().getFullYear(),
       updated: new Date(),
       generator: 'gen_1_0',
       feedLinks: {
@@ -61,7 +61,7 @@ const createRSSfromSitemap = async () => {
                 'breadcrumblist': {
                   'breadcrumb': [
                     { _attr: { url: 'http://xpertnet.cx/', text: 'Домашняя' } },
-                    { _attr: { url: 'http://xpertnet.cx/prices/', text: 'Цены' } },
+                    { _attr: { url: 'http://xpertnet.cx/price/', text: 'Цены' } },
                     { _attr: { url: 'http://xpertnet.cx/articles/', text: 'Статьи' } },
                     { _attr: { url: 'http://xpertnet.cx/blog/', text: 'Блог' } }
                   ]
