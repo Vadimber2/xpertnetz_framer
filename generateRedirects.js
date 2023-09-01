@@ -61,9 +61,11 @@ const createRSSfromSitemap = async () => {
                 'breadcrumblist': {
                   'breadcrumb': [
                     { _attr: { url: 'http://xpertnet.cx/', text: 'Домашняя' } },
+                    { _attr: { url: 'http://xpertnet.cx/projects/', text: 'Проекты' } },
                     { _attr: { url: 'http://xpertnet.cx/price/', text: 'Цены' } },
                     { _attr: { url: 'http://xpertnet.cx/articles/', text: 'Статьи' } },
-                    { _attr: { url: 'http://xpertnet.cx/blog/', text: 'Блог' } }
+                    { _attr: { url: 'http://xpertnet.cx/blog/', text: 'Блог' } },
+                    { _attr: { url: 'http://xpertnet.cx/about_us/', text: 'О компании' } }
                   ]
                 }
               }
