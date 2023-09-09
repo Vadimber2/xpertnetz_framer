@@ -198,6 +198,11 @@ async function generateRedirects() {
         force: true
       });
 
+      // перед сериализацией преобразуем статусные коды в строки
+      parsedToml.redirects.forEach(redirect => {
+        redirect.status = redirect.status.toString();
+      });
+
       // Convert the parsed TOML back to a string
       const newToml = tomlify.toToml(parsedToml, { space: 2 });
 
