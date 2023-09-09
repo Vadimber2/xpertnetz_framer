@@ -140,6 +140,9 @@ async function generateRedirects() {
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
+        if (path === "/404") {
+          return;
+        }
         parsedToml.redirects.push({
           from: path,
           to: url,
