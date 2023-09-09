@@ -198,13 +198,10 @@ async function generateRedirects() {
         force: true
       });
 
-      // перед сериализацией преобразуем статусные коды в строки
-      parsedToml.redirects.forEach(redirect => {
-        redirect.status = redirect.status.toString();
-      });
 
       // Convert the parsed TOML back to a string
-      const newToml = tomlify.toToml(parsedToml, { space: 2 });
+      let newToml = tomlify.toToml(parsedToml, { space: 2 });
+      newToml = newToml.replace(/= (\d+)\.0/g, '= $1');
 
       // Print the contents of the new TOML file to the console
       console.log(newToml);
