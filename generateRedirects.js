@@ -217,4 +217,4 @@ downloadAndChangeUrlInSitemap();
 
 generateRedirects();
 
-createRSSfromSitemap();
+//createRSSfromSitemap();
