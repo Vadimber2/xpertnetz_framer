@@ -149,8 +149,8 @@ async function generateRedirects() {
         parsedToml.redirects.push({
           from: path,
           to: url,
-          status: 200//,
-          //force: true
+          status: 200,
+          force: true
         });
       });
 
@@ -158,36 +158,37 @@ async function generateRedirects() {
       parsedToml.redirects.push({
         from: "/sitemap.xml",
         to: "/sitemap.xml",
-        status: 200//,
-        //force: true
+        status: 200,
+        force: true
       });
 
       parsedToml.redirects.push({
         from: "/rss.xml",
         to: "/rss.xml",
-        status: 200//,
-        //force: true
+        status: 200,
+        force: true
       });
 
       parsedToml.redirects.push({
         from: "/robots.txt",
         to: "/robots.txt",
-        status: 200//,
-        //force: true
+        status: 200,
+        force: true
       });
 
       // Add redirect for 'public/static' to itself
       parsedToml.redirects.push({
         from: "/static/*",
         to: "/static/:splat",
-        status: 200//,
-        //force: true
+        status: 200,
+        force: true
       });
 
       parsedToml.redirects.push({
         from: "/index.html",
         to: "https://xpertnet.framer.website",
-        status: 200
+        status: 200,
+        force: true
       });
 
       // Add catch-all 404 redirect
