@@ -139,13 +139,6 @@ async function generateRedirects() {
       // Empty existing redirects
       parsedToml.redirects = [];
 
-      // Add catch-all 404 redirect
-      parsedToml.redirects.push({
-        from: "/*",
-        to: "/",
-        status: 404
-      });
-
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
@@ -191,6 +184,12 @@ async function generateRedirects() {
         force: true
       });
 
+      // Add catch-all 404 redirect
+      parsedToml.redirects.push({
+        from: "/*",
+        to: "/",
+        status: 404
+      });
 /*      parsedToml.redirects.push({
         from: "https://xpertnet.cx/emotions/!*",
         to: "https://xpertnetz.com/:splat",
