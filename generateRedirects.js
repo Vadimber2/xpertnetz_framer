@@ -142,9 +142,9 @@ async function generateRedirects() {
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
-        if (path === "/404") {
-          return;
-        }
+        //if (path === "/404") {
+        //  return;
+        //}
         //console.log(path);
         parsedToml.redirects.push({
           from: path,
@@ -193,8 +193,8 @@ async function generateRedirects() {
 
       // Add catch-all 404 redirect
       parsedToml.redirects.push({
-        from: "/*",
-        to: "/",
+        from: "/404",
+        to: "https://xpertnet.framer.website/not-found",
         status: 404
       });
 /*      parsedToml.redirects.push({
