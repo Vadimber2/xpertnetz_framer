@@ -139,6 +139,13 @@ async function generateRedirects() {
       // Empty existing redirects
       parsedToml.redirects = [];
 
+      // Add catch-all 404 redirect
+      parsedToml.redirects.push({
+        from: "/*",
+        to: "/",
+        status: 404
+      });
+
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
@@ -190,15 +197,6 @@ async function generateRedirects() {
         status: 200,
         force: true
       });*/
-
-
-/*      // Add catch-all 404 redirect
-      parsedToml.redirects.push({
-        from: "/!*",
-        to: "https://xpertnet.framer.website/404",
-        status: 404
-      });*/
-
 
       // Convert the parsed TOML back to a string
       let newToml = tomlify.toToml(parsedToml, { space: 2 });
