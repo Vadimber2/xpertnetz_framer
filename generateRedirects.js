@@ -193,7 +193,7 @@ async function generateRedirects() {
 
       // Add catch-all 404 redirect
       parsedToml.redirects.push({
-        from: "/404",
+        from: "/*",
         to: "https://xpertnet.framer.website/not-found",
         status: 404
       });
