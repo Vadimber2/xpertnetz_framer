@@ -192,11 +192,11 @@ async function generateRedirects() {
       });
 
       // Add catch-all 404 redirect
-      parsedToml.redirects.push({
+/*      parsedToml.redirects.push({
         from: "/404",
         to: "https://xpertnet.framer.website/not-found",
         status: 404
-      });
+      });*/
 /*      parsedToml.redirects.push({
         from: "https://xpertnet.cx/emotions/!*",
         to: "https://xpertnetz.com/:splat",
