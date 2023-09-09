@@ -83,6 +83,8 @@ const createRSSfromSitemap = async () => {
   } catch (error) {
     console.error(`Failed to create RSS from sitemap: ${error}`);
   }
+
+  console.error(`RSS completed`);
 };
 
 const fetchPageData = async (url) => {
@@ -190,13 +192,12 @@ async function generateRedirects() {
       });*/
 
 
-      // Add catch-all 404 redirect
+/*      // Add catch-all 404 redirect
       parsedToml.redirects.push({
-        from: "/404.html",
+        from: "/!*",
         to: "https://xpertnet.framer.website/404",
-        status: 404,
-        force: true
-      });
+        status: 404
+      });*/
 
 
       // Convert the parsed TOML back to a string
@@ -217,4 +218,4 @@ downloadAndChangeUrlInSitemap();
 
 generateRedirects();
 
-//createRSSfromSitemap();
+createRSSfromSitemap();
