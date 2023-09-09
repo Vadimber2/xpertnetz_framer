@@ -143,7 +143,7 @@ async function generateRedirects() {
         if (path === "/404") {
           return;
         }
-        console.log(path);
+        //console.log(path);
         parsedToml.redirects.push({
           from: path,
           to: url,
