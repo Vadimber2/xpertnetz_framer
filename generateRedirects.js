@@ -143,6 +143,7 @@ async function generateRedirects() {
         if (path === "/404") {
           return;
         }
+        console.log(path);
         parsedToml.redirects.push({
           from: path,
           to: url,
@@ -194,7 +195,7 @@ async function generateRedirects() {
         from: "/*",
         to: "https://xpertnet.framer.website/404",
         status: 404,
-        force: false
+        force: true
       });
 
       // Convert the parsed TOML back to a string
