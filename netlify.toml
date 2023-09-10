@@ -1,22 +1,176 @@
 [build]
-  #command = "npm run obfuscate"
-  #command = "npm run obfuscate"
-  publish = "public"
+publish = "public"
+command = "download-scripts.sh"
 
-#[[redirects]]
-#  from = "/*"
-#  to = "https://xpertnet.framer.website/:splat"
-#  status = 200
-#  force = true # COMMENT: ensure that we always redirect
+[[redirects]]
+from = "/coming-soon"
+to = "https://xpertnet.framer.website/coming-soon"
+status = 200
+force = true
 
-#[[redirects]]
-#  from = "/sitemap.xml"
-#  to = "https://xpertnet.framer.website/sitemap.xml"
-#  status = 200
-#  force = true # COMMENT: ensure that we always redirect
+[[redirects]]
+from = "/not-found"
+to = "https://xpertnet.framer.website/not-found"
+status = 200
+force = true
 
-#[[redirects]]
-#  from = "/404"
-#  to = "/"
-#  status = 404
-#  force = false
+[[redirects]]
+from = "/about_us"
+to = "https://xpertnet.framer.website/about_us"
+status = 200
+force = true
+
+[[redirects]]
+from = "/price"
+to = "https://xpertnet.framer.website/price"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-3"
+to = "https://xpertnet.framer.website/blog-3"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-2"
+to = "https://xpertnet.framer.website/blog-2"
+status = 200
+force = true
+
+[[redirects]]
+from = "/article-image-index"
+to = "https://xpertnet.framer.website/article-image-index"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-1"
+to = "https://xpertnet.framer.website/blog-1"
+status = 200
+force = true
+
+[[redirects]]
+from = "/article-search-image"
+to = "https://xpertnet.framer.website/article-search-image"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog"
+to = "https://xpertnet.framer.website/blog"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project_lenta"
+to = "https://xpertnet.framer.website/project_lenta"
+status = 200
+force = true
+
+[[redirects]]
+from = "/articles"
+to = "https://xpertnet.framer.website/articles"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project_vseinstrumenti.ru"
+to = "https://xpertnet.framer.website/project_vseinstrumenti.ru"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project_stolplit"
+to = "https://xpertnet.framer.website/project_stolplit"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project_lenta_spb"
+to = "https://xpertnet.framer.website/project_lenta_spb"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project_marnit_krasnodar"
+to = "https://xpertnet.framer.website/project_marnit_krasnodar"
+status = 200
+force = true
+
+[[redirects]]
+from = "/projects"
+to = "https://xpertnet.framer.website/projects"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generation-content"
+to = "https://xpertnet.framer.website/generation-content"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots"
+to = "https://xpertnet.framer.website/bots"
+status = 200
+force = true
+
+[[redirects]]
+from = "/marketing"
+to = "https://xpertnet.framer.website/marketing"
+status = 200
+force = true
+
+[[redirects]]
+from = "/product"
+to = "https://xpertnet.framer.website/product"
+status = 200
+force = true
+
+[[redirects]]
+from = "/"
+to = "https://xpertnet.framer.website/"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picture-search-solution"
+to = "https://xpertnet.framer.website/picture-search-solution"
+status = 200
+force = true
+
+[[redirects]]
+from = "/sitemap.xml"
+to = "/sitemap.xml"
+status = 200
+force = true
+
+[[redirects]]
+from = "/rss.xml"
+to = "/rss.xml"
+status = 200
+force = true
+
+[[redirects]]
+from = "/robots.txt"
+to = "/robots.txt"
+status = 200
+force = true
+
+[[redirects]]
+from = "/static/*"
+to = "/static/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/index.html"
+to = "https://xpertnet.framer.website"
+status = 200
+force = true
+
+[[redirects]]
+from = "/404"
+to = "https://xpertnet.framer.website/not-found"
+status = 404
