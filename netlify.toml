@@ -1,6 +1,5 @@
 [build]
 publish = "public"
-command = "./download-scripts.sh"
 
 [[redirects]]
 from = "/coming-soon"

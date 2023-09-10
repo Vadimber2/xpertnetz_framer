@@ -170,20 +170,6 @@ async function generateRedirects() {
       });
 
       parsedToml.redirects.push({
-        from: "/js/exp.js",
-        to: "/js/exp.js",
-        status: 200,
-        force: true
-      });
-
-      parsedToml.redirects.push({
-        from: "/js/tag.js",
-        to: "/js/tag.js",
-        status: 200,
-        force: true
-      });
-
-      parsedToml.redirects.push({
         from: "/robots.txt",
         to: "/robots.txt",
         status: 200,
