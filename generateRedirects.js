@@ -40,8 +40,8 @@ const createRSSfromSitemap = async () => {
     });
 
     for (let urlObj of result.urlset.url) {
-      //const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
-      const url = urlObj.loc[0];
+      const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
+      //const url = urlObj.loc[0];
       console.log(url);
       const pageData = await fetchPageData(url);
 
@@ -126,6 +126,9 @@ const downloadAndChangeUrlInSitemap = async () => {
     fs.writeFileSync(filepath, modifiedData);
 
     console.log('Successfully downloaded and updated sitemap.xml');
+    generateRedirects();
+    createRSSfromSitemap();
+
   } catch (error) {
     console.error('Failed to download and update sitemap:', error);
   }
@@ -225,6 +228,4 @@ async function generateRedirects() {
 
 downloadAndChangeUrlInSitemap();
 
-generateRedirects();
 
-createRSSfromSitemap();
