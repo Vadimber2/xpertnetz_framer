@@ -11,9 +11,12 @@ const { Feed } = require('feed');
 const createRSSfromSitemap = async () => {
   try {
     const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml');
+    console.log(sitemapPath);
     const rssOutputPath = path.resolve(__dirname, 'public', 'rss.xml');
 
     const data = fs.readFileSync(sitemapPath, 'utf8');
+    //console.log(data);
+
     const result = await xml2js.parseStringPromise(data);
 
     const feed = new Feed({
@@ -37,7 +40,9 @@ const createRSSfromSitemap = async () => {
     });
 
     for (let urlObj of result.urlset.url) {
-      const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
+      //const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
+      const url = urlObj.loc[0];
+      console.log(url);
       const pageData = await fetchPageData(url);
 
       feed.addItem({
