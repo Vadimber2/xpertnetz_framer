@@ -165,7 +165,7 @@ async function generateRedirects() {
         parsedToml.redirects.push({
           from: path,
           to: url,
-          status: 301,
+          status: 200,
           force: true
         });
       });
