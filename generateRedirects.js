@@ -147,6 +147,14 @@ async function generateRedirects() {
       // Empty existing redirects
       parsedToml.redirects = [];
 
+      // Redirect for stripping trailing slashes
+      parsedToml.redirects.push({
+        from: "/*/",
+        to: "/:splat",
+        status: 301,
+        force: true
+      });
+
       urls.forEach((url) => {
         const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
