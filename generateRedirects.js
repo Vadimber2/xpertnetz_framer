@@ -164,8 +164,8 @@ async function generateRedirects() {
         //console.log(path);
         parsedToml.redirects.push({
           from: path,
-          to: url+'/:splat',
-          status: 200,
+          to: url,
+          status: 301,
           force: true
         });
       });
