@@ -1,0 +1,175 @@
+<div id="myDiv">
+    <!-- "Hello, World!" will be injected here -->
+</div>
+
+<script type="text/javascript">
+    function injectStructuredDataToHead() {
+        // Create a new script element
+        var scriptElement = document.createElement('script');
+        scriptElement.type = 'application/ld+json';
+
+        // Define the structured data
+        var structuredData = {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://xpertnet.cx",
+            "name": "Компания Экспертнэт Рус - xpertnet.cx",
+            "description": "Вдохновение для покупателей. Более 80% компаний увеличели средний чек на более чем 15% внедрив систему эмоциональных коммуникаций с покупателями. Хотите узнать как?",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://framerusercontent.com/images/4rBbMDifZOnU3GOKjXH2dv4sxqI.jpg",
+                "height": "auto",
+                "width": "auto"
+            },
+            "mainEntity": {
+                "@type": "WebPage",
+                "url": "https://xpertnet.cx/price",
+                "name": "Стоимость услуг Экспертнэт Рус",
+                "description": "Подробная информация о стоимости услуг, предлагаемых компанией Экспертнэт Рус."
+            }
+        };
+
+        // Convert the structured data object to a JSON string and set it as the script's inner content
+        scriptElement.innerHTML = JSON.stringify(structuredData);
+
+        // Append the script element to the head of the document
+        document.head.appendChild(scriptElement);
+    }
+
+    // Call the function to inject the structured data into the head
+    //injectStructuredDataToHead();
+
+    function updateCanonicalLink() {
+        // Get the current page's path
+        var currentPagePath = window.location.pathname;
+
+        // Construct the new canonical URL
+        var newCanonicalURL = "https://xpertnet.cx" + currentPagePath;
+
+        // Find the canonical link element
+        var canonicalLink = document.querySelector('link[rel="canonical"]');
+        if (canonicalLink) {
+            canonicalLink.href = newCanonicalURL;
+        } else {
+            // If no canonical link is found, create one and append to the head
+            canonicalLink = document.createElement('link');
+            canonicalLink.rel = "canonical";
+            canonicalLink.href = newCanonicalURL;
+            document.head.appendChild(canonicalLink);
+        }
+    }
+
+    // Call the function to update the canonical link
+    //updateCanonicalLink();
+
+    function removeTrailingSlashes() {
+        if (typeof window !== 'undefined' && window.location && window.location.href) {
+            // Удаляем все слеши в конце URL, за исключением случая, когда URL является корневым (т.е. 'https://domain.com/')
+            const newHref = window.location.href.replace(/(\/)+$/, '');
+            // Убедимся, что новый URL отличается от текущего, и что мы не удаляем слеш в случае корневого URL
+            if (window.location.href !== newHref && newHref.length > window.location.origin.length) {
+                window.history.replaceState(null, '', newHref);
+            }
+        }
+    }
+
+    function onDocumentReady() {
+        removeTrailingSlashes();
+        updateCanonicalLink();
+        injectStructuredDataToHead();
+    }
+
+    if (document.readyState === "loading") {  // If document is still loading, add event listener
+        document.addEventListener("DOMContentLoaded", onDocumentReady);
+    } else {  // If document is already loaded, run the functions
+        onDocumentReady();
+    }
+
+
+    var targetNode = document.body;
+
+    // Options for the observer (which mutations to observe)
+    var config = {attributes: false, childList: true, subtree: true};
+
+    // Callback function to execute when mutations are observed
+    var callback = function (mutationsList, observer) {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                var container = document.getElementById('__framer-badge-container');
+                if (container) {
+                    container.style.display = 'none';
+                    observer.disconnect(); // stop observing when the container has been found and hidden
+                }
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    var observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+
+    function loadAndInitializeScriptAsync(src, globalVariable) {
+        return new Promise((resolve, reject) => {
+            // Check if the global variable or function already exists
+            if (window[globalVariable]) {
+                resolve();
+                return;
+            }
+
+            // Create a new script element
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = src;
+
+            // Listen for load and error events
+            script.onload = () => {
+                (function (m, e, t, r, i, k, a) {
+                    m[i] = m[i] || function () {
+                        (m[i].a = m[i].a || []).push(arguments);
+                    };
+                    m[i].l = 1 * new Date();
+                    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+                })(window, document, "script", src, globalVariable);
+
+                resolve();
+            };
+            script.onerror = () => reject(new Error(`Failed to load the script: ${src}`));
+
+            // Append the script to the document
+            document.body.appendChild(script);
+        });
+    }
+
+    setTimeout(() => {
+        var myDiv = document.getElementById('myDiv');
+        myDiv.innerHTML = "";
+
+        // Load the Yandex Metrica script and initialize asynchronously
+        loadAndInitializeScriptAsync("https://mc.yandex.ru/metrika/tag.js", "ym")
+            .then(() => {
+                // Initialize ym after the script has loaded
+                ym(93795198, "init", {
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                });
+
+                // Then, load and initialize the next script
+                return loadAndInitializeScriptAsync("https://abt.s3.yandex.net/expjs/latest/exp.js", "ymab");
+            })
+            .then(() => {
+                // Initialize ymab after the second script has loaded
+                ymab('metrika.93795198', 'init');
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+            });
+    }, 0);
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/93795198" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
