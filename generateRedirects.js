@@ -213,12 +213,12 @@ async function generateRedirects() {
       });*/
 
       // Redirect for stripping trailing slashes
-      parsedToml.redirects.push({
-        from: "/*/",
-        to: "/:splat",
-        status: 301,
-        force: true
-      });
+      //parsedToml.redirects.push({
+      //  from: "/*/",
+      //  to: "/:splat",
+      //  status: 301,
+      //  force: true
+      //});
 
       // Convert the parsed TOML back to a string
       let newToml = tomlify.toToml(parsedToml, { space: 2 });
