@@ -147,16 +147,8 @@ async function generateRedirects() {
       // Empty existing redirects
       parsedToml.redirects = [];
 
-      // Redirect for stripping trailing slashes
-      //parsedToml.redirects.push({
-      //  from: "/*/",
-      //  to: "/:splat",
-      //  status: 301,
-      //  force: true
-      //});
-
       urls.forEach((url) => {
-        const path = url.replace('https://xpertnet.framer.website', '')+'/*';
+        const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
         //if (path === "/404") {
         //  return;
@@ -219,6 +211,14 @@ async function generateRedirects() {
         status: 200,
         force: true
       });*/
+
+      // Redirect for stripping trailing slashes
+      parsedToml.redirects.push({
+        from: "/*/",
+        to: "/:splat",
+        status: 301,
+        force: true
+      });
 
       // Convert the parsed TOML back to a string
       let newToml = tomlify.toToml(parsedToml, { space: 2 });
