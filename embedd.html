@@ -10,7 +10,7 @@
 
         // Define the structured data
         var structuredData = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://xpertnet.cx",
             "name": "Компания Экспертнэт Рус - xpertnet.cx",
@@ -73,10 +73,90 @@
         }
     }
 
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax; Secure";
+    }
+
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function showCookieBanner() {
+        var bannerHTML = `
+        <style>
+            #cookieBanner {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                z-index: 1000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #cookieBanner button {
+                background-color: white;
+                color: black;
+                border: none;
+                padding: 5px 10px;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+            @media (max-width: 768px) {
+                #cookieBanner {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+                #cookieBanner button {
+                    margin-top: 10px;
+                    margin-left: 0;
+                }
+            }
+        </style>
+        <div id="cookieBanner">Этот сайт использует cookies. <button onclick="acceptCookies()">Принять</button></div>
+    `;
+        document.body.insertAdjacentHTML('beforeend', bannerHTML);
+    }
+
+
+    function acceptCookies() {
+        setCookie('cookiesAccepted', 'true', 7); // Устанавливаем cookie на 7 дней
+        var banner = document.getElementById('cookieBanner');
+        if (banner) {
+            banner.style.display = 'none';
+        }
+    }
+
+    function initCookieBanner() {
+        var isAccepted = getCookie('cookiesAccepted');
+        if (!isAccepted) {
+            showCookieBanner();
+        }
+    }
+
     function onDocumentReady() {
         removeTrailingSlashes();
         updateCanonicalLink();
         injectStructuredDataToHead();
+        initCookieBanner();
     }
 
     if (document.readyState === "loading") {  // If document is still loading, add event listener

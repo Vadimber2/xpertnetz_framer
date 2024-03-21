@@ -193,6 +193,13 @@ async function generateRedirects() {
       });
 
       parsedToml.redirects.push({
+        from: "/legal/*",
+        to: "/legal/:splat",
+        status: 200,
+        force: true
+      });
+
+      parsedToml.redirects.push({
         from: "/index.html",
         to: "https://xpertnet.framer.website",
         status: 200,
