@@ -96,6 +96,11 @@
     }
 
     function showCookieBanner() {
+        // Проверяем, существует ли уже баннер. Если да, удаляем его.
+        var existingBanner = document.getElementById('cookieBanner');
+        if (existingBanner) {
+            existingBanner.remove();
+        }
         var bannerHTML = `
         <style>
             #cookieBanner {
@@ -120,6 +125,11 @@
                 margin-left: 10px;
                 cursor: pointer;
             }
+            #cookieBanner a {
+                color: #888888; /* Серый цвет для ссылок */
+                text-decoration: underline;
+                margin-left: 5px;
+            }
             @media (max-width: 768px) {
                 #cookieBanner {
                     flex-direction: column;
@@ -131,7 +141,7 @@
                 }
             }
         </style>
-        <div id="cookieBanner">Этот сайт использует cookies. <button onclick="acceptCookies()">Принять</button></div>
+        <div id="cookieBanner">Этот сайт использует файлы cookies. <a href="https://xpertnet.cx/legal/cookies_policy.pdf" target="_blank"> Политика использования файлов cookies</a> <button onclick="acceptCookies()">Принять</button></div>
     `;
         document.body.insertAdjacentHTML('beforeend', bannerHTML);
     }
@@ -145,10 +155,22 @@
         }
     }
 
+ /*   function initCookieBanner() {
+        var isAccepted = getCookie('cookiesAccepted');
+        if (!isAccepted) {
+            showCookieBanner();
+        }
+    }*/
+
     function initCookieBanner() {
         var isAccepted = getCookie('cookiesAccepted');
         if (!isAccepted) {
             showCookieBanner();
+        } else {
+            var banner = document.getElementById('cookieBanner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
         }
     }
 
