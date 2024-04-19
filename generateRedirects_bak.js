@@ -40,7 +40,7 @@ const createRSSfromSitemap = async () => {
     });
 
     for (let urlObj of result.urlset.url) {
-      const url = urlObj.loc[0].replace('tan-website-724184.framer.app', 'xpertnet.cx');
+      const url = urlObj.loc[0].replace('xpertnet.framer.website', 'xpertnet.cx');
       //const url = urlObj.loc[0];
       console.log(url);
       const pageData = await fetchPageData(url);
@@ -111,13 +111,13 @@ const downloadAndChangeUrlInSitemap = async () => {
   try {
     // Fetch sitemap.xml from the target URL
     const response = await axios({
-      url: 'https://tan-website-724184.framer.app/sitemap.xml',
+      url: 'https://xpertnet.framer.website/sitemap.xml',
       method: 'GET',
       responseType: 'text', // Update to text to handle the data as a string
     });
 
     // Replace all instances of the old URL with the new one (excluding https://)
-    const modifiedData = response.data.replace(/tan-website-724184.framer.app/g, 'xpertnet.cx');
+    const modifiedData = response.data.replace(/xpertnet.framer.website/g, 'xpertnet.cx');
 
     // Define the path to the public folder and sitemap.xml filename
     const filepath = path.resolve(__dirname, 'public', 'sitemap.xml');
@@ -136,7 +136,7 @@ const downloadAndChangeUrlInSitemap = async () => {
 
 async function generateRedirects() {
   try {
-    const { data } = await axios.get('https://tan-website-724184.framer.app/sitemap.xml');
+    const { data } = await axios.get('https://xpertnet.framer.website/sitemap.xml');
     parser.parseString(data, async function (err, result) {
       const urls = result.urlset.url.map(urlObj => urlObj.loc[0]);
 
@@ -148,7 +148,7 @@ async function generateRedirects() {
       parsedToml.redirects = [];
 
       urls.forEach((url) => {
-        const path = url.replace('https://tan-website-724184.framer.app', '');
+        const path = url.replace('https://xpertnet.framer.website', '');
         // Add new redirect to the parsed TOML
         //if (path === "/404") {
         //  return;
@@ -201,7 +201,7 @@ async function generateRedirects() {
 
       parsedToml.redirects.push({
         from: "/index.html",
-        to: "https://tan-website-724184.framer.app",
+        to: "https://xpertnet.framer.website",
         status: 200,
         force: true
       });
@@ -209,7 +209,7 @@ async function generateRedirects() {
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
         from: "/404",
-        to: "https://tan-website-724184.framer.app/not-found",
+        to: "https://xpertnet.framer.website/not-found",
         status: 404
       });*/
 /*      parsedToml.redirects.push({

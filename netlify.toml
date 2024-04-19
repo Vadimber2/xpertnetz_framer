@@ -2,20 +2,38 @@
 publish = "public"
 
 [[redirects]]
-from = "/coming-soon"
-to = "https://xpertnet.framer.website/coming-soon"
-status = 200
-force = true
-
-[[redirects]]
 from = "/not-found"
 to = "https://xpertnet.framer.website/not-found"
 status = 200
 force = true
 
 [[redirects]]
-from = "/about_us"
-to = "https://xpertnet.framer.website/about_us"
+from = "/coming-soon"
+to = "https://xpertnet.framer.website/coming-soon"
+status = 200
+force = true
+
+[[redirects]]
+from = "/about-us"
+to = "https://xpertnet.framer.website/about-us"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-indeks-dlya-poiska-izobrazhenii"
+to = "https://xpertnet.framer.website/blog-indeks-dlya-poiska-izobrazhenii"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-fotopoisk-uvelichivaet-konversiyu"
+to = "https://xpertnet.framer.website/blog-fotopoisk-uvelichivaet-konversiyu"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-kak-living-spaces-uvelichil-srednii-chek"
+to = "https://xpertnet.framer.website/blog-kak-living-spaces-uvelichil-srednii-chek"
 status = 200
 force = true
 
@@ -26,14 +44,8 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-3"
-to = "https://xpertnet.framer.website/blog-3"
-status = 200
-force = true
-
-[[redirects]]
-from = "/blog-2"
-to = "https://xpertnet.framer.website/blog-2"
+from = "/project-lenta-spb"
+to = "https://xpertnet.framer.website/project-lenta-spb"
 status = 200
 force = true
 
@@ -44,14 +56,8 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-1"
-to = "https://xpertnet.framer.website/blog-1"
-status = 200
-force = true
-
-[[redirects]]
-from = "/article-search-image"
-to = "https://xpertnet.framer.website/article-search-image"
+from = "/articles"
+to = "https://xpertnet.framer.website/articles"
 status = 200
 force = true
 
@@ -62,38 +68,50 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/project_lenta"
-to = "https://xpertnet.framer.website/project_lenta"
+from = "/article-search-image"
+to = "https://xpertnet.framer.website/article-search-image"
 status = 200
 force = true
 
 [[redirects]]
-from = "/articles"
-to = "https://xpertnet.framer.website/articles"
+from = "/project-stolplit2"
+to = "https://xpertnet.framer.website/project-stolplit2"
 status = 200
 force = true
 
 [[redirects]]
-from = "/project_vseinstrumenti.ru"
-to = "https://xpertnet.framer.website/project_vseinstrumenti.ru"
+from = "/project-stolplit"
+to = "https://xpertnet.framer.website/project-stolplit"
 status = 200
 force = true
 
 [[redirects]]
-from = "/project_stolplit"
-to = "https://xpertnet.framer.website/project_stolplit"
+from = "/project-vseinstrumenti-ru"
+to = "https://xpertnet.framer.website/project-vseinstrumenti-ru"
 status = 200
 force = true
 
 [[redirects]]
-from = "/project_lenta_spb"
-to = "https://xpertnet.framer.website/project_lenta_spb"
+from = "/project-lenta"
+to = "https://xpertnet.framer.website/project-lenta"
 status = 200
 force = true
 
 [[redirects]]
-from = "/project_marnit_krasnodar"
-to = "https://xpertnet.framer.website/project_marnit_krasnodar"
+from = "/bots-somele"
+to = "https://xpertnet.framer.website/bots-somele"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-mfc"
+to = "https://xpertnet.framer.website/project-mfc"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-marnit-krasnodar"
+to = "https://xpertnet.framer.website/project-marnit-krasnodar"
 status = 200
 force = true
 
@@ -104,8 +122,26 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/generation-content"
-to = "https://xpertnet.framer.website/generation-content"
+from = "/razrabotka-telegram-bota"
+to = "https://xpertnet.framer.website/razrabotka-telegram-bota"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots-uproshchenie-vibora"
+to = "https://xpertnet.framer.website/bots-uproshchenie-vibora"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots-assistent-obsluzhivaniya"
+to = "https://xpertnet.framer.website/bots-assistent-obsluzhivaniya"
+status = 200
+force = true
+
+[[redirects]]
+from = "/gencont-teksti-dlya-sotsialnikh-media"
+to = "https://xpertnet.framer.website/gencont-teksti-dlya-sotsialnikh-media"
 status = 200
 force = true
 
@@ -116,8 +152,128 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/marketing"
-to = "https://xpertnet.framer.website/marketing"
+from = "/napolnenie-sajta-kontentom"
+to = "https://xpertnet.framer.website/napolnenie-sajta-kontentom"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-opisaniya-tovarov-dlya-vajldberriz"
+to = "https://xpertnet.framer.website/generator-opisaniya-tovarov-dlya-vajldberriz"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-tsenovoi-analiz"
+to = "https://xpertnet.framer.website/picsearch-tsenovoi-analiz"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generation-content"
+to = "https://xpertnet.framer.website/generation-content"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-opisaniya-tovarov"
+to = "https://xpertnet.framer.website/generator-opisaniya-tovarov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-demonstratsiya-skhozhikh-tovarov"
+to = "https://xpertnet.framer.website/picsearch-demonstratsiya-skhozhikh-tovarov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picture-poisk-po-kartinkam"
+to = "https://xpertnet.framer.website/picture-poisk-po-kartinkam"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-beskonechnaya-polka"
+to = "https://xpertnet.framer.website/picsearch-beskonechnaya-polka"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-pokupki-v-messendzherakh"
+to = "https://xpertnet.framer.website/picsearch-pokupki-v-messendzherakh"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-magazinax-odezdi"
+to = "https://xpertnet.framer.website/aroma-v-magazinax-odezdi"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-roznichnih-magazinah"
+to = "https://xpertnet.framer.website/aroma-v-roznichnih-magazinah"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-ekspoziciy"
+to = "https://xpertnet.framer.website/aroma-ekspoziciy"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-restoranah"
+to = "https://xpertnet.framer.website/aroma-v-restoranah"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-podkasty-i-audio"
+to = "https://xpertnet.framer.website/audio-podkasty-i-audio"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-audio-brendirovannost"
+to = "https://xpertnet.framer.website/audio-audio-brendirovannost"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-audio-dlya-socialnih-media"
+to = "https://xpertnet.framer.website/audio-audio-dlya-socialnih-media"
+status = 200
+force = true
+
+[[redirects]]
+from = "/visualniy-naruzhnaya-reklama-tts"
+to = "https://xpertnet.framer.website/visualniy-naruzhnaya-reklama-tts"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-radioreklama"
+to = "https://xpertnet.framer.website/audio-radioreklama"
+status = 200
+force = true
+
+[[redirects]]
+from = "/visualniy-oformlenie-i-dizain-magazina"
+to = "https://xpertnet.framer.website/visualniy-oformlenie-i-dizain-magazina"
+status = 200
+force = true
+
+[[redirects]]
+from = "/visualniy-oformlenie-vitrini"
+to = "https://xpertnet.framer.website/visualniy-oformlenie-vitrini"
+status = 200
+force = true
+
+[[redirects]]
+from = "/visualniy-razrabotka-reklami"
+to = "https://xpertnet.framer.website/visualniy-razrabotka-reklami"
 status = 200
 force = true
 
@@ -128,14 +284,26 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/"
-to = "https://xpertnet.framer.website/"
+from = "/home"
+to = "https://xpertnet.framer.website/home"
 status = 200
 force = true
 
 [[redirects]]
-from = "/picture-search-solution"
-to = "https://xpertnet.framer.website/picture-search-solution"
+from = "/old-home"
+to = "https://xpertnet.framer.website/old-home"
+status = 200
+force = true
+
+[[redirects]]
+from = "/marketing"
+to = "https://xpertnet.framer.website/marketing"
+status = 200
+force = true
+
+[[redirects]]
+from = "/"
+to = "https://xpertnet.framer.website/"
 status = 200
 force = true
 
@@ -170,6 +338,7 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/404"
-to = "https://xpertnet.framer.website/not-found"
-status = 404
+from = "/*/"
+to = "/:splat"
+status = 301
+force = true
