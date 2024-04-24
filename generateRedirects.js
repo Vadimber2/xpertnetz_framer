@@ -126,8 +126,8 @@ const downloadAndChangeUrlInSitemap = async () => {
     fs.writeFileSync(filepath, modifiedData);
 
     console.log('Successfully downloaded and updated sitemap.xml');
-    generateRedirects();
-    createRSSfromSitemap();
+    await generateRedirects();
+    await createRSSfromSitemap();
 
   } catch (error) {
     console.error('Failed to download and update sitemap:', error);
