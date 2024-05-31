@@ -206,6 +206,13 @@ async function generateRedirects() {
         force: true
       });
 
+      parsedToml.redirects.push({
+        from: "/generator-generator-seo-teksta",
+        to: "https://tan-website-724184.framer.app/generator-seo-teksta",
+        status: 302,
+        force: true
+      });
+
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
         from: "/404",
