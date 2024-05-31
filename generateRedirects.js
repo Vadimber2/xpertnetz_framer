@@ -208,7 +208,7 @@ async function generateRedirects() {
 
       parsedToml.redirects.push({
         from: "/generator-generator-seo-teksta",
-        to: "https://tan-website-724184.framer.app/generator-seo-teksta",
+        to: "https://xpertnet.cx/generator-seo-teksta",
         status: 302,
         force: true
       });
