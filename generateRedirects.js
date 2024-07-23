@@ -212,6 +212,15 @@ async function generateRedirects() {
         status: 302,
         force: true
       });
+      //https://xpertnet.cx/blog/istoriya-rasskazannaya-neposredstvenno-v-tochke-prodazh/
+
+      parsedToml.redirects.push({
+        from: "/blog/istoriya-rasskazannaya-neposredstvenno-v-tochke-prodazh/*",
+        to: "https://xpertnet.cx/marketing",
+        status: 302,
+        force: true
+      });
+
 
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
