@@ -221,6 +221,14 @@ async function generateRedirects() {
         force: true
       });
 
+      parsedToml.redirects.push({
+        from: "/generation-content",
+        to: "https://xpertnet.cx/generator-teksta",
+        status: 302,
+        force: true
+      });
+
+
 
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
