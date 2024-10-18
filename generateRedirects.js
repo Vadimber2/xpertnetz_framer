@@ -228,7 +228,12 @@ async function generateRedirects() {
         force: true
       });
 
-
+      parsedToml.redirects.push({
+        from: "/bots",
+        to: "https://xpertnet.cx/new-bots",
+        status: 302,
+        force: true
+      });
 
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
