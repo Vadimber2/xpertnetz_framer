@@ -243,6 +243,13 @@ async function generateRedirects() {
       });
 
       parsedToml.redirects.push({
+        from: "/product",
+        to: "https://xpertnet.cx/new-products",
+        status: 302,
+        force: true
+      });
+
+      parsedToml.redirects.push({
         from: "/bots-sommelier-chatbots",
         to: "https://xpertnet.cx/bots-somele",
         status: 302,
