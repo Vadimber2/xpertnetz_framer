@@ -255,6 +255,13 @@ async function generateRedirects() {
         status: 302,
         force: true
       });
+
+      parsedToml.redirects.push({
+        from: "/page",
+        to: "https://xpertnet.cx",
+        status: 302,
+        force: true
+      });
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
         from: "/404",
