@@ -15,7 +15,7 @@
 
         body {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-gap: 20px;
             padding: 20px;
             box-sizing: border-box;
@@ -75,12 +75,6 @@
 
         .news-item p strong {
             font-weight: 600;
-        }
-
-        @media (max-width:1200px) {
-            body {
-                grid-template-columns: repeat(2,1fr);
-            }
         }
 
         @media (max-width:810px) {
@@ -169,13 +163,11 @@
         }
     ];
 
-    // Функция для выбора случайных элементов из массива
     function getRandomNews(data, count) {
         const shuffled = [...data].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
     }
 
-    // Рендер случайных новостей
     const newsContainer = document.getElementById("news-container");
     const randomNews = getRandomNews(newsData, 6);
 
