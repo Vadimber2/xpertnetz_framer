@@ -13,15 +13,19 @@
             color: #333;
         }
 
-        body {
+        /* Контейнер для новостей */
+        .news-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 20px;
             padding: 20px;
             box-sizing: border-box;
             justify-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* Стили для каждой новости */
         .news-item {
             background: #fff;
             border-radius: 12px;
@@ -38,12 +42,14 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
+        /* Дата */
         .news-item p:first-child {
             color: #888;
             font-size: 14px;
             margin-bottom: 10px;
         }
 
+        /* Заголовок и ссылки */
         .news-item h2 {
             font-size: 20px;
             margin: 0 0 15px;
@@ -60,12 +66,14 @@
             text-decoration: underline;
         }
 
+        /* Картинка */
         .news-item img {
             width: 100%;
             border-radius: 8px;
             margin-bottom: 15px;
         }
 
+        /* Текст */
         .news-item p {
             font-size: 16px;
             line-height: 1.5;
@@ -77,15 +85,16 @@
             font-weight: 600;
         }
 
+        /* Адаптивность */
         @media (max-width:810px) {
-            body {
+            .news-container {
                 grid-template-columns: 1fr;
                 padding: 15px;
             }
         }
 
         @media (max-width:375px) {
-            body {
+            .news-container {
                 padding: 10px;
             }
             .news-item {
@@ -101,90 +110,155 @@
     </style>
 </head>
 <body>
-<div id="news-container"></div>
+
+<div class="news-container">
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866708/" target="_blank">Обучение Sora на игровом контенте</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/4d4/51b/d41/4d451bd41078c750c2547f82a17ba685.jpg" alt="Обучение Sora на игровом контенте">
+        <p>Для обучения видеогенератора OpenAI Sora, возможно, использовался игровой контент, защищённый авторскими правами. ИИ-модель Sora способна создавать видеоролики до 20 секунд...</p>
+        <p><strong>Хештеги:</strong> #OpenAI #Sora #Видеогенерация</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866688/" target="_blank">В Китае появились новые модификации видеокарт GeForce RTX 4010</a></h2>
+        <img src="https://habrastorage.org/r/w780/webt/qv/hf/qk/qvhfqkaybe8c-lp2divah8kpqfy.jpeg" alt="В Китае появились новые модификации видеокарт GeForce RTX 4010">
+        <p>Хотя Nvidia отрицает существование GeForce RTX 4010, стало известно, что в Китае выставлена на продажу доработанная версия видеокарты GeForce RTX A400...</p>
+        <p><strong>Хештеги:</strong> #Nvidia #GeForce #VideoCards</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866650/" target="_blank">Беспрецедентный риск от зеркальных микробов</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/097/312/ff2/097312ff22f6d7c2eceb5758a0f8df8a.jpg" alt="Беспрецедентный риск от зеркальных микробов">
+        <p>Ведущие учёные мира призвали остановить исследования по созданию «зеркальных» микробов, опасаясь их влияния на экологию...</p>
+        <p><strong>Хештеги:</strong> #зеркальныемикробы #научныеисследования #экологическаябезопасность</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866672/" target="_blank">Проблемы совместимости Arm-ноутбуков ведут к их возврату</a></h2>
+        <img src="https://habrastorage.org/getpro/habr/upload_files/708/083/e91/708083e918b0e71d15ed0c7d382e30fb.JPG" alt="Проблемы совместимости Arm-ноутбуков ведут к их возврату">
+        <p>Руководитель продуктового подразделения Intel, Мишель Джонстон Холтхаус, сообщила о высоком проценте возвратов ноутбуков на базе Arm...</p>
+        <p><strong>Хештеги:</strong> #ArmНоутбуки #Совместимость #Intel</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866670/" target="_blank">На Kickstarter стартовал сбор средств для первого ИИ-кулера PS5</a></h2>
+        <img src="https://habrastorage.org/r/w780/webt/ls/7e/f3/ls7ef3dncks0lsq3fjgkwy679cw.jpeg" alt="На Kickstarter стартовал сбор средств для первого ИИ-кулера PS5">
+        <p>Компания SCRY создает «первый в мире кулер для PlayStation 5 с ИИ», получивший название Arctic...</p>
+        <p><strong>Хештеги:</strong> #Kickstarter #PS5 #ИскусственныйИнтеллект</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866656/" target="_blank">Аэрофлот внедряет нейросети для оптимизации продаж</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/867/699/241/867699241a762b6543eec6ba1a7a914e.jpg" alt="Аэрофлот внедряет нейросети для оптимизации продаж">
+        <p>Аэрофлот собирается внедрить технологии AI для прогнозирования спроса на билеты, а также для анализа и оптимизации внутренних процессов компании...</p>
+        <p><strong>Хештеги:</strong> #Аэрофлот #ИскусственныйИнтеллект #Нейросети</p>
+    </div>
+
+    <!-- Остальные карточки -->
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/866622/" target="_blank">Ушёл из жизни Дональд Битцер — пионер в области компьютерных технологий</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/eaf/557/f6b/eaf557f6bb9269d8d6c54725018e6230.jpg" alt="Ушёл из жизни Дональд Битцер">
+        <p>10 декабря 2024 года ушёл из жизни Дональд Битцер — соавтор плоскопанельного плазменного дисплея и отец системы электронного обучения PLATO...</p>
+        <p><strong>Хештеги:</strong> #ДональдБитцер #КомпьютерныеТехнологии #ЭлектронноеОбучение</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/retail-media-networks-customer-ai/" target="_blank">Как Meta и Albertsons Переформатируют Розничные Медиа с Помощью ИИ</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/11/Untitled-2-scaled.jpeg" alt="Розничные медиа и ИИ">
+        <p>Сетевые Розничные Медиа меняют способы взаимодействия брендов и потребителей, создавая бесшовный опыт покупки...</p>
+        <p><strong>Хештеги:</strong> #РозничныеМедиа #ИскусственныйИнтеллект #Персонализация</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-retail-media-albertsons-media-collective/" target="_blank">Albertsons Media Network: Трансформация Связей с Покупателями</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/10/amc-site-featured-image-04@3x-scaled.webp" alt="Albertsons Media Network">
+        <p>Albertsons Media Collective переопределяет, как медиа в ритейле способствует успеху, соединяя бренды с миллионами потребителей...</p>
+        <p><strong>Хештеги:</strong> #Ритейл #Медиа #КлиентскиеСвязи</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/the-ai-revolution-in-fashion-retail-amazons-innovative-approach/" target="_blank">Революция ИИ в модной рознице: Инновационный подход Amazon</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/download-scaled.jpeg" alt="ИИ в моде Amazon">
+        <p>Amazon Fashion Europe использует ИИ для трансформации модной индустрии...</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #Мода #Amazon</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/zalando-ai-fashion-personalization/" target="_blank">Как ИИ Zalando улучшает персонализацию</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/Zalando-SE_Zalando-Assistant-scaled.jpg" alt="ИИ Zalando">
+        <p>Zalando использует ИИ для персонализации рекомендаций и общения с клиентами...</p>
+        <p><strong>Хештеги:</strong> #Zalando #ИскусственныйИнтеллект #Персонализация</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-fashion-for-the-digital-age/" target="_blank">Трансформация моды для цифровой эпохи</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/Slide1.jpeg" alt="Цифровая мода">
+        <p>Гендиректор AWWG о цифровой трансформации, устойчивом развитии и будущем модных брендов...</p>
+        <p><strong>Хештеги:</strong> #ЦифроваяМода #УстойчивоеРазвитие #ShoptalkEurope</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/uniqlo-digital-transformation-fast-retailing-cio/" target="_blank">Цифровая трансформация UNIQLO: Взгляд на будущее</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/SNRF-D1-CON-10-scaled.jpg" alt="UNIQLO">
+        <p>UNIQLO внедряет RFID, ИИ и глобальные стратегии для цифровой трансформации...</p>
+        <p><strong>Хештеги:</strong> #UNIQLO #ЦифроваяТрансформация #Технологии</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-7-eleven-danni-peirce/" target="_blank">Как генеральный директор 7-Eleven прокладывает путь к будущему</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/32_Slurpee_Group-012_6.23-1.png" alt="7-Eleven">
+        <p>7-Eleven внедряет дрон-доставку, оплату по ладони и аналитику данных...</p>
+        <p><strong>Хештеги:</strong> #7Eleven #ДронныеДоставки #РозничнаяТорговля</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/workjam-ceo-transforming-retail-workforce-management/" target="_blank">Как CEO WorkJam Меняет Управление Персоналом в Ритейле (Подкаст)</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/WorkJam.png" alt="WorkJam">
+        <p>WorkJam улучшает управление персоналом в рознице с помощью инновационных технологий...</p>
+        <p><strong>Хештеги:</strong> #WorkJam #УправлениеПерсоналом #Ритейл</p>
+    </div>
+
+    <div class="news-item">
+        <p>16-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-ecommerce-innovative-strategies/" target="_blank">Розничные торговцы и технологические игроки, меняющие мир электронной коммерции</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/Untitled-16.png" alt="eCommerce">
+        <p>ME+EM, Paul Smith, Strathberry и другие бренды бросают вызов гигантам электронной коммерции...</p>
+        <p><strong>Хештеги:</strong> #ЭлектроннаяКоммерция #Инновации #Технологии</p>
+    </div>
+</div>
 
 <script>
-    const newsData = [
-        {
-            date: "16-12-2024",
-            title: "Обучение Sora на игровом контенте",
-            link: "https://habr.com/ru/news/866708/",
-            img: "https://habrastorage.org/r/w780/getpro/habr/upload_files/4d4/51b/d41/4d451bd41078c750c2547f82a17ba685.jpg",
-            description: "Для обучения видеогенератора OpenAI Sora, возможно, использовался игровой контент, защищённый авторскими правами.",
-            hashtags: "#OpenAI #Sora #Видеогенерация"
-        },
-        {
-            date: "16-12-2024",
-            title: "Новые видеокарты GeForce RTX 4010",
-            link: "https://habr.com/ru/news/866688/",
-            img: "https://habrastorage.org/r/w780/webt/qv/hf/qk/qvhfqkaybe8c-lp2divah8kpqfy.jpeg",
-            description: "В Китае выставлена на продажу видеокарта GeForce RTX A400 под названием RTX 4010.",
-            hashtags: "#Nvidia #GeForce #VideoCards"
-        },
-        {
-            date: "16-12-2024",
-            title: "Беспрецедентный риск от зеркальных микробов",
-            link: "https://habr.com/ru/news/866650/",
-            img: "https://habrastorage.org/r/w780/getpro/habr/upload_files/097/312/ff2/097312ff22f6d7c2eceb5758a0f8df8a.jpg",
-            description: "Учёные призывают остановить исследования зеркальных микробов из-за экологических рисков.",
-            hashtags: "#зеркальныемикробы #научныеисследования #экологическаябезопасность"
-        },
-        {
-            date: "16-12-2024",
-            title: "Арм-ноутбуки и проблемы совместимости",
-            link: "https://habr.com/ru/news/866672/",
-            img: "https://habrastorage.org/getpro/habr/upload_files/708/083/e91/708083e918b0e71d15ed0c7d382e30fb.JPG",
-            description: "Ноутбуки на базе Arm сталкиваются с несовместимостью приложений.",
-            hashtags: "#ArmНоутбуки #Совместимость #Intel"
-        },
-        {
-            date: "16-12-2024",
-            title: "ИИ-кулер для PS5 на Kickstarter",
-            link: "https://habr.com/ru/news/866670/",
-            img: "https://habrastorage.org/r/w780/webt/ls/7e/f3/ls7ef3dncks0lsq3fjgkwy679cw.jpeg",
-            description: "На Kickstarter стартовал проект Arctic — кулер для PS5 с ИИ.",
-            hashtags: "#Kickstarter #PS5 #ИскусственныйИнтеллект"
-        },
-        {
-            date: "16-12-2024",
-            title: "Аэрофлот внедряет нейросети",
-            link: "https://habr.com/ru/news/866656/",
-            img: "https://habrastorage.org/r/w780/getpro/habr/upload_files/867/699/241/867699241a762b6543eec6ba1a7a914e.jpg",
-            description: "Аэрофлот планирует использовать ИИ для оптимизации процессов и прогнозирования спроса.",
-            hashtags: "#Аэрофлот #ИскусственныйИнтеллект #Нейросети"
-        },
-        {
-            date: "16-12-2024",
-            title: "Ушёл из жизни Дональд Битцер",
-            link: "https://habr.com/ru/news/866622/",
-            img: "https://habrastorage.org/r/w780/getpro/habr/upload_files/eaf/557/f6b/eaf557f6bb9269d8d6c54725018e6230.jpg",
-            description: "Американский инженер и отец PLATO умер на 90-м году жизни.",
-            hashtags: "#ДональдБитцер #КомпьютерныеТехнологии #ЭлектронноеОбучение"
-        }
-    ];
+    // Получаем все карточки
+    const newsItems = Array.from(document.querySelectorAll('.news-item'));
 
-    function getRandomNews(data, count) {
-        const shuffled = [...data].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, count);
+    // Перемешиваем массив
+    for (let i = newsItems.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newsItems[i], newsItems[j]] = [newsItems[j], newsItems[i]];
     }
 
-    const newsContainer = document.getElementById("news-container");
-    const randomNews = getRandomNews(newsData, 6);
+    // Очищаем контейнер
+    const container = document.querySelector('.news-container');
+    container.innerHTML = '';
 
-    randomNews.forEach(news => {
-        const newsElement = document.createElement("div");
-        newsElement.classList.add("news-item");
-
-        newsElement.innerHTML = `
-                <p>${news.date}</p>
-                <h2><a href="${news.link}" target="_blank">${news.title}</a></h2>
-                <img src="${news.img}" alt="${news.title}">
-                <p>${news.description}</p>
-                <p><strong>Хештеги:</strong> ${news.hashtags}</p>
-            `;
-
-        newsContainer.appendChild(newsElement);
-    });
+    // Добавляем только первые шесть
+    newsItems.slice(0, 6).forEach(item => container.appendChild(item));
 </script>
+
 </body>
 </html>
