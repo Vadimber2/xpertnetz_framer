@@ -5,55 +5,49 @@ import requests
 import json
 from pydantic import BaseModel
 from openai import OpenAI
+from tqdm import tqdm
 
-load_dotenv()
-openai_key = os.environ.get("OPENAI_API_KEY")
-client = OpenAI(api_key=openai_key)
 #%%
 load_dotenv()
 diffbot_token = os.environ.get("DIFF_BOT_TOKEN")
-print(diffbot_token)
+print("diffbot_token: ", diffbot_token)
+
 #%%
-surl = f"https://api.diffbot.com/v3/list?url=https://habr.com/ru/news/&token={diffbot_token}"
+load_dotenv()
+diffbot_token = os.environ.get("DIFF_BOT_TOKEN")
+
+resources = {
+    "habr": f"https://api.diffbot.com/v3/list?url=https://habr.com/ru/news/&token={diffbot_token}",
+    "retailnews": f"https://api.diffbot.com/v3/list?url=https://retailnews.ai/category/news&useProxy=default&token={diffbot_token}"
+}
 
 headers = {
     "Content-Type": "application/json"
 }
 
-response1 = requests.request("GET", surl, headers=headers)
+all_items = []
+
+# Сбор данных в один список
+for resource_name, api_url in tqdm(resources.items(), desc="Processing resources"):
+    response = requests.get(api_url, headers=headers)
+    if response.status_code == 200:
+        data = json.loads(response.text).get("objects", [])
+        if data and isinstance(data, list) and len(data) > 0:
+            items = data[0].get("items", [])
+        else:
+            items = []
+
+        items = items[:30]  # ограничиваем до 30 элементов
+        for item in items:
+            item["source"] = resource_name  # Добавляем поле с именем ресурса
+        all_items.extend(items)
+    else:
+        print(f"Не удалось получить данные для ресурса {resource_name}. Код ответа: {response.status_code}")
+
+# Объединённый список всех элементов
+print("Total items: ", len(all_items))
+
 #%%
-url2 = f"https://api.diffbot.com/v3/list?url=https://retailnews.ai/category/news&useProxy=default&token={diffbot_token}"
-
-headers = {
-    "Content-Type": "application/json"
-}
-
-response2 = requests.request("GET", url2, headers=headers)
-#%%
-data1 = json.loads(response1.text).get("objects")
-# Получаем только items из первого элемента списка data
-if data1 and isinstance(data1, list) and len(data1) > 0:
-    items1 = data1[0].get("items", [])
-else:
-    items1 = []
-
-items1=items1[:30]
-
-print(items1)
-#%%
-data2 = json.loads(response2.text).get("objects")
-# Получаем только items из первого элемента списка data
-if data2 and isinstance(data2, list) and len(data2) > 0:
-    items2 = data2[0].get("items", [])
-else:
-    items2 = []
-
-items2=items2[:30]
-
-print(items2)
-#%%
-#data = list(data1)  # Создаем новый список
-items = items1 + items2
 results = []
 
 class ConfirmationModel(BaseModel):
@@ -64,7 +58,13 @@ class TextTransformer(BaseModel):
     summary:str
     hashtags: str
 #%%
-for item in items:
+load_dotenv()
+openai_key = os.environ.get("OPENAI_API_KEY")
+print("openai_key: ", openai_key)
+
+client = OpenAI(api_key=openai_key)
+
+for item in tqdm(all_items, desc="Processing items"):
     title = item.get('title')
     summary = item.get('summary')
     
@@ -95,13 +95,10 @@ for item in items:
             item["summary"]= res2.summary
             item["hashtags"]= res2.hashtags
             results.append(item)
-
-
-
 #list(items)
 # Добавляем элементы 
 #%%
-print(results)
+#print(results)
 #%%
 # Генерация HTML-кода
 from datetime import datetime
