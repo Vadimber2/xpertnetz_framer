@@ -228,8 +228,40 @@ async function generateRedirects() {
         force: true
       });
 
+      parsedToml.redirects.push({
+        from: "/bots",
+        to: "https://xpertnet.cx/new-bots",
+        status: 302,
+        force: true
+      });
 
+      parsedToml.redirects.push({
+        from: "/products",
+        to: "https://xpertnet.cx/new-products",
+        status: 302,
+        force: true
+      });
 
+      parsedToml.redirects.push({
+        from: "/product",
+        to: "https://xpertnet.cx/new-products",
+        status: 302,
+        force: true
+      });
+
+      parsedToml.redirects.push({
+        from: "/bots-sommelier-chatbots",
+        to: "https://xpertnet.cx/bots-somele",
+        status: 302,
+        force: true
+      });
+
+      parsedToml.redirects.push({
+        from: "/page",
+        to: "https://xpertnet.cx",
+        status: 302,
+        force: true
+      });
       // Add catch-all 404 redirect
 /*      parsedToml.redirects.push({
         from: "/404",
