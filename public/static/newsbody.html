@@ -13,7 +13,7 @@
             color: #333;
         }
 
-        /* Сетка для новостей */
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
         body {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -84,12 +84,14 @@
         }
 
         /* Адаптивность */
-        @media (max-width:1200px) {
+        /* Когда экран меньше 1200px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1199px) {
             body {
-                grid-template-columns: repeat(2,1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
+        /* Когда экран меньше 810px - 1 колонка */
         @media (max-width:810px) {
             body {
                 grid-template-columns: 1fr;
@@ -97,6 +99,7 @@
             }
         }
 
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
         @media (max-width:375px) {
             body {
                 padding: 10px;
