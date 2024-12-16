@@ -174,7 +174,7 @@ if get_response.status_code == 200:
     backup_url = f"https://api.github.com/repos/{github_username}/{github_repo}/contents/{backup_file_name}"
     backup_encoded = base64.b64encode(old_content.encode('utf-8')).decode('utf-8')
     backup_data = {
-        "message": f"Backup old newsbody.html as {backup_file_name}",
+        "message": f"Backup old newsbody.html as {backup_file_name} [skip netlify]",
         "content": backup_encoded
     }
 
