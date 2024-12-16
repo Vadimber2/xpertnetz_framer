@@ -127,70 +127,135 @@ for item in results:
     """
 print(html_output)
 #%%
+full_html = "".join(html_output)#     print(put_response.status_code, put_response.text)
 with open('template.html', 'r', encoding='utf-8') as f:
     template_content = f.read()
 #%%
-#full_html = '<div class="news-container">\n' + "".join(html_output) + '\n</div>'
-full_html = "".join(html_output)
-#%%
-final_content = template_content.replace('<!-- NEWS_PLACEHOLDER -->', full_html)
-#%%
-# Записываем итог в newsbody.html
-with open('newsbody.html', 'w', encoding='utf-8') as f:
-    f.write(final_content)
-#%%
+from dotenv import load_dotenv
+import os
+from datetime import datetime
 import requests
 import base64
-import os
 
+# final_content - итоговый HTML контент для нового newsbody.html
+# github_token, github_username, github_repo - ваши токен, имя пользователя и репо
+# Мы хотим:
+# 1. Получить старую версию newsbody.html
+# 2. Переименовать её в newsbody_HH_MM_DD_MM_YYYY.html
+# 3. Добавить ссылку на неё в новый final_content
+# 4. Загрузить сначала архивную версию, затем обновлённый newsbody.html
+
+load_dotenv()
 github_token = os.environ.get("GITHUB_TOKEN")  # или ваш токен напрямую
 github_username = "Vadimber2"
 github_repo = "xpertnetz_framer"
-file_path = "public/static/newsbody.html"  # путь к файлу в репо
-local_file_path = "newsbody.html"  # локальный файл, который вы хотите загрузить
+
+timestamp = datetime.now()
+formatted_time = timestamp.strftime("%H_%M_%d_%m_%Y")  # Часы_Минуты_День_Месяц_Год
+old_file_name = "public/static/newsbody.html"
+backup_file_name = f"public/static/newsbody_{formatted_time}.html"
 
 headers = {
     "Authorization": f"token {github_token}",
     "Content-Type": "application/json"
 }
 
-# Сначала получим информацию о файле (в том числе SHA)
-url = f"https://api.github.com/repos/{github_username}/{github_repo}/contents/{file_path}"
+url = f"https://api.github.com/repos/{github_username}/{github_repo}/contents/{old_file_name}"
 get_response = requests.get(url, headers=headers)
 
-# Проверяем статус GET-запроса
 if get_response.status_code == 200:
     file_info = get_response.json()
     existing_sha = file_info["sha"]
+    old_content_base64 = file_info["content"]
+    old_content = base64.b64decode(old_content_base64.encode('utf-8')).decode('utf-8')
+
+    # Теперь у нас есть старый контент. Создадим backup файл.
+    # Загрузим backup с содержимым old_content
+    backup_url = f"https://api.github.com/repos/{github_username}/{github_repo}/contents/{backup_file_name}"
+    backup_encoded = base64.b64encode(old_content.encode('utf-8')).decode('utf-8')
+    backup_data = {
+        "message": f"Backup old newsbody.html as {backup_file_name}",
+        "content": backup_encoded
+    }
+
+    backup_put = requests.put(backup_url, headers=headers, json=backup_data)
+    if backup_put.status_code in [200, 201]:
+        print("Архивная версия успешно создана:", backup_file_name)
+
+        # Теперь добавим ссылку на эту архивную версию в новый контент
+        # Например, в конец файла можно добавить ссылку на архив:
+        archive_link = f'''
+        <p style="text-align:center; margin-top:20px;">
+            <a href="/static/newsbody_{formatted_time}.html" 
+               style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
+               Еще новости прошлых дней... {formatted_time}
+            </a>
+        </p>
+        '''
+
+
+        template_content_with_link = template_content.replace('<!-- NEWS_PLACEHOLDER -->',
+                                                              f'<!-- NEWS_PLACEHOLDER -->{archive_link}')
+
+
+        final_content_with_link = template_content_with_link.replace('<!-- NEWS_PLACEHOLDER -->', full_html)
+
+        # Запишем обновлённый контент локально
+        with open('newsbody.html', 'w', encoding='utf-8') as f:
+            f.write(final_content_with_link)
+
+        # Теперь загрузим новый newsbody.html
+        new_file_path = "public/static/newsbody.html"
+        with open('newsbody.html', 'rb') as f:
+            new_content = f.read()
+        new_encoded = base64.b64encode(new_content).decode('utf-8')
+
+        # Поскольку файл уже существует, нам нужно передать sha
+        new_data = {
+            "message": "Update newsbody.html with new content and archive link",
+            "content": new_encoded,
+            "sha": existing_sha
+        }
+
+        new_put_response = requests.put(url, headers=headers, json=new_data)
+        if new_put_response.status_code in [200, 201]:
+            print("Файл newsbody.html успешно обновлён с ссылкой на архив.")
+        else:
+            print("Ошибка при обновлении newsbody.html:")
+            print(new_put_response.status_code, new_put_response.text)
+
+    else:
+        print("Ошибка при создании архивного файла:")
+        print(backup_put.status_code, backup_put.text)
+
 elif get_response.status_code == 404:
-    # Файл не существует, SHA указывать не нужно
-    existing_sha = None
+    # Файл newsbody.html не существует в репо, просто создадим его
+    # без архивации
+    print("newsbody.html не найден, создадим новый.")
+
+    # Добавим в новый контент только ссылку на архив, если нужно
+    # (Если файла нет, то и архива нет. Можно пропустить.)
+    final_content= template_content.replace('<!-- NEWS_PLACEHOLDER -->', full_html)
+    with open('newsbody.html', 'w', encoding='utf-8') as f:
+        f.write(final_content)
+
+    # Заливаем новый файл
+    with open('newsbody.html', 'rb') as f:
+        new_content = f.read()
+    new_encoded = base64.b64encode(new_content).decode('utf-8')
+
+    create_data = {
+        "message": "Create newsbody.html",
+        "content": new_encoded
+    }
+
+    create_response = requests.put(url, headers=headers, json=create_data)
+    if create_response.status_code in [200, 201]:
+        print("Файл newsbody.html успешно создан.")
+    else:
+        print("Ошибка при создании newsbody.html:")
+        print(create_response.status_code, create_response.text)
 else:
-    print("Ошибка при получении информации о файле:")
+    print("Ошибка при получении информации о newsbody.html:")
     print(get_response.status_code, get_response.text)
-    exit(1)
-
-# Читаем локальный файл и кодируем в base64
-with open(local_file_path, 'rb') as f:
-    content = f.read()
-encoded = base64.b64encode(content).decode('utf-8')
-
-data = {
-    "message": "Update newsbody.html",
-    "content": encoded
-}
-
-# Если файл уже существует, добавляем SHA
-if existing_sha is not None:
-    data["sha"] = existing_sha
-
-# Теперь делаем PUT-запрос для обновления/создания файла
-put_response = requests.put(url, headers=headers, json=data)
-
-if put_response.status_code in [200, 201]:
-    print("Файл успешно обновлён или создан в репозитории.")
-else:
-    print("Ошибка при загрузке файла:")
-    print(put_response.status_code, put_response.text)
-
 #%%
