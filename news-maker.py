@@ -17,7 +17,7 @@ load_dotenv()
 diffbot_token = os.environ.get("DIFF_BOT_TOKEN")
 
 resources = {
-    "habr": f"https://api.diffbot.com/v3/list?url=https://habr.com/ru/news/&token={diffbot_token}",
+    "habr": f"https://api.diffbot.com/v3/analyze?url=https%3A%2F%2Fhabr.com%2Fru%2Fnews&token={diffbot_token}",
     "retailnews": f"https://api.diffbot.com/v3/list?url=https://retailnews.ai/category/news&useProxy=default&token={diffbot_token}"
 }
 
@@ -188,7 +188,7 @@ if get_response.status_code == 200:
         <p style="text-align:center; margin-top:20px;">
             <a href="/static/newsbody_{formatted_time}.html" 
                style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
-               Еще новости прошлых дней... {formatted_time}
+               Еще новости прошлых дней...
             </a>
         </p>
         '''
