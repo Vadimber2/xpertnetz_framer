@@ -8,21 +8,20 @@
         html, body {
             margin: 0;
             padding: 0;
-            background: #f6f6f6;
+            /*background: #f6f6f6;*/
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             color: #333;
+            overflow: hidden;
         }
 
-        /* Контейнер для новостей */
-        .news-container {
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
+        body {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
             padding: 20px;
             box-sizing: border-box;
             justify-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         /* Стили для каждой новости */
@@ -86,15 +85,24 @@
         }
 
         /* Адаптивность */
+        /* Когда экран меньше 1190px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1190px) {
+            body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Когда экран меньше 810px - 1 колонка */
         @media (max-width:810px) {
-            .news-container {
+            body {
                 grid-template-columns: 1fr;
                 padding: 15px;
             }
         }
 
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
         @media (max-width:375px) {
-            .news-container {
+            body {
                 padding: 10px;
             }
             .news-item {
@@ -113,24 +121,41 @@
 
 <!-- NEWS_PLACEHOLDER -->
 
-
 <script>
-    // Получаем все карточки
-    const newsItems = Array.from(document.querySelectorAll('.news-item'));
-
-    // Перемешиваем массив
-    for (let i = newsItems.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newsItems[i], newsItems[j]] = [newsItems[j], newsItems[i]];
+    function sendHeightToParent() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({frameHeight: height}, '*');
     }
 
-    // Очищаем контейнер
-    const container = document.querySelector('.news-container');
-    container.innerHTML = '';
+    // После загрузки страницы
+    window.addEventListener('load', () => {
+        sendHeightToParent();
 
-    // Добавляем только первые шесть
-    newsItems.slice(0, 6).forEach(item => container.appendChild(item));
+        // Подстраховка через 2 секунды
+        setTimeout(sendHeightToParent, 2000);
+
+        // Наблюдатель за изменениями в DOM
+        const observer = new MutationObserver(() => {
+            sendHeightToParent();
+        });
+        observer.observe(document.body, {childList: true, subtree: true});
+
+        // Отслеживаем загрузку изображений, которые еще не загрузились
+        const imgs = document.querySelectorAll('img');
+        let pendingImages = 0;
+        imgs.forEach(img => {
+            if (!img.complete) {
+                pendingImages++;
+                img.addEventListener('load', () => {
+                    pendingImages--;
+                    // Как только картинка загрузилась - пересчитываем высоту
+                    sendHeightToParent();
+                });
+                img.addEventListener('error', () => {
+                    pendingImages--;
+                });
+            }
+        });
+    });
 </script>
-
 </body>
-</html>

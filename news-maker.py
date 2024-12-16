@@ -37,7 +37,7 @@ for resource_name, api_url in tqdm(resources.items(), desc="Processing resources
         else:
             items = []
 
-        items = items[:30]  # ограничиваем до 30 элементов
+        #items = items[:30]  # ограничиваем до 30 элементов
         for item in items:
             item["source"] = resource_name  # Добавляем поле с именем ресурса
         all_items.extend(items)
@@ -130,7 +130,8 @@ print(html_output)
 with open('template.html', 'r', encoding='utf-8') as f:
     template_content = f.read()
 #%%
-full_html = '<div class="news-container">\n' + "".join(html_output) + '\n</div>'
+#full_html = '<div class="news-container">\n' + "".join(html_output) + '\n</div>'
+full_html = "".join(html_output)
 #%%
 final_content = template_content.replace('<!-- NEWS_PLACEHOLDER -->', full_html)
 #%%
