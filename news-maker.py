@@ -22,7 +22,7 @@ resources = {
 }
 
 headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
 }
 
 all_items = []
@@ -43,13 +43,10 @@ for resource_name, api_url in tqdm(resources.items(), desc="Processing resources
         all_items.extend(items)
     else:
         print(f"Не удалось получить данные для ресурса {resource_name}. Код ответа: {response.status_code}")
-
 # Объединённый список всех элементов
 print("Total items: ", len(all_items))
-
 #%%
 results = []
-
 class ConfirmationModel(BaseModel):
     isArticleAI: int
 
@@ -79,7 +76,7 @@ for item in tqdm(all_items, desc="Processing items"):
         )
         
         res= completion.choices[0].message.parsed
-        
+
         if res.isArticleAI == 1:
             completion2 = client.beta.chat.completions.parse(
                 model="gpt-4o-mini",
