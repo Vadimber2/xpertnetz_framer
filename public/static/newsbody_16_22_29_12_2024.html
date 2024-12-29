@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*background: #f6f6f6;*/
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-items: center;
+        }
+
+        /* Стили для каждой новости */
+        .news-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 350px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Дата */
+        .news-item p:first-child {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Заголовок и ссылки */
+        .news-item h2 {
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .news-item h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-item h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Картинка */
+        .news-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Текст */
+        .news-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+            margin: 0 0 15px;
+        }
+
+        .news-item p strong {
+            font-weight: 600;
+        }
+
+        /* Адаптивность */
+        /* Когда экран меньше 1190px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1190px) {
+            body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Когда экран меньше 810px - 1 колонка */
+        @media (max-width:810px) {
+            body {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
+        @media (max-width:375px) {
+            body {
+                padding: 10px;
+            }
+            .news-item {
+                padding: 10px;
+            }
+            .news-item h2 {
+                font-size: 18px;
+            }
+            .news-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/870614/" target="_blank">OpenAI готовит к выпуску модель o3: прорыв в тестах на адаптивность AI, но до AGI еще далеко</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/9c9/b62/d5f/9c9b62d5f01e8a227c08987935316bfc.png" alt="OpenAI готовит к выпуску модель o3: прорыв в тестах на адаптивность AI, но до AGI еще далеко">
+        <p>Последняя крупная языковая модель от OpenAI еще не была официально выпущена, но уже есть некоторые мнения о ее возможностях. Видеоролик о модели "o3" был представлен 20 декабря, и пока большая часть информации о ней остается внутри компании, только участники тестирования по безопасности получили ранний доступ.</p>
+        <p><strong>Хештеги:</strong> #OpenAI #модельO3 #искусственныйинтеллект</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870610/" target="_blank">Касперский представил руководство по безопасной разработке ИИ</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/c63/5e8/2a8/c635e82a897f0e63e69551890cc22365.png" alt="Касперский представил руководство по безопасной разработке ИИ">
+        <p>«Лаборатория Касперского» разработала руководство по безопасной разработке и внедрению систем на основе искусственного интеллекта (ИИ). Документ был представлен на международном Форуме ООН по управлению интернетом, проходившем в Эр‑Рияде в декабре 2024 года. По словам ИБ-компании, цель документа — помочь организациям избежать киберрисков, связанных с применением технологий ИИ. В первую очередь руководство предназначено для разработчиков, системных администраторов, DevOps-команд. В инструкциях содержатся детальные практические советы о том, как предотвращать или устранять технические недостатки и операционные риски.</p>
+        <p><strong>Хештеги:</strong> #Касперский #БезопасностьИИ #Киберриски</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870574/" target="_blank">Экзоскелет для гимнастики от японских учёных</a></h2>
+        <img src="https://habrastorage.org/getpro/habr/upload_files/7f4/30c/444/7f430c4440f3524db6b1e3b846fc5234.JPG" alt="Экзоскелет для гимнастики от японских учёных">
+        <p>Учёные из лаборатории Suzumori Endo Robotics в Токио разработали костюм, использующий гидравлические искусственные мышцы, который позволяет людям выполнять акробатические трюки.</p>
+        <p><strong>Хештеги:</strong> #экзоскелет #гимнастика #робототехника</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/870564/" target="_blank">Центры обработки данных AI становятся «поразительно большими»</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/82d/f45/064/82df45064efd270339de1510a508f5b6.jpg" alt="Центры обработки данных AI становятся «поразительно большими»">
+        <p>Кластеры графических процессоров в ближайшие годы будут подключаться на расстоянии более полутора километров, говорит генеральный директор этой волоконно-оптической компании.</p>
+        <p><strong>Хештеги:</strong> #ЦентрыОбработкиДанных #AI #ГрафическиеПроцессоры</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/870518/" target="_blank">Некоммерческая группа поддерживает иск Илона Маска против OpenAI</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/f33/d1f/e2b/f33d1fe2b77b2d0cb8d52c86c5078ed6.jpg" alt="Некоммерческая группа поддерживает иск Илона Маска против OpenAI">
+        <p>Организация Encode, выступая против коммерческой деятельности OpenAI, подала запрос на участие в судебном деле Илона Маска. В заявлении отмечается, что переход OpenAI к коммерции может угрожать ее первоначальной миссии по разработке безопасных и полезных технологий для общества.</p>
+        <p><strong>Хештеги:</strong> #ИлонМаск #OpenAI #БезопасностьAI</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/retail-media-networks-customer-ai/" target="_blank">Как Meta и Albertsons преображают медиапейзаж розничной торговли с помощью ИИ</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/11/Untitled-2-scaled.jpeg" alt="Как Meta и Albertsons преображают медиапейзаж розничной торговли с помощью ИИ">
+        <p>Сети розничной медиасети (RMNs) меняют подход брендов к взаимодействию с потребителями, сочетая цифровые и физические удовольствия для создания непрерывного покупательского опыта. Алисия Лебёф из Meta и Мишель Кирхер-Уэскиттель из Albertsons Media Collective недавно подчеркнули важность этой трансформации.</p>
+        <p><strong>Хештеги:</strong> #РозничнаяТорговля #ИскусственныйИнтеллект #МедиаСети</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-retail-media-albertsons-media-collective/" target="_blank">Albertsons Media Network: Преобразование Связей С Покупателями</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/10/amc-site-featured-image-04@3x-scaled.webp" alt="Albertsons Media Network: Преобразование Связей С Покупателями">
+        <p>Albertsons Media Collective переопределяет успех розничных медиа, соединяя бренды с более чем 100 миллионами лояльных потребителей в 2000 магазинах по всей стране. Используя аналитические данные, они развивают глубокие отношения с клиентами, что приводит к устойчивому росту для партнерских брендов.</p>
+        <p><strong>Хештеги:</strong> #РозничныеМедиа #АналитикаДанных #РостБрендов</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/the-ai-revolution-in-fashion-retail-amazons-innovative-approach/" target="_blank">Революция ИИ в модной рознице: Инновационный подход Amazon</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/download-scaled.jpeg" alt="Революция ИИ в модной рознице: Инновационный подход Amazon">
+        <p>В быстро развивающемся мире модной розницы искусственный интеллект (ИИ) становится игровым меняющим фактором. Руфь Диас Барригон, вице-президент Amazon Fashion Europe, недавно поделилась мыслями о том, как гигант электронной торговли использует ИИ для преобразования индустрии.</p>
+        <p><strong>Хештеги:</strong> #AIinFashion #AmazonFashion #RetailInnovation</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/zalando-ai-fashion-personalization/" target="_blank">Как ИИ Zalando Улучшает Персонализацию</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/Zalando-SE_Zalando-Assistant-scaled.jpg" alt="Как ИИ Zalando Улучшает Персонализацию">
+        <p>Узнайте, как Zalando использует ИИ для предоставления персонализированных модных предложений, адаптируя рекомендации и вовлекая клиентов в разговоры на уровне человека.</p>
+        <p><strong>Хештеги:</strong> #Zalando #ИскусственныйИнтеллект #Персонализация</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-fashion-for-the-digital-age/" target="_blank">Трансформация моды для цифровой эпохи</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/Slide1.jpeg" alt="Трансформация моды для цифровой эпохи">
+        <p>Марселла Вартенберг, генеральный директор AWWG, делится мнениями о цифровой трансформации, устойчивом развитии и перспективах развития знаковых модных брендов на Shoptalk Europe в Барселоне.</p>
+        <p><strong>Хештеги:</strong> #ЦифроваяМода #УстойчивоеРазвитие #МодаБудущего</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/uniqlo-digital-transformation-fast-retailing-cio/" target="_blank">Цифровая трансформация UNIQLO: откровения от Takahiro Tambara</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/SNRF-D1-CON-10-scaled.jpg" alt="Цифровая трансформация UNIQLO: откровения от Takahiro Tambara">
+        <p>Узнайте, как UNIQLO трансформируется в цифрового розничного продавца с помощью идей CIO Fast Retailing Takahiro Tambara, акцентируя внимание на технологии RFID, интеграции ИИ и глобальных стратегиях.</p>
+        <p><strong>Хештеги:</strong> #UNIQLO #ЦифроваяТрансформация #RFID</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-7-eleven-danni-peirce/" target="_blank">Как генеральный директор 7-Eleven прокладывает путь</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/32_Slurpee_Group-012_6.23-1.png" alt="Как генеральный директор 7-Eleven прокладывает путь">
+        <p>Узнайте, как генеральный директор 7-Eleven Дэнни Пирс меняет облик удобной торговли с помощью доставки дронов, платежей по отпечатку ладони и аналитики на основе данных. Исследуйте будущее 7-Eleven в Азии.</p>
+        <p><strong>Хештеги:</strong> #7Eleven #РозничнаяТорговля #Инновации</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-ecommerce-innovative-strategies/" target="_blank">Розничные продавцы и технологические игроки, меняющие мир электронной коммерции</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/06/Untitled-16.png" alt="Розничные продавцы и технологические игроки, меняющие мир электронной коммерции">
+        <p>Трансформация электронной коммерции: Инсайты от лидеров отрасли.
+В конкурентной среде электронной коммерции бренды, такие как ME+EM, Paul Smith, Strathberry и By Malene Birger, бросают вызов таким гигантам, как Adobe, принимая инновационные технологии от компаний, таких как Centra, Limesharp, Harper, Ingrid и Voyado.</p>
+        <p><strong>Хештеги:</strong> #ЭлектроннаяКоммерция #Инновации #Технологии</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/innovations-in-retail-technology-shoptalk-2024/" target="_blank">Улучшение производительности, безопасности и защиты магазинов: Синопсис Shoptalk US 2024</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/04/Untitled-4.png" alt="Улучшение производительности, безопасности и защиты магазинов: Синопсис Shoptalk US 2024">
+        <p>Инновации в ритейл-технологиях с Shoptalk US 2024 усиливают производительность, безопасность и защиту магазинов, демонстрируя роль ИИ в управлении запасами и предотвращении краж.</p>
+        <p><strong>Хештеги:</strong> #Ритейл #Инновации #Технологии</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/navigating-future-retail-workforce/" target="_blank">Адаптация к рабочей силе завтрашнего дня</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/03/a_7_year_old_boy_and_girl_working_in_a_office_happy_066a2626-11f7-4202-9e4f-03189da90b46.png" alt="Адаптация к рабочей силе завтрашнего дня">
+        <p>Изучите, как генеративный ИИ, поколение Альфа и развивающаяся мультикультурная динамика меняют рабочую силу в розничной торговле, и узнайте стратегии удержания и адаптации в этом всестороннем руководстве.</p>
+        <p><strong>Хештеги:</strong> #ГенеративныйИИ #ПоколениеАльфа #Мультикультурность</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/ai-dominates-nrf-2024-retails-future-unveiled-with-arreoblue/" target="_blank">AI Dominates NRF 2024: Retail’s Future Unveiled with Arreoblue</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/02/Screenshot-2024-02-01-at-22.43.51.png" alt="AI Dominates NRF 2024: Retail’s Future Unveiled with Arreoblue">
+        <p>На NRF 2024, самой крупной конференции розничной торговли в мире, становится очевидной глубокая трансформация. Искусственный Интеллект (AI) стал центром внимания – его интеграция в розничную торговлю не просто тренд, а необходимость. Ведущий Retail Podcast Алекс Резван и другие эксперты обсуждают, как AI меняет облик отрасли.</p>
+        <p><strong>Хештеги:</strong> #НФР2024 #ИскусственныйИнтеллект #БудущееРозницы</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/what-are-the-euromonitor-top-5-digital-trends-for-2024/" target="_blank">Топ-5 цифровых трендов Euromonitor на 2024 год</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/01/IMG_4466.png" alt="Топ-5 цифровых трендов Euromonitor на 2024 год">
+        <p>Ландшафт электронной коммерции быстро меняется. Современные потребители ищут не просто товары, а переживания, которые отражают личный подход торговли в магазине. Этот сдвиг к интуитивной электронной коммерции в основном обусловлен передовыми стратегиями сбора данных.</p>
+        <p><strong>Хештеги:</strong> #ЕлектроннаяКоммерция #ЦифровыеТренды #ОпытПокупок</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/ai-machine-learning-retail-omnichannel-retailing-strategy-retail-media-networks-evolution-supply-chain-optimization-retail-sustainability-in-retail-e-commerce-digital-transformation-personalized/" target="_blank">Тренды NRF на 2024 год, обсуждаемые на Big Show</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/11/NRF-TRENDS-2024.png" alt="Тренды NRF на 2024 год, обсуждаемые на Big Show">
+        <p>Изучите главные тенденции розничной торговли на 2024 год из повестки NRF, выделяя ИИ, омниканальную розничную торговлю, устойчивое развитие и многое другое. Узнайте, как эти тренды формируют будущее розничной торговли.</p>
+        <p><strong>Хештеги:</strong> #РозничнаяТорговля #Тренды2024 #Инновации</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/retailers-unlock-the-ai-goldmine-for-your-marketing-sales/" target="_blank">Розничные торговцы: Разблокируйте золотую жилу ИИ для своего маркетинга и продаж</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/09/orange2023_Information_Technology_Data_as_Gold_019dd952-5e4d-4a6d-af81-c980050c7a8c.png" alt="Розничные торговцы: Разблокируйте золотую жилу ИИ для своего маркетинга и продаж">
+        <p>В условиях все более цифрового мира розничным торговцам необходимо противостоять давлению со стороны онлайн/офлайн конкурентов и цифровой трансформации. Однако основой эффективных решений на основе ИИ являются качественные и актуальные данные. Использование потенциала ИИ может стать ключевым преимуществом.</p>
+        <p><strong>Хештеги:</strong> #искусственныйинтеллект #маркетинг #розничнаяторговля</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/uk-cloud-market-examination/" target="_blank">Конфликт титанов на рынке облачных технологий Великобритании: регуляторное вмешательство</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/07/orange2023_two_big_clouds_going_to_war_in_the_middle_is_a_weigh_88747c84-795f-4370-baa8-f18df7f458d0.png" alt="Конфликт титанов на рынке облачных технологий Великобритании: регуляторное вмешательство">
+        <p>В этой статье мы исследуем потенциальное влияние облачного рынка Великобритании на гонку искусственного интеллекта. Мы проанализируем мнения таких технологических гигантов, как Microsoft, Amazon Web Services (AWS) и Google, и выясним, какое значение имеют данные Великобритании для будущего AI. Обсуждаем, где хранится информация в Великобритании и как она может укрепить позиции страны в гонке за лидерством в области ИИ. Узнайте, каким образом ответственное управление данными и стратегическое их использование могут определить путь Великобритании в области инноваций в AI.</p>
+        <p><strong>Хештеги:</strong> #ОблачныеТехнологии #ИскусственныйИнтеллект #ДанныеВеликобритании</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/empowering-creativity-runways-journey-to-democratizing-ai-in-content-creation/" target="_blank">Упрощение творчества: Путешествие Runway к демократизации ИИ в создании контента</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/SFV_Twitter_Runway.webp" alt="Упрощение творчества: Путешествие Runway к демократизации ИИ в создании контента">
+        <p>В постоянно развивающемся мире технологий и творчества, Runway стала ведущей силой, революционизируя подход художников и дизайнеров к созданию контента. С миссией демократизировать доступ к машинному обучению и наделить создателей инструментами ИИ, Runway предоставляет новым возможностям простор.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #Творчество #Демократизация</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/when-robots-take-over-retail-the-dawn-of-a-new-conversational-commerce-era/" target="_blank">Когда роботы захватят ритейл: Рассвет новой эпохи разговорной торговли</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/orange2023_A_bustling_retail_store_where_AI-powered_robots_inte_d21f21c6-ed73-40d3-86c2-2fbd988cabeb.png" alt="Когда роботы захватят ритейл: Рассвет новой эпохи разговорной торговли">
+        <p>Не секрет, что ландшафт розничной торговли претерпевает глубокие изменения в последние годы, ускоряясь к миру, в котором технологии, особенно искусственный интеллект (AI), играют все более заметную роль. Этот сдвиг, вызванный робототехникой, автоматизацией и разговорными системами, создает новые возможности и вызовы для бизнеса и потребителей.</p>
+        <p><strong>Хештеги:</strong> #РозничнаяТорговля #ИскусственныйИнтеллект #Робототехника</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/the-most-instagramable-store-in-the-world-and-ai/" target="_blank">Самый "Инстаграмный" Магазин в Мире</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/1549630834370.jpeg" alt="Самый "Инстаграмный" Магазин в Мире">
+        <p>Вопрос: принадлежит ли технологии и Искусственный Интеллект (AI) в будущее покупательского опыта? Сегодня мне нужно было лететь в Сиэтл, чтобы выступить на тему AI в Рознице и Магазине Будущего.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #РозницаБудущего #ИнстаграмныеМагазины</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/digital-reinvention-ai/" target="_blank">Цифровая Революция и Искусственный Интеллект</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/1524244458730.jpeg" alt="Цифровая Революция и Искусственный Интеллект">
+        <p>Маркетинговый гуру (моя жена) посоветовала мне прочитать "Дело о Цифровой Революции" Жака Бюгина и Лауры Лаберж, после того как я поделился своей статьей о том, как цифровая бухгалтерская книга Amazon (блокчейн) изменит привычный ход нашей жизни.</p>
+        <p><strong>Хештеги:</strong> #ЦифроваяРеволюция #ИскусственныйИнтеллект #Блокчейн</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/ai-in-a-post-digital-world/" target="_blank">Искусственный интеллект в постцифровом мире</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/1523019526549.jpeg" alt="Искусственный интеллект в постцифровом мире">
+        <p>Маркетинговый гуру (моя жена), прочитав мою заметку о том, как цифровая книга Amazon (блокчейн) изменит нашу жизнь, порекомендовала мне книгу "Случай для цифровой реинвенции" Жака Бугина и Лауры Лабердж.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #ЦифроваяРеинвенция #Блокчейн</p>
+    </div>
+    
+    <div class="news-item">
+        <p>28-12-2024</p>
+        <h2><a href="https://retailnews.ai/conversational-shopping-and-the-decline-of-traditional-digital-with-casey-neistat/" target="_blank">Разговорные покупки и упадок традиционного диджитала с Кейсом Нейстатом</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2023/06/1520125295096.jpeg" alt="Разговорные покупки и упадок традиционного диджитала с Кейсом Нейстатом">
+        <p>Если вы делаете то, что делают все, значит, вы делаете что-то не так. Кейс Нейстат делится своими взглядами на разговорные транзакции и то, как они изменяют ландшафт традиционного цифрового мира. Несмотря на то, что многие могут не знать, кто такой Кейс Нейстат, его идеи о будущих тенденциях в покупках и технологиях становятся все более актуальными.</p>
+        <p><strong>Хештеги:</strong> #разговорныепокупки #КейсНейстат #будущееДляМагазинов</p>
+    </div>
+    
+        <p style="text-align:center; margin-top:20px;">
+            <a href="/static/newsbody_14_58_28_12_2024.html" 
+               style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
+               Еще новости прошлых дней...
+            </a>
+        </p>
+        
+
+<script>
+    function sendHeightToParent() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({frameHeight: height}, '*');
+    }
+
+    // После загрузки страницы
+    window.addEventListener('load', () => {
+        sendHeightToParent();
+
+        // Подстраховка через 2 секунды
+        setTimeout(sendHeightToParent, 2000);
+
+        // Наблюдатель за изменениями в DOM
+        const observer = new MutationObserver(() => {
+            sendHeightToParent();
+        });
+        observer.observe(document.body, {childList: true, subtree: true});
+
+        // Отслеживаем загрузку изображений, которые еще не загрузились
+        const imgs = document.querySelectorAll('img');
+        let pendingImages = 0;
+        imgs.forEach(img => {
+            if (!img.complete) {
+                pendingImages++;
+                img.addEventListener('load', () => {
+                    pendingImages--;
+                    // Как только картинка загрузилась - пересчитываем высоту
+                    sendHeightToParent();
+                });
+                img.addEventListener('error', () => {
+                    pendingImages--;
+                });
+            }
+        });
+    });
+</script>
+</body>
