@@ -8,13 +8,13 @@ const path = require('path');
 const cheerio = require('cheerio');
 const { Feed } = require('feed');
 
-const createRSSfromSitemap = async () => {
+const createRSSfromSitemap = async (data) => {
   try {
-    const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml');
-    console.log(sitemapPath);
+    //const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml');
+    //console.log(sitemapPath);
     const rssOutputPath = path.resolve(__dirname, 'public', 'rss.xml');
 
-    const data = fs.readFileSync(sitemapPath, 'utf8');
+    //const data = fs.readFileSync(sitemapPath, 'utf8');
     //console.log(data);
 
     const result = await xml2js.parseStringPromise(data);
@@ -92,19 +92,42 @@ const createRSSfromSitemap = async () => {
   console.error(`RSS completed`);
 };
 
-const fetchPageData = async (url) => {
+// const fetchPageData = async (url) => {
+//   try {
+//     const { data } = await axios.get(url);
+//     const $ = cheerio.load(data);
+//     const title = $('title').text();
+//     const description = $('meta[name="description"]').attr('content');
+//     const source = $('meta[name="source"]').attr('content'); // Assume the source is stored in a meta tag with name="source"
+//     const topic = $('meta[name="topic"]').attr('content'); // Assume the topic is stored in a meta tag with name="topic"
+//     return { title, description, source, topic };
+//   } catch (error) {
+//     console.error(`Failed to fetch page data: ${error}`);
+//   }
+// };
+
+async function fetchPageData(url) {
   try {
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
-    const title = $('title').text();
-    const description = $('meta[name="description"]').attr('content');
-    const source = $('meta[name="source"]').attr('content'); // Assume the source is stored in a meta tag with name="source"
-    const topic = $('meta[name="topic"]').attr('content'); // Assume the topic is stored in a meta tag with name="topic"
+
+    const title = $('title').text() || 'No Title';
+    const description = $('meta[name="description"]').attr('content') || '';
+    const source = $('meta[name="source"]').attr('content') || '';
+    const topic = $('meta[name="topic"]').attr('content') || '';
+
     return { title, description, source, topic };
   } catch (error) {
-    console.error(`Failed to fetch page data: ${error}`);
+    console.error(`Failed to fetch page data from ${url}: ${error}`);
+    // Возвращаем хоть какую-то «заглушку», чтобы вся итерация не падала
+    return {
+      title: 'Страница недоступна',
+      description: '',
+      source: '',
+      topic: ''
+    };
   }
-};
+}
 
 
 const downloadAndChangeUrlInSitemap = async () => {
@@ -126,18 +149,18 @@ const downloadAndChangeUrlInSitemap = async () => {
     fs.writeFileSync(filepath, modifiedData);
 
     console.log('Successfully downloaded and updated sitemap.xml');
-    await generateRedirects();
-    await createRSSfromSitemap();
+    await generateRedirects(response.data);
+    await createRSSfromSitemap(response.data);
 
   } catch (error) {
     console.error('Failed to download and update sitemap:', error);
   }
 };
 
-async function generateRedirects() {
+async function generateRedirects(data) {
   try {
-    const { data } = await axios.get('https://tan-website-724184.framer.app/sitemap.xml');
-    parser.parseString(data, async function (err, result) {
+    //const { data } = await axios.get('https://tan-website-724184.framer.app/sitemap.xml');
+      parser.parseString(data, async function (err, result) {
       const urls = result.urlset.url.map(urlObj => urlObj.loc[0]);
 
       // Load existing TOML file
