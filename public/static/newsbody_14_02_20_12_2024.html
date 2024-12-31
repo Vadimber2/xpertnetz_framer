@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*background: #f6f6f6;*/
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-items: center;
+        }
+
+        /* Стили для каждой новости */
+        .news-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 350px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Дата */
+        .news-item p:first-child {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Заголовок и ссылки */
+        .news-item h2 {
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .news-item h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-item h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Картинка */
+        .news-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Текст */
+        .news-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+            margin: 0 0 15px;
+        }
+
+        .news-item p strong {
+            font-weight: 600;
+        }
+
+        /* Адаптивность */
+        /* Когда экран меньше 1190px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1190px) {
+            body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Когда экран меньше 810px - 1 колонка */
+        @media (max-width:810px) {
+            body {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
+        @media (max-width:375px) {
+            body {
+                padding: 10px;
+            }
+            .news-item {
+                padding: 10px;
+            }
+            .news-item h2 {
+                font-size: 18px;
+            }
+            .news-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867868/" target="_blank">OpenAI: Возможности общения с ChatGPT через стационарный телефон и WhatsApp</a></h2>
+        <img src="https://habrastorage.org/r/w780/webt/jx/hk/q1/jxhkq1dvpayjtoayx8kgi9xur1m.jpeg" alt="OpenAI: Возможности общения с ChatGPT через стационарный телефон и WhatsApp">
+        <p>OpenAI объявила о запуске в США опций общения с ChatGPT по стационарному телефону или через WhatsApp. Сейчас реальное число пользователей стационарных телефонов в стране составляет 5%, а в наличии аппарат есть у 25% населения Соединённых Штатов.</p>
+        <p><strong>Хештеги:</strong> #OpenAI #ChatGPT #Технологии</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867848/" target="_blank">ГРЧЦ закупает ПО для борьбы с киберугрозами</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/fcb/bae/fa1/fcbbaefa15985c726e4ca6f13a089b32.png" alt="ГРЧЦ закупает ПО для борьбы с киберугрозами">
+        <p>Главный радиочастотный центр (ГРЧЦ), подведомственный Роскомнадзору, закупает лицензии на специализированное ПО для создания ложных сервисов и серверов-ловушек для хакеров. Поставщик решения — российская фирма ООО «Ангара Ассистанс», специализирующаяся на информационной безопасности.</p>
+        <p><strong>Хештеги:</strong> #Кибербезопасность #Хакеры #Технологии</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867828/" target="_blank">Открытый метод обхода фильтров для больших языковых моделей</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/d6a/361/aef/d6a361aef1b4ddd83c0d31e0ed8931b7.png" alt="Открытый метод обхода фильтров для больших языковых моделей">
+        <p>В открытом доступе представлен метод атаки BoN Jailbreaking, позволяющий обойти механизмы противодействия генерации опасного контента, применяемые в ИИ‑сервисах на основе больших языковых моделей.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #БезопасностьДанных #ЯзыковыеМодели</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867818/" target="_blank">GitHub Copilot теперь доступен бесплатно для VS Code</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/e48/862/de8/e48862de8d14c710758e63ea8a533603.jpg" alt="GitHub Copilot теперь доступен бесплатно для VS Code">
+        <p>В блоге GitHub сообщили, что редактор кода Visual Studio Code теперь может использовать GitHub Copilot без оплаты, несмотря на существующие ограничения бесплатного тарифа.</p>
+        <p><strong>Хештеги:</strong> #GitHubCopilot #VSCode #БесплатныйТариф</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867812/" target="_blank">Microsoft еще не нашла применение клавише Copilot в Windows 11</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/14a/c7c/2de/14ac7c2de2fb1ed0dbab51d320a4eb84.jpg" alt="Microsoft еще не нашла применение клавише Copilot в Windows 11">
+        <p>Журналисты издания Windows Latest сообщили, что Microsoft пока не имеет четкого плана по использованию кнопки Copilot, представленнoй летом 2024 года, так как она дублирует несколько функций интерфейса.</p>
+        <p><strong>Хештеги:</strong> #Microsoft #Windows11 #Copilot</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867792/" target="_blank">Персональные итоги года от Яндекс Браузера</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/e66/848/2b9/e668482b9cdfb852b02b9872fb513a50.jpg" alt="Персональные итоги года от Яндекс Браузера">
+        <p>В Яндекс Браузере впервые представлены личные итоги пользователей в рамках новогоднего проекта «Я молодец!». Он помогает пользователям узнать, какие ИИ-функции были наиболее актуальными, какие типы сайтов посещались чаще всего, общее количество просмотренных страниц и потраченное время на видео. Для доступа к итогам нужно перейти на специальную страницу и нажать кнопку «Посмотреть».</p>
+        <p><strong>Хештеги:</strong> #Яндекс #Браузер #ИтогиГода</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867774/" target="_blank">Mozilla выпустила открытый набор голосовых данных Common Voice 20</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/f70/c2f/055/f70c2f0558f49123ab9817995b530732.jpg" alt="Mozilla выпустила открытый набор голосовых данных Common Voice 20">
+        <p>Компания Mozilla представила новую версию датасета Common Voice, в который вошли записи речи более 200 тысяч людей. Датасет доступен по лицензии CC0 (общественное достояние), его можно использовать для разработки моделей распознавания и генерации речи. Объём собранного речевого материала в новой версии увеличился с 32,6 до 33,1 тыс. часов, количество поддерживаемых языков выросло с 129 до 133. Датасет содержит 3,6 тыс. часов речи на английском, 3,3 тыс. часов речи на русском, 1,8 тыс. на белорусском, 114 часов на украинском, 265 на узбекском.</p>
+        <p><strong>Хештеги:</strong> #Mozilla #CommonVoice #ГолосовыеДанные</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/hubs/python/" target="_blank">Python</a></h2>
+        <img src="None" alt="Python">
+        <p>Python is a high-level programming language known for its readability and versatility. It supports multiple programming paradigms and is widely used in web development, data analysis, artificial intelligence, and scientific computing.</p>
+        <p><strong>Хештеги:</strong> #Python #Programming #DataScience</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/867764/" target="_blank">Облачный стартап Vultr привлёк 333 миллиона долларов от AMD при оценке в 3,5 миллиарда</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/03a/3d9/2c7/03a3d92c70abb4ee05eb5c14c331705f.png" alt="Облачный стартап Vultr привлёк 333 миллиона долларов от AMD при оценке в 3,5 миллиарда">
+        <p>Advanced Micro Devices (AMD), вместе с хедж-фондом LuminArx Capital Management вложили 333 миллиона долларов в раунд финансирования облачного стартапа Vultr. Этот шаг отражает растущий спрос на инфраструктуру для искусственного интеллекта.
+По словам представителей Vultr оценка компании достигла 3,5 миллиарда долларов. Привлечённый капитал будет использован для закупки дополнительных графических процессоров (GPU) – чипов, лежащих в основе современных ИИ-моделей. Это первый случай, когда Vultr получает внешнее финансирование.</p>
+        <p><strong>Хештеги:</strong> #Vultr #AMD #ИскусственныйИнтеллект</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://retailnews.ai/retail-media-networks-customer-ai/" target="_blank">Как Meta и Albertsons преобразуют медиа в ритейле с помощью ИИ</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/11/Untitled-2-scaled.jpeg" alt="Как Meta и Albertsons преобразуют медиа в ритейле с помощью ИИ">
+        <p>Сетевые медиа в ритейле: персонализация в масштабе. Сетевые медиа в ритейле (RMN) меняют подход брендов к взаимодействию с потребителями, объединяя цифровые и физические опыты для создания бесшовного покупательского пути. Алисия Лебёф из Meta и Мишель Кирчер-Уайскиттель из Albertsons Media Collective недавно отметили значимость интеграции ИИ в эту область.</p>
+        <p><strong>Хештеги:</strong> #РитейлМедиа #ИскусственныйИнтеллект #Персонализация</p>
+    </div>
+    
+    <div class="news-item">
+        <p>19-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-retail-media-albertsons-media-collective/" target="_blank">Медиа-сеть Albertsons: Трансформация связей с покупателями</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/10/amc-site-featured-image-04@3x-scaled.webp" alt="Медиа-сеть Albertsons: Трансформация связей с покупателями">
+        <p>Медиа-коллектив Albertsons переосмысляет, как розничная реклама способствует успеху, соединяя бренды с более чем 100 миллионами лояльных потребителей в 2000 магазинах по всей стране. Используя данные, они развивают глубокие отношения с клиентами, что приводит к устойчивому росту для партнерских брендов.</p>
+        <p><strong>Хештеги:</strong> #Albertsons #РозничнаяМедиа #Маркетинг</p>
+    </div>
+    
+        <p style="text-align:center; margin-top:20px;">
+            <a href="/static/newsbody_10_44_19_12_2024.html" 
+               style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
+               Еще новости прошлых дней...
+            </a>
+        </p>
+        
+
+<script>
+    function sendHeightToParent() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({frameHeight: height}, '*');
+    }
+
+    // После загрузки страницы
+    window.addEventListener('load', () => {
+        sendHeightToParent();
+
+        // Подстраховка через 2 секунды
+        setTimeout(sendHeightToParent, 2000);
+
+        // Наблюдатель за изменениями в DOM
+        const observer = new MutationObserver(() => {
+            sendHeightToParent();
+        });
+        observer.observe(document.body, {childList: true, subtree: true});
+
+        // Отслеживаем загрузку изображений, которые еще не загрузились
+        const imgs = document.querySelectorAll('img');
+        let pendingImages = 0;
+        imgs.forEach(img => {
+            if (!img.complete) {
+                pendingImages++;
+                img.addEventListener('load', () => {
+                    pendingImages--;
+                    // Как только картинка загрузилась - пересчитываем высоту
+                    sendHeightToParent();
+                });
+                img.addEventListener('error', () => {
+                    pendingImages--;
+                });
+            }
+        });
+    });
+</script>
+</body>
