@@ -2,308 +2,386 @@
 publish = "public"
 
 [[redirects]]
-from = "/not-found"
-to = "https://xpertnet.framer.website/not-found"
-status = 200
-force = true
-
-[[redirects]]
-from = "/coming-soon"
-to = "https://xpertnet.framer.website/coming-soon"
-status = 200
-force = true
-
-[[redirects]]
-from = "/about-us"
-to = "https://xpertnet.framer.website/about-us"
-status = 200
-force = true
-
-[[redirects]]
-from = "/blog-indeks-dlya-poiska-izobrazhenii"
-to = "https://xpertnet.framer.website/blog-indeks-dlya-poiska-izobrazhenii"
-status = 200
-force = true
-
-[[redirects]]
-from = "/blog-fotopoisk-uvelichivaet-konversiyu"
-to = "https://xpertnet.framer.website/blog-fotopoisk-uvelichivaet-konversiyu"
-status = 200
-force = true
-
-[[redirects]]
-from = "/blog-kak-living-spaces-uvelichil-srednii-chek"
-to = "https://xpertnet.framer.website/blog-kak-living-spaces-uvelichil-srednii-chek"
-status = 200
-force = true
-
-[[redirects]]
-from = "/price"
-to = "https://xpertnet.framer.website/price"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-lenta-spb"
-to = "https://xpertnet.framer.website/project-lenta-spb"
-status = 200
-force = true
-
-[[redirects]]
-from = "/article-image-index"
-to = "https://xpertnet.framer.website/article-image-index"
-status = 200
-force = true
-
-[[redirects]]
-from = "/articles"
-to = "https://xpertnet.framer.website/articles"
-status = 200
-force = true
-
-[[redirects]]
-from = "/blog"
-to = "https://xpertnet.framer.website/blog"
-status = 200
-force = true
-
-[[redirects]]
-from = "/article-search-image"
-to = "https://xpertnet.framer.website/article-search-image"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-stolplit2"
-to = "https://xpertnet.framer.website/project-stolplit2"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-stolplit"
-to = "https://xpertnet.framer.website/project-stolplit"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-vseinstrumenti-ru"
-to = "https://xpertnet.framer.website/project-vseinstrumenti-ru"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-lenta"
-to = "https://xpertnet.framer.website/project-lenta"
-status = 200
-force = true
-
-[[redirects]]
-from = "/bots-somele"
-to = "https://xpertnet.framer.website/bots-somele"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-mfc"
-to = "https://xpertnet.framer.website/project-mfc"
-status = 200
-force = true
-
-[[redirects]]
-from = "/project-marnit-krasnodar"
-to = "https://xpertnet.framer.website/project-marnit-krasnodar"
-status = 200
-force = true
-
-[[redirects]]
-from = "/projects"
-to = "https://xpertnet.framer.website/projects"
-status = 200
-force = true
-
-[[redirects]]
-from = "/razrabotka-telegram-bota"
-to = "https://xpertnet.framer.website/razrabotka-telegram-bota"
-status = 200
-force = true
-
-[[redirects]]
-from = "/bots-uproshchenie-vibora"
-to = "https://xpertnet.framer.website/bots-uproshchenie-vibora"
-status = 200
-force = true
-
-[[redirects]]
-from = "/bots-assistent-obsluzhivaniya"
-to = "https://xpertnet.framer.website/bots-assistent-obsluzhivaniya"
-status = 200
-force = true
-
-[[redirects]]
-from = "/gencont-teksti-dlya-sotsialnikh-media"
-to = "https://xpertnet.framer.website/gencont-teksti-dlya-sotsialnikh-media"
-status = 200
-force = true
-
-[[redirects]]
-from = "/bots"
-to = "https://xpertnet.framer.website/bots"
-status = 200
-force = true
-
-[[redirects]]
-from = "/napolnenie-sajta-kontentom"
-to = "https://xpertnet.framer.website/napolnenie-sajta-kontentom"
-status = 200
-force = true
-
-[[redirects]]
-from = "/generator-opisaniya-tovarov-dlya-vajldberriz"
-to = "https://xpertnet.framer.website/generator-opisaniya-tovarov-dlya-vajldberriz"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-tsenovoi-analiz"
-to = "https://xpertnet.framer.website/picsearch-tsenovoi-analiz"
-status = 200
-force = true
-
-[[redirects]]
-from = "/generation-content"
-to = "https://xpertnet.framer.website/generation-content"
-status = 200
-force = true
-
-[[redirects]]
-from = "/generator-opisaniya-tovarov"
-to = "https://xpertnet.framer.website/generator-opisaniya-tovarov"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-demonstratsiya-skhozhikh-tovarov"
-to = "https://xpertnet.framer.website/picsearch-demonstratsiya-skhozhikh-tovarov"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picture-poisk-po-kartinkam"
-to = "https://xpertnet.framer.website/picture-poisk-po-kartinkam"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-beskonechnaya-polka"
-to = "https://xpertnet.framer.website/picsearch-beskonechnaya-polka"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-pokupki-v-messendzherakh"
-to = "https://xpertnet.framer.website/picsearch-pokupki-v-messendzherakh"
-status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-v-magazinax-odezdi"
-to = "https://xpertnet.framer.website/aroma-v-magazinax-odezdi"
-status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-v-roznichnih-magazinah"
-to = "https://xpertnet.framer.website/aroma-v-roznichnih-magazinah"
-status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-ekspoziciy"
-to = "https://xpertnet.framer.website/aroma-ekspoziciy"
-status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-v-restoranah"
-to = "https://xpertnet.framer.website/aroma-v-restoranah"
-status = 200
-force = true
-
-[[redirects]]
-from = "/audio-podkasty-i-audio"
-to = "https://xpertnet.framer.website/audio-podkasty-i-audio"
-status = 200
-force = true
-
-[[redirects]]
-from = "/audio-audio-brendirovannost"
-to = "https://xpertnet.framer.website/audio-audio-brendirovannost"
-status = 200
-force = true
-
-[[redirects]]
-from = "/audio-audio-dlya-socialnih-media"
-to = "https://xpertnet.framer.website/audio-audio-dlya-socialnih-media"
-status = 200
-force = true
-
-[[redirects]]
-from = "/visualniy-naruzhnaya-reklama-tts"
-to = "https://xpertnet.framer.website/visualniy-naruzhnaya-reklama-tts"
-status = 200
-force = true
-
-[[redirects]]
-from = "/audio-radioreklama"
-to = "https://xpertnet.framer.website/audio-radioreklama"
-status = 200
-force = true
-
-[[redirects]]
-from = "/visualniy-oformlenie-i-dizain-magazina"
-to = "https://xpertnet.framer.website/visualniy-oformlenie-i-dizain-magazina"
+from = "/"
+to = "https://tan-website-724184.framer.app/"
 status = 200
 force = true
 
 [[redirects]]
 from = "/visualniy-oformlenie-vitrini"
-to = "https://xpertnet.framer.website/visualniy-oformlenie-vitrini"
+to = "https://tan-website-724184.framer.app/visualniy-oformlenie-vitrini"
 status = 200
 force = true
 
 [[redirects]]
 from = "/visualniy-razrabotka-reklami"
-to = "https://xpertnet.framer.website/visualniy-razrabotka-reklami"
+to = "https://tan-website-724184.framer.app/visualniy-razrabotka-reklami"
 status = 200
 force = true
 
 [[redirects]]
-from = "/product"
-to = "https://xpertnet.framer.website/product"
+from = "/visualniy-oformlenie-i-dizain-magazina"
+to = "https://tan-website-724184.framer.app/visualniy-oformlenie-i-dizain-magazina"
 status = 200
 force = true
 
 [[redirects]]
-from = "/home"
-to = "https://xpertnet.framer.website/home"
+from = "/visualniy-naruzhnaya-reklama-tts"
+to = "https://tan-website-724184.framer.app/visualniy-naruzhnaya-reklama-tts"
 status = 200
 force = true
 
 [[redirects]]
-from = "/old-home"
-to = "https://xpertnet.framer.website/old-home"
+from = "/audio-radioreklama"
+to = "https://tan-website-724184.framer.app/audio-radioreklama"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-podkasty-i-audio"
+to = "https://tan-website-724184.framer.app/audio-podkasty-i-audio"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-audio-brendirovannost"
+to = "https://tan-website-724184.framer.app/audio-audio-brendirovannost"
+status = 200
+force = true
+
+[[redirects]]
+from = "/audio-audio-dlya-socialnih-media"
+to = "https://tan-website-724184.framer.app/audio-audio-dlya-socialnih-media"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-roznichnih-magazinah"
+to = "https://tan-website-724184.framer.app/aroma-v-roznichnih-magazinah"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-ekspoziciy"
+to = "https://tan-website-724184.framer.app/aroma-ekspoziciy"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-restoranah"
+to = "https://tan-website-724184.framer.app/aroma-v-restoranah"
+status = 200
+force = true
+
+[[redirects]]
+from = "/aroma-v-magazinax-odezdi"
+to = "https://tan-website-724184.framer.app/aroma-v-magazinax-odezdi"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picture-poisk-po-kartinkam_old"
+to = "https://tan-website-724184.framer.app/picture-poisk-po-kartinkam_old"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-pokupki-v-messendzherakh"
+to = "https://tan-website-724184.framer.app/picsearch-pokupki-v-messendzherakh"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-beskonechnaya-polka"
+to = "https://tan-website-724184.framer.app/picsearch-beskonechnaya-polka"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-demonstratsiya-skhozhikh-tovarov"
+to = "https://tan-website-724184.framer.app/picsearch-demonstratsiya-skhozhikh-tovarov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/picsearch-tsenovoi-analiz"
+to = "https://tan-website-724184.framer.app/picsearch-tsenovoi-analiz"
+status = 200
+force = true
+
+[[redirects]]
+from = "/napolnenie-sajta-kontentom"
+to = "https://tan-website-724184.framer.app/napolnenie-sajta-kontentom"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-opisaniya-tovarov"
+to = "https://tan-website-724184.framer.app/generator-opisaniya-tovarov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-reklamnyh-tekstov"
+to = "https://tan-website-724184.framer.app/generator-reklamnyh-tekstov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-opisaniya-tovarov-dlya-vajldberriz"
+to = "https://tan-website-724184.framer.app/generator-opisaniya-tovarov-dlya-vajldberriz"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-seo-teksta"
+to = "https://tan-website-724184.framer.app/generator-seo-teksta"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-napisaniya-postov"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-napisaniya-postov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-postov-v-telegram"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-postov-v-telegram"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-postov-v-instagram"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-postov-v-instagram"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-postov-vk"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-postov-vk"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-kontent-plana"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-kontent-plana"
+status = 200
+force = true
+
+[[redirects]]
+from = "/nejroset-dlya-napisaniya-statej"
+to = "https://tan-website-724184.framer.app/nejroset-dlya-napisaniya-statej"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-kontenta-dlya-socialnyh-setej"
+to = "https://tan-website-724184.framer.app/generator-kontenta-dlya-socialnyh-setej"
+status = 200
+force = true
+
+[[redirects]]
+from = "/sinonimaizer-teksta"
+to = "https://tan-website-724184.framer.app/sinonimaizer-teksta"
+status = 200
+force = true
+
+[[redirects]]
+from = "/gencont-teksti-dlya-sotsialnikh-media"
+to = "https://tan-website-724184.framer.app/gencont-teksti-dlya-sotsialnikh-media"
+status = 200
+force = true
+
+[[redirects]]
+from = "/razrabotka-telegram-bota"
+to = "https://tan-website-724184.framer.app/razrabotka-telegram-bota"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots-uproshchenie-vibora"
+to = "https://tan-website-724184.framer.app/bots-uproshchenie-vibora"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots-somele"
+to = "https://tan-website-724184.framer.app/bots-somele"
+status = 200
+force = true
+
+[[redirects]]
+from = "/bots-assistent-obsluzhivaniya"
+to = "https://tan-website-724184.framer.app/bots-assistent-obsluzhivaniya"
+status = 200
+force = true
+
+[[redirects]]
+from = "/projects"
+to = "https://tan-website-724184.framer.app/projects"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-stolplit"
+to = "https://tan-website-724184.framer.app/project-stolplit"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-stolplit2"
+to = "https://tan-website-724184.framer.app/project-stolplit2"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-mfc"
+to = "https://tan-website-724184.framer.app/project-mfc"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-vseinstrumenti-ru"
+to = "https://tan-website-724184.framer.app/project-vseinstrumenti-ru"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-marnit-krasnodar"
+to = "https://tan-website-724184.framer.app/project-marnit-krasnodar"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-lenta"
+to = "https://tan-website-724184.framer.app/project-lenta"
+status = 200
+force = true
+
+[[redirects]]
+from = "/project-lenta-spb"
+to = "https://tan-website-724184.framer.app/project-lenta-spb"
+status = 200
+force = true
+
+[[redirects]]
+from = "/articles"
+to = "https://tan-website-724184.framer.app/articles"
+status = 200
+force = true
+
+[[redirects]]
+from = "/article-search-image"
+to = "https://tan-website-724184.framer.app/article-search-image"
+status = 200
+force = true
+
+[[redirects]]
+from = "/news"
+to = "https://tan-website-724184.framer.app/news"
+status = 200
+force = true
+
+[[redirects]]
+from = "/article-image-index"
+to = "https://tan-website-724184.framer.app/article-image-index"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog"
+to = "https://tan-website-724184.framer.app/blog"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-fotopoisk-uvelichivaet-konversiyu"
+to = "https://tan-website-724184.framer.app/blog-fotopoisk-uvelichivaet-konversiyu"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-indeks-dlya-poiska-izobrazhenii"
+to = "https://tan-website-724184.framer.app/blog-indeks-dlya-poiska-izobrazhenii"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-neyroseti-chto-eto-i-kak-rabotaet"
+to = "https://tan-website-724184.framer.app/blog-neyroseti-chto-eto-i-kak-rabotaet"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-nejroset-dlya-sozdaniya-teksta"
+to = "https://tan-website-724184.framer.app/blog-nejroset-dlya-sozdaniya-teksta"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-ispolzovanie-nejrosetej-v-biznese"
+to = "https://tan-website-724184.framer.app/blog-ispolzovanie-nejrosetej-v-biznese"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-nejroset-dlya-kartochek-marketplejsov"
+to = "https://tan-website-724184.framer.app/blog-nejroset-dlya-kartochek-marketplejsov"
+status = 200
+force = true
+
+[[redirects]]
+from = "/blog-kak-living-spaces-uvelichil-srednii-chek"
+to = "https://tan-website-724184.framer.app/blog-kak-living-spaces-uvelichil-srednii-chek"
+status = 200
+force = true
+
+[[redirects]]
+from = "/price"
+to = "https://tan-website-724184.framer.app/price"
+status = 200
+force = true
+
+[[redirects]]
+from = "/about-us"
+to = "https://tan-website-724184.framer.app/about-us"
+status = 200
+force = true
+
+[[redirects]]
+from = "/contacts"
+to = "https://tan-website-724184.framer.app/contacts"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-teksta"
+to = "https://tan-website-724184.framer.app/generator-teksta"
 status = 200
 force = true
 
 [[redirects]]
 from = "/marketing"
-to = "https://xpertnet.framer.website/marketing"
+to = "https://tan-website-724184.framer.app/marketing"
 status = 200
 force = true
 
 [[redirects]]
-from = "/"
-to = "https://xpertnet.framer.website/"
+from = "/new-bots"
+to = "https://tan-website-724184.framer.app/new-bots"
+status = 200
+force = true
+
+[[redirects]]
+from = "/new-products"
+to = "https://tan-website-724184.framer.app/new-products"
+status = 200
+force = true
+
+[[redirects]]
+from = "/new-about-us"
+to = "https://tan-website-724184.framer.app/new-about-us"
 status = 200
 force = true
 
@@ -332,13 +410,61 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/index.html"
-to = "https://xpertnet.framer.website"
+from = "/legal/*"
+to = "/legal/:splat"
 status = 200
 force = true
 
 [[redirects]]
-from = "/*/"
-to = "/:splat"
-status = 301
+from = "/index.html"
+to = "https://tan-website-724184.framer.app"
+status = 200
+force = true
+
+[[redirects]]
+from = "/generator-generator-seo-teksta"
+to = "https://xpertnet.cx/generator-seo-teksta"
+status = 302
+force = true
+
+[[redirects]]
+from = "/blog/istoriya-rasskazannaya-neposredstvenno-v-tochke-prodazh/*"
+to = "https://xpertnet.cx/marketing"
+status = 302
+force = true
+
+[[redirects]]
+from = "/generation-content"
+to = "https://xpertnet.cx/generator-teksta"
+status = 302
+force = true
+
+[[redirects]]
+from = "/bots"
+to = "https://xpertnet.cx/new-bots"
+status = 302
+force = true
+
+[[redirects]]
+from = "/products"
+to = "https://xpertnet.cx/new-products"
+status = 302
+force = true
+
+[[redirects]]
+from = "/product"
+to = "https://xpertnet.cx/new-products"
+status = 302
+force = true
+
+[[redirects]]
+from = "/bots-sommelier-chatbots"
+to = "https://xpertnet.cx/bots-somele"
+status = 302
+force = true
+
+[[redirects]]
+from = "/page"
+to = "https://xpertnet.cx"
+status = 302
 force = true
