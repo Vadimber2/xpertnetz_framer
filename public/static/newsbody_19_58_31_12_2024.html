@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*background: #f6f6f6;*/
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-items: center;
+        }
+
+        /* Стили для каждой новости */
+        .news-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 350px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Дата */
+        .news-item p:first-child {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Заголовок и ссылки */
+        .news-item h2 {
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .news-item h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-item h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Картинка */
+        .news-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Текст */
+        .news-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+            margin: 0 0 15px;
+        }
+
+        .news-item p strong {
+            font-weight: 600;
+        }
+
+        /* Адаптивность */
+        /* Когда экран меньше 1190px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1190px) {
+            body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Когда экран меньше 810px - 1 колонка */
+        @media (max-width:810px) {
+            body {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
+        @media (max-width:375px) {
+            body {
+                padding: 10px;
+            }
+            .news-item {
+                padding: 10px;
+            }
+            .news-item h2 {
+                font-size: 18px;
+            }
+            .news-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870992/" target="_blank">Роботы-хирурги достигают уровня человеческих коллег</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/19f/33e/3b6/19f33e3b692497fd224545c005aa6011.jpg" alt="Роботы-хирурги достигают уровня человеческих коллег">
+        <p>Исследователи из Университета Джонса Хопкинса сообщили о значительном прогрессе в обучении роботов-хирургов, использующих видео операции опытных врачей. По их данным, роботы da Vinci способны выполнять хирургические процедуры с такой же точностью, как и их человеческие коллеги, а также исправлять свои собственные ошибки.</p>
+        <p><strong>Хештеги:</strong> #роботы #хирургия #искусственныйинтеллект</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870972/" target="_blank">Открытый проект моделирования лучей CRT в шейдерах GPU</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/bfd/cc7/8f8/bfdcc78f8a14773634c9940dd98a3aa4.jpg" alt="Открытый проект моделирования лучей CRT в шейдерах GPU">
+        <p>Команда разработчиков Blur Busters представила инструмент имитации лучей CRT в шейдерах GPU. Авторы утверждают, что их технология превосходит популярную технологию Black Frame Insertion (BFI). Новинка воссоздаёт эстетику старых мониторов и улучшает цветопередачу и контраст.</p>
+        <p><strong>Хештеги:</strong> #CRT #GPU #BlurBusters</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870918/" target="_blank">Американские учёные изобрели VR-очки для изучения мышей</a></h2>
+        <img src="https://habrastorage.org/r/w780/webt/av/2j/uu/av2juu5gmielwz_gyn8ftjoaeta.jpeg" alt="Американские учёные изобрели VR-очки для изучения мышей">
+        <p>Исследователи из Корнеллского университета разработали миниатюрные очки виртуальной реальности для мышей — MouseGoggles. При помощи устройства учёные намерены лучше изучить поведение животных в виртуальной реальности.</p>
+        <p><strong>Хештеги:</strong> #VR #Наука #Мыши</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://habr.com/ru/news/870878/" target="_blank">Инициатива GreenSKU для повторного использования серверных компонентов</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/f02/ecc/ba6/f02eccba68d299a69889beb212c3c648.jpg" alt="Инициатива GreenSKU для повторного использования серверных компонентов">
+        <p>Учёные из университета Карнеги‑Меллона и Вашингтонского университета совместно с Microsoft разработали инициативу GreenSKU для повторного использования старых серверных компонентов. Исследователи создали прототипы серверов для облачных ЦОД Azure, использующих бывшие в употреблении элементы, которые иначе стали бы электронными отходами.</p>
+        <p><strong>Хештеги:</strong> #GreenSKU #УстойчивоеРазвитие #Технологии</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://retailnews.ai/retail-media-networks-customer-ai/" target="_blank">Как Meta и Albertsons трансформируют рынок торговых медиа с помощью ИИ</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/11/Untitled-2-scaled.jpeg" alt="Как Meta и Albertsons трансформируют рынок торговых медиа с помощью ИИ">
+        <p>Сетевые медиа для ритейла (RMNs) меняют подход брендов к взаимодействию с потребителями, объединяя цифровые и физические впечатления для создания бесшовного процесса покупок. Алисия Лебуф из Meta и Мишель Кирчер-Вейсмиттель из Albertsons Media Collective недавно поделились своими взглядами.</p>
+        <p><strong>Хештеги:</strong> #РозничныеМедиа #ИскусственныйИнтеллект #Персонализация</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://retailnews.ai/transforming-retail-media-albertsons-media-collective/" target="_blank">Сеть медиа Albertsons: Трансформация связей с покупателями</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/10/amc-site-featured-image-04@3x-scaled.webp" alt="Сеть медиа Albertsons: Трансформация связей с покупателями">
+        <p>Сеть медиа Albertsons переопределяет, как розничные медиа создают успех, связывая бренды с более чем 100 миллионами преданных потребителей в 2000 магазинах по всей стране. Используя аналитические данные, они формируют глубокие отношения с клиентами, которые приводят к устойчивому росту для партнерских брендов.</p>
+        <p><strong>Хештеги:</strong> #AlbertsonsMediaNetwork #RetailMedia #CustomerConnections</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://retailnews.ai/the-ai-revolution-in-fashion-retail-amazons-innovative-approach/" target="_blank">Революция ИИ в Модной Рознице: Инновационный Подход Amazon</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/download-scaled.jpeg" alt="Революция ИИ в Модной Рознице: Инновационный Подход Amazon">
+        <p>В стремительно развивающемся мире модной розницы искусственный интеллект (ИИ) становится силой, изменяющей правила игры. Руфь Диас Барригон, вице-президент Amazon Fashion Europe, недавно поделилась идеями о том, как гигант электронной коммерции использует ИИ для трансформации индустрии.</p>
+        <p><strong>Хештеги:</strong> #ИИвМоде #AmazonFashion #Инновации</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-12-2024</p>
+        <h2><a href="https://retailnews.ai/zalando-ai-fashion-personalization/" target="_blank">Как ИИ Zalando Улучшает Персонализацию</a></h2>
+        <img src="https://retailnews.ai/wp-content/uploads/2024/07/Zalando-SE_Zalando-Assistant-scaled.jpg" alt="Как ИИ Zalando Улучшает Персонализацию">
+        <p>Узнайте, как Zalando использует ИИ для предоставления персонализированного модного опыта, адаптируя рекомендации и увлекая клиентов беседами, похожими на человеческие.</p>
+        <p><strong>Хештеги:</strong> #ИЗменениеМоды #Персонализация #ИИвМоде</p>
+    </div>
+    
+        <p style="text-align:center; margin-top:20px;">
+            <a href="/static/newsbody_23_02_30_12_2024.html" 
+               style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
+               Еще новости прошлых дней...
+            </a>
+        </p>
+        
+
+<script>
+    function sendHeightToParent() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({frameHeight: height}, '*');
+    }
+
+    // После загрузки страницы
+    window.addEventListener('load', () => {
+        sendHeightToParent();
+
+        // Подстраховка через 2 секунды
+        setTimeout(sendHeightToParent, 2000);
+
+        // Наблюдатель за изменениями в DOM
+        const observer = new MutationObserver(() => {
+            sendHeightToParent();
+        });
+        observer.observe(document.body, {childList: true, subtree: true});
+
+        // Отслеживаем загрузку изображений, которые еще не загрузились
+        const imgs = document.querySelectorAll('img');
+        let pendingImages = 0;
+        imgs.forEach(img => {
+            if (!img.complete) {
+                pendingImages++;
+                img.addEventListener('load', () => {
+                    pendingImages--;
+                    // Как только картинка загрузилась - пересчитываем высоту
+                    sendHeightToParent();
+                });
+                img.addEventListener('error', () => {
+                    pendingImages--;
+                });
+            }
+        });
+    });
+</script>
+</body>
