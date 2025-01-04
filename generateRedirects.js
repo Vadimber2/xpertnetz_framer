@@ -282,7 +282,7 @@ async function sendDataToYandex(data) {
             // Для редиректов домены могут быть переопределены
             // Тут, например, заменяем framerUrl на mainUrl
             const urls = rawUrls.map(u => u.replace(framerUrl, mainUrl));
-
+            console.log("Urls for yandex:", urls);
             // Примерные данные для IndexNow
             const indexNowPayload = {
                 host: mainDomainName, // Вместо этого можно вставить свой хост (без https://)
