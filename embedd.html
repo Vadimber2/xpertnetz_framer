@@ -3,7 +3,26 @@
 </div>
 
 <script type="text/javascript">
+
+    // 1) НОВАЯ ФУНКЦИЯ – Добавляем мета-тег Linguana
+    // function injectLinguanaMeta() {
+    //
+    //     if (document.querySelector('meta[name="linguana-site-verification"]')) {
+    //         // Если существует, просто выходим и больше ничего не делаем
+    //         return;
+    //     }
+    //
+    //     const meta = document.createElement('meta');
+    //     meta.name = "linguana-site-verification";
+    //     meta.content = "Sc54SvPNs7qLat4QPKIX";
+    //     document.head.appendChild(meta);
+    // }
+
     function injectStructuredDataToHead() {
+        // Проверяем, нет ли уже в <head> скрипта с таким ID
+        if (document.getElementById("xpertnet-structured-data")) {
+            return; // Если есть — ничего не делаем
+        }
         // Create a new script element
         var scriptElement = document.createElement('script');
         scriptElement.type = 'application/ld+json';
@@ -179,6 +198,8 @@
         updateCanonicalLink();
         injectStructuredDataToHead();
         initCookieBanner();
+
+       // injectLinguanaMeta();
     }
 
     if (document.readyState === "loading") {  // If document is still loading, add event listener
