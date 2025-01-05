@@ -16,21 +16,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/visualniy-oformlenie-vitrini/"
-to = "/visualniy-oformlenie-vitrini"
-status = 302
-force = true
-
-[[redirects]]
 from = "/visualniy-oformlenie-vitrini"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/visualniy-razrabotka-reklami/"
-to = "/visualniy-razrabotka-reklami"
-status = 302
 force = true
 
 [[redirects]]
@@ -40,21 +28,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/visualniy-oformlenie-i-dizain-magazina/"
-to = "/visualniy-oformlenie-i-dizain-magazina"
-status = 302
-force = true
-
-[[redirects]]
 from = "/visualniy-oformlenie-i-dizain-magazina"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/visualniy-naruzhnaya-reklama-tts/"
-to = "/visualniy-naruzhnaya-reklama-tts"
-status = 302
 force = true
 
 [[redirects]]
@@ -64,21 +40,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/audio-radioreklama/"
-to = "/audio-radioreklama"
-status = 302
-force = true
-
-[[redirects]]
 from = "/audio-radioreklama"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/audio-podkasty-i-audio/"
-to = "/audio-podkasty-i-audio"
-status = 302
 force = true
 
 [[redirects]]
@@ -88,21 +52,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/audio-audio-brendirovannost/"
-to = "/audio-audio-brendirovannost"
-status = 302
-force = true
-
-[[redirects]]
 from = "/audio-audio-brendirovannost"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/audio-audio-dlya-socialnih-media/"
-to = "/audio-audio-dlya-socialnih-media"
-status = 302
 force = true
 
 [[redirects]]
@@ -112,21 +64,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/aroma-v-roznichnih-magazinah/"
-to = "/aroma-v-roznichnih-magazinah"
-status = 302
-force = true
-
-[[redirects]]
 from = "/aroma-v-roznichnih-magazinah"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-ekspoziciy/"
-to = "/aroma-ekspoziciy"
-status = 302
 force = true
 
 [[redirects]]
@@ -136,21 +76,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/aroma-v-restoranah/"
-to = "/aroma-v-restoranah"
-status = 302
-force = true
-
-[[redirects]]
 from = "/aroma-v-restoranah"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/aroma-v-magazinax-odezdi/"
-to = "/aroma-v-magazinax-odezdi"
-status = 302
 force = true
 
 [[redirects]]
@@ -160,21 +88,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/picture-poisk-po-kartinkam_old/"
-to = "/picture-poisk-po-kartinkam_old"
-status = 302
-force = true
-
-[[redirects]]
 from = "/picture-poisk-po-kartinkam_old"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-pokupki-v-messendzherakh/"
-to = "/picsearch-pokupki-v-messendzherakh"
-status = 302
 force = true
 
 [[redirects]]
@@ -184,21 +100,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/picsearch-beskonechnaya-polka/"
-to = "/picsearch-beskonechnaya-polka"
-status = 302
-force = true
-
-[[redirects]]
 from = "/picsearch-beskonechnaya-polka"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/picsearch-demonstratsiya-skhozhikh-tovarov/"
-to = "/picsearch-demonstratsiya-skhozhikh-tovarov"
-status = 302
 force = true
 
 [[redirects]]
@@ -208,21 +112,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/picsearch-tsenovoi-analiz/"
-to = "/picsearch-tsenovoi-analiz"
-status = 302
-force = true
-
-[[redirects]]
 from = "/picsearch-tsenovoi-analiz"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/napolnenie-sajta-kontentom/"
-to = "/napolnenie-sajta-kontentom"
-status = 302
 force = true
 
 [[redirects]]
@@ -232,21 +124,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/generator-opisaniya-tovarov/"
-to = "/generator-opisaniya-tovarov"
-status = 302
-force = true
-
-[[redirects]]
 from = "/generator-opisaniya-tovarov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/generator-reklamnyh-tekstov/"
-to = "/generator-reklamnyh-tekstov"
-status = 302
 force = true
 
 [[redirects]]
@@ -256,21 +136,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/generator-opisaniya-tovarov-dlya-vajldberriz/"
-to = "/generator-opisaniya-tovarov-dlya-vajldberriz"
-status = 302
-force = true
-
-[[redirects]]
 from = "/generator-opisaniya-tovarov-dlya-vajldberriz"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/generator-seo-teksta/"
-to = "/generator-seo-teksta"
-status = 302
 force = true
 
 [[redirects]]
@@ -280,21 +148,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/nejroset-dlya-napisaniya-postov/"
-to = "/nejroset-dlya-napisaniya-postov"
-status = 302
-force = true
-
-[[redirects]]
 from = "/nejroset-dlya-napisaniya-postov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/nejroset-dlya-postov-v-telegram/"
-to = "/nejroset-dlya-postov-v-telegram"
-status = 302
 force = true
 
 [[redirects]]
@@ -304,21 +160,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/nejroset-dlya-postov-v-instagram/"
-to = "/nejroset-dlya-postov-v-instagram"
-status = 302
-force = true
-
-[[redirects]]
 from = "/nejroset-dlya-postov-v-instagram"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/nejroset-dlya-postov-vk/"
-to = "/nejroset-dlya-postov-vk"
-status = 302
 force = true
 
 [[redirects]]
@@ -328,21 +172,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/nejroset-dlya-kontent-plana/"
-to = "/nejroset-dlya-kontent-plana"
-status = 302
-force = true
-
-[[redirects]]
 from = "/nejroset-dlya-kontent-plana"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/nejroset-dlya-napisaniya-statej/"
-to = "/nejroset-dlya-napisaniya-statej"
-status = 302
 force = true
 
 [[redirects]]
@@ -352,21 +184,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/generator-kontenta-dlya-socialnyh-setej/"
-to = "/generator-kontenta-dlya-socialnyh-setej"
-status = 302
-force = true
-
-[[redirects]]
 from = "/generator-kontenta-dlya-socialnyh-setej"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/sinonimaizer-teksta/"
-to = "/sinonimaizer-teksta"
-status = 302
 force = true
 
 [[redirects]]
@@ -376,21 +196,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/gencont-teksti-dlya-sotsialnikh-media/"
-to = "/gencont-teksti-dlya-sotsialnikh-media"
-status = 302
-force = true
-
-[[redirects]]
 from = "/gencont-teksti-dlya-sotsialnikh-media"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/razrabotka-telegram-bota/"
-to = "/razrabotka-telegram-bota"
-status = 302
 force = true
 
 [[redirects]]
@@ -400,21 +208,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/bots-uproshchenie-vibora/"
-to = "/bots-uproshchenie-vibora"
-status = 302
-force = true
-
-[[redirects]]
 from = "/bots-uproshchenie-vibora"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/bots-somele/"
-to = "/bots-somele"
-status = 302
 force = true
 
 [[redirects]]
@@ -424,21 +220,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/bots-assistent-obsluzhivaniya/"
-to = "/bots-assistent-obsluzhivaniya"
-status = 302
-force = true
-
-[[redirects]]
 from = "/bots-assistent-obsluzhivaniya"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/projects/"
-to = "/projects"
-status = 302
 force = true
 
 [[redirects]]
@@ -448,21 +232,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/project-stolplit/"
-to = "/project-stolplit"
-status = 302
-force = true
-
-[[redirects]]
 from = "/project-stolplit"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/project-stolplit2/"
-to = "/project-stolplit2"
-status = 302
 force = true
 
 [[redirects]]
@@ -472,21 +244,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/project-mfc/"
-to = "/project-mfc"
-status = 302
-force = true
-
-[[redirects]]
 from = "/project-mfc"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/project-vseinstrumenti-ru/"
-to = "/project-vseinstrumenti-ru"
-status = 302
 force = true
 
 [[redirects]]
@@ -496,21 +256,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/project-marnit-krasnodar/"
-to = "/project-marnit-krasnodar"
-status = 302
-force = true
-
-[[redirects]]
 from = "/project-marnit-krasnodar"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/project-lenta/"
-to = "/project-lenta"
-status = 302
 force = true
 
 [[redirects]]
@@ -520,21 +268,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/project-lenta-spb/"
-to = "/project-lenta-spb"
-status = 302
-force = true
-
-[[redirects]]
 from = "/project-lenta-spb"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/articles/"
-to = "/articles"
-status = 302
 force = true
 
 [[redirects]]
@@ -544,21 +280,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/article-search-image/"
-to = "/article-search-image"
-status = 302
-force = true
-
-[[redirects]]
 from = "/article-search-image"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/news/"
-to = "/news"
-status = 302
 force = true
 
 [[redirects]]
@@ -568,21 +292,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/article-image-index/"
-to = "/article-image-index"
-status = 302
-force = true
-
-[[redirects]]
 from = "/article-image-index"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/blog/"
-to = "/blog"
-status = 302
 force = true
 
 [[redirects]]
@@ -592,21 +304,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-fotopoisk-uvelichivaet-konversiyu/"
-to = "/blog-fotopoisk-uvelichivaet-konversiyu"
-status = 302
-force = true
-
-[[redirects]]
 from = "/blog-fotopoisk-uvelichivaet-konversiyu"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/blog-indeks-dlya-poiska-izobrazhenii/"
-to = "/blog-indeks-dlya-poiska-izobrazhenii"
-status = 302
 force = true
 
 [[redirects]]
@@ -616,21 +316,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-neyroseti-chto-eto-i-kak-rabotaet/"
-to = "/blog-neyroseti-chto-eto-i-kak-rabotaet"
-status = 302
-force = true
-
-[[redirects]]
 from = "/blog-neyroseti-chto-eto-i-kak-rabotaet"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/blog-nejroset-dlya-sozdaniya-teksta/"
-to = "/blog-nejroset-dlya-sozdaniya-teksta"
-status = 302
 force = true
 
 [[redirects]]
@@ -640,21 +328,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-ispolzovanie-nejrosetej-v-biznese/"
-to = "/blog-ispolzovanie-nejrosetej-v-biznese"
-status = 302
-force = true
-
-[[redirects]]
 from = "/blog-ispolzovanie-nejrosetej-v-biznese"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/blog-nejroset-dlya-kartochek-marketplejsov/"
-to = "/blog-nejroset-dlya-kartochek-marketplejsov"
-status = 302
 force = true
 
 [[redirects]]
@@ -664,21 +340,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/blog-kak-living-spaces-uvelichil-srednii-chek/"
-to = "/blog-kak-living-spaces-uvelichil-srednii-chek"
-status = 302
-force = true
-
-[[redirects]]
 from = "/blog-kak-living-spaces-uvelichil-srednii-chek"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/price/"
-to = "/price"
-status = 302
 force = true
 
 [[redirects]]
@@ -688,21 +352,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/about-us/"
-to = "/about-us"
-status = 302
-force = true
-
-[[redirects]]
 from = "/about-us"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/contacts/"
-to = "/contacts"
-status = 302
 force = true
 
 [[redirects]]
@@ -712,21 +364,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/generator-teksta/"
-to = "/generator-teksta"
-status = 302
-force = true
-
-[[redirects]]
 from = "/generator-teksta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/marketing/"
-to = "/marketing"
-status = 302
 force = true
 
 [[redirects]]
@@ -736,21 +376,9 @@ status = 200
 force = true
 
 [[redirects]]
-from = "/new-bots/"
-to = "/new-bots"
-status = 302
-force = true
-
-[[redirects]]
 from = "/new-bots"
 to = "/.netlify/builders/pages-builder2"
 status = 200
-force = true
-
-[[redirects]]
-from = "/new-products/"
-to = "/new-products"
-status = 302
 force = true
 
 [[redirects]]
