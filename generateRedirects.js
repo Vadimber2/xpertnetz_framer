@@ -160,8 +160,8 @@ const downloadAndChangeUrlInSitemap = async () => {
         fs.writeFileSync(filepath, modifiedData);
 
         console.log('Successfully downloaded and updated sitemap.xml');
-        await generateRedirects(response.data);
-        await sendDataToYandex(response.data);
+        //await generateRedirects(response.data);
+        //await sendDataToYandex(response.data);
         await createRSSfromSitemap(response.data);
 
     } catch (error) {
