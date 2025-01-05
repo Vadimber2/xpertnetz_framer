@@ -25,13 +25,13 @@ force = true
 from = "/legal/*"
 to = "/legal/*"
 status = 200
-force = true
+#force = true
 
 [[redirects]]
-from = "/ststic/*"
+from = "/static/*"
 to = "/static/*"
 status = 200
-force = true
+#force = true
 
 [[redirects]]
 from = "/sitemap.xml"
