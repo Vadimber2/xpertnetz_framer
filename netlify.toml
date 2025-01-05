@@ -11,11 +11,10 @@ CACHE_MAX_AGE = "10800" # 3 часа
 
 # 1. Правило для удаления конечных слешей
 [[redirects]]
-from = "/(.+)/$"
-to = "/$1"
+from = "/*/"
+to = "/:splat"
 status = 301
 force = true
-regex = true
 
 [[redirects]]
 from = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
