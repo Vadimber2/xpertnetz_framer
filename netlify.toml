@@ -10,373 +10,379 @@ functions = "netlify/functions"
   CACHE_MAX_AGE = "10800"
 
 [[redirects]]
-from = "^/visualniy-oformlenie-vitrini$"
+from = "/"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/visualniy-razrabotka-reklami$"
+from = "/visualniy-oformlenie-vitrini"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/visualniy-oformlenie-i-dizain-magazina$"
+from = "/visualniy-razrabotka-reklami"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/visualniy-naruzhnaya-reklama-tts$"
+from = "/visualniy-oformlenie-i-dizain-magazina"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/audio-radioreklama$"
+from = "/visualniy-naruzhnaya-reklama-tts"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/audio-podkasty-i-audio$"
+from = "/audio-radioreklama"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/audio-audio-brendirovannost$"
+from = "/audio-podkasty-i-audio"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/audio-audio-dlya-socialnih-media$"
+from = "/audio-audio-brendirovannost"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/aroma-v-roznichnih-magazinah$"
+from = "/audio-audio-dlya-socialnih-media"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/aroma-ekspoziciy$"
+from = "/aroma-v-roznichnih-magazinah"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/aroma-v-restoranah$"
+from = "/aroma-ekspoziciy"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/aroma-v-magazinax-odezdi$"
+from = "/aroma-v-restoranah"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/picture-poisk-po-kartinkam_old$"
+from = "/aroma-v-magazinax-odezdi"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/picsearch-pokupki-v-messendzherakh$"
+from = "/picture-poisk-po-kartinkam_old"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/picsearch-beskonechnaya-polka$"
+from = "/picsearch-pokupki-v-messendzherakh"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/picsearch-demonstratsiya-skhozhikh-tovarov$"
+from = "/picsearch-beskonechnaya-polka"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/picsearch-tsenovoi-analiz$"
+from = "/picsearch-demonstratsiya-skhozhikh-tovarov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/napolnenie-sajta-kontentom$"
+from = "/picsearch-tsenovoi-analiz"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-opisaniya-tovarov$"
+from = "/napolnenie-sajta-kontentom"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-reklamnyh-tekstov$"
+from = "/generator-opisaniya-tovarov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-opisaniya-tovarov-dlya-vajldberriz$"
+from = "/generator-reklamnyh-tekstov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-seo-teksta$"
+from = "/generator-opisaniya-tovarov-dlya-vajldberriz"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-napisaniya-postov$"
+from = "/generator-seo-teksta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-postov-v-telegram$"
+from = "/nejroset-dlya-napisaniya-postov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-postov-v-instagram$"
+from = "/nejroset-dlya-postov-v-telegram"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-postov-vk$"
+from = "/nejroset-dlya-postov-v-instagram"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-kontent-plana$"
+from = "/nejroset-dlya-postov-vk"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/nejroset-dlya-napisaniya-statej$"
+from = "/nejroset-dlya-kontent-plana"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-kontenta-dlya-socialnyh-setej$"
+from = "/nejroset-dlya-napisaniya-statej"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/sinonimaizer-teksta$"
+from = "/generator-kontenta-dlya-socialnyh-setej"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/gencont-teksti-dlya-sotsialnikh-media$"
+from = "/sinonimaizer-teksta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/razrabotka-telegram-bota$"
+from = "/gencont-teksti-dlya-sotsialnikh-media"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/bots-uproshchenie-vibora$"
+from = "/razrabotka-telegram-bota"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/bots-somele$"
+from = "/bots-uproshchenie-vibora"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/bots-assistent-obsluzhivaniya$"
+from = "/bots-somele"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/projects$"
+from = "/bots-assistent-obsluzhivaniya"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-stolplit$"
+from = "/projects"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-stolplit2$"
+from = "/project-stolplit"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-mfc$"
+from = "/project-stolplit2"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-vseinstrumenti-ru$"
+from = "/project-mfc"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-marnit-krasnodar$"
+from = "/project-vseinstrumenti-ru"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-lenta$"
+from = "/project-marnit-krasnodar"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/project-lenta-spb$"
+from = "/project-lenta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/articles$"
+from = "/project-lenta-spb"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/article-search-image$"
+from = "/articles"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/news$"
+from = "/article-search-image"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/article-image-index$"
+from = "/news"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog$"
+from = "/article-image-index"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-fotopoisk-uvelichivaet-konversiyu$"
+from = "/blog"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-indeks-dlya-poiska-izobrazhenii$"
+from = "/blog-fotopoisk-uvelichivaet-konversiyu"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-neyroseti-chto-eto-i-kak-rabotaet$"
+from = "/blog-indeks-dlya-poiska-izobrazhenii"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-nejroset-dlya-sozdaniya-teksta$"
+from = "/blog-neyroseti-chto-eto-i-kak-rabotaet"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-ispolzovanie-nejrosetej-v-biznese$"
+from = "/blog-nejroset-dlya-sozdaniya-teksta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-nejroset-dlya-kartochek-marketplejsov$"
+from = "/blog-ispolzovanie-nejrosetej-v-biznese"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/blog-kak-living-spaces-uvelichil-srednii-chek$"
+from = "/blog-nejroset-dlya-kartochek-marketplejsov"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/price$"
+from = "/blog-kak-living-spaces-uvelichil-srednii-chek"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/about-us$"
+from = "/price"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/contacts$"
+from = "/about-us"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/generator-teksta$"
+from = "/contacts"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/marketing$"
+from = "/generator-teksta"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/new-bots$"
+from = "/marketing"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
 
 [[redirects]]
-from = "^/new-products$"
+from = "/new-bots"
+to = "/.netlify/builders/pages-builder2"
+status = 200
+force = true
+
+[[redirects]]
+from = "/new-products"
 to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
