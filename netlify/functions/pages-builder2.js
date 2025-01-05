@@ -30,13 +30,15 @@ const myHandler = async (event, context) => {
         console.log(`Запрос на путь: "${pathFramer}"`);
 
         // Валидация пути для безопасности
-        const validPathRegex = /^([\w\-\/]+(\.[\w]+)?(\?.*)?)$/;
-        if (!validPathRegex.test(pathFramer)) {
-            console.log(`Неверный путь запроса: "${pathFramer}"`);
-            return {
-                statusCode: 400,
-                body: `Неверный путь запроса: ${pathFramer}`,
-            };
+        if (pathFramer){
+            const validPathRegex = /^([\w\-\/]+(\.[\w]+)?(\?.*)?)$/;
+            if (!validPathRegex.test(pathFramer)) {
+                console.log(`Неверный путь запроса: "${pathFramer}"`);
+                return {
+                    statusCode: 400,
+                    body: `Неверный путь запроса: ${pathFramer}`,
+                };
+            }
         }
 
 
