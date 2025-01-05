@@ -17,11 +17,11 @@ status = 301
 force = true
 regex = true
 
-[[redirects]]
-from = "/:splat/"
-to = "/:splat"
-status = 301
-force = true
+#[[redirects]]
+#from = "/:splat/"
+#to = "/:splat"
+#status = 301
+#force = true
 
 [[redirects]]
 from = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
