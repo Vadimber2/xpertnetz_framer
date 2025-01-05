@@ -11,12 +11,6 @@ functions = "netlify/functions"
 
 
 [[redirects]]
-from = "/*/"
-to = "/:splat"
-status = 301
-force = true
-
-[[redirects]]
 from = "/"
 to = "/.netlify/builders/pages-builder2"
 status = 200
