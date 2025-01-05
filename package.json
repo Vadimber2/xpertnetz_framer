@@ -15,5 +15,8 @@
     "tomlify-j0.4": "^3.0.0",
     "cheerio": "^1.0.0-rc.10",
     "feed": "^4.2.2"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^3.0.0"
   }
 }
