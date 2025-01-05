@@ -11,6 +11,7 @@ const { Feed } = require('feed');
 
 const mainDomainName = "xpertnet.cx";
 const mainFramerDomainName = "tan-website-724184.framer.app";
+const netlifyBuilderFunction = "/.netlify/builders/pages-builder2"
 
 const yandexIndexNowKey = "hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP";
 
@@ -161,8 +162,8 @@ const downloadAndChangeUrlInSitemap = async () => {
 
         console.log('Successfully downloaded and updated sitemap.xml');
         //await generateRedirects(response.data);
-        await sendDataToYandex(response.data);
-        await createRSSfromSitemap(response.data);
+        //await sendDataToYandex(response.data);
+        //await createRSSfromSitemap(response.data);
 
     } catch (error) {
         console.error('Failed to download and update sitemap:', error);
@@ -191,7 +192,7 @@ async function generateRedirects(data) {
                 //console.log(path);
                 parsedToml.redirects.push({
                     from: path,
-                    to: url,
+                    to: netlifyBuilderFunction,//url,
                     status: 200,
                     force: true
                 });

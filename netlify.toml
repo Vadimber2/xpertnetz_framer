@@ -10,11 +10,11 @@ functions = "netlify/functions"
   CACHE_MAX_AGE = "10800"
 
 
-#[[redirects]]
-#from = "/*/"
-#to = "/:splat"
-#status = 301
-#force = true
+[[redirects]]
+from = "/*/"
+to = "/:splat"
+status = 301
+force = true
 
 [[redirects]]
 from = "/"
