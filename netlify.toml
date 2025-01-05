@@ -2,13 +2,26 @@
 publish = "public"
 functions = "netlify/functions"
 
-  [build.environment]
-  FRAMER_BASE_URL = "https://tan-website-724184.framer.app"
-  SITE_BASE_URL = "https://xpertnet.cx"
-  BASE_URL = "xpertnet.cx"
-  YANDEX_METRIKA_ID = "93795198"
-  CACHE_MAX_AGE = "10800"
+[build.environment]
+FRAMER_BASE_URL = "https://tan-website-724184.framer.app"
+SITE_BASE_URL = "https://xpertnet.cx"
+BASE_URL = "xpertnet.cx"
+YANDEX_METRIKA_ID = "93795198"
+CACHE_MAX_AGE = "10800"
 
+[[redirects]]
+from = "/.netlify/*"
+to = "/.netlify/:splat"
+status = 200
+force = true
+
+# 3. Общее правило удаления завершающего слеша (исключая /.netlify/*)
+[[redirects]]
+from = "/(?!\\.netlify/)(.*)/$"
+to = "/$1"
+status = 301
+force = false
+regex = true
 
 [[redirects]]
 from = "/"
@@ -405,3 +418,4 @@ from = "/robots.txt"
 to = "/robots.txt"
 status = 200
 force = true
+
