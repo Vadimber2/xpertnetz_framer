@@ -51,8 +51,13 @@ const myHandler = async (event, context) => {
             console.log('Фоновый запрос для обновления кеша.');
 
             // Формирование URL к Framer
-            const framerBase = process.env.FRAMER_BASE_URL || "https://dandy-topic-603313.framer.app";
-            let framerUrl = `${framerBase}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
+            const framerBase = process.env.FRAMER_BASE_URL || "https://tan-website-724184.framer.app";
+            //let framerUrl = `${framerBase}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
+            const url = new URL(pathFramer, framerBase);
+            // Удаление последнего слеша из pathname, если он есть
+            url.pathname = url.pathname.replace(/\/$/, '');
+            let framerUrl = url.toString();
+
             console.log(`Проксируем запрос к URL: ${framerUrl}`);
 
             // Извлечение и добавление параметров запроса, если они есть
@@ -110,10 +115,14 @@ const myHandler = async (event, context) => {
         console.log('Первичный запрос. Генерируем и возвращаем контент.');
 
         // Формирование URL к Framer
-        const framerBasePrimary = process.env.FRAMER_BASE_URL || "https://dandy-topic-603313.framer.app";
-        let framerUrlPrimary = `${framerBasePrimary}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
-        console.log(`Проксируем запрос к URL: ${framerUrlPrimary}`);
+        const framerBasePrimary = process.env.FRAMER_BASE_URL || "https://tan-website-724184.framer.app";
+        //let framerUrlPrimary = `${framerBasePrimary}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
+        const url = new URL(pathFramer, framerBasePrimary);
+        // Удаление последнего слеша из pathname, если он есть
+        url.pathname = url.pathname.replace(/\/$/, '');
+        let framerUrlPrimary = url.toString();
 
+        console.log(`Проксируем запрос к URL: ${framerUrlPrimary}`);
         // Извлечение и добавление параметров запроса, если они есть
         const { queryStringParameters: queryParamsPrimary, rawQuery: rawQueryPrimary } = event;
         if (rawQueryPrimary) { // Проверяем, есть ли сырая строка запроса
