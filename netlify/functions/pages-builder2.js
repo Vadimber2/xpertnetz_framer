@@ -16,10 +16,21 @@ const myHandler = async (event, context) => {
             pathFramer = pathFramer.slice(1);
         }
 
+        // console.log(`Запрос на путь: "${pathFramer}"`);
+        //
+        // // Валидация пути для безопасности
+        // const validPathRegex = /^([\w\-\/]*)$/;
+        // if (!validPathRegex.test(pathFramer)) {
+        //     console.log(`Неверный путь запроса: "${pathFramer}"`);
+        //     return {
+        //         statusCode: 400,
+        //         body: `Неверный путь запроса: ${pathFramer}`,
+        //     };
+        // }
         console.log(`Запрос на путь: "${pathFramer}"`);
 
         // Валидация пути для безопасности
-        const validPathRegex = /^([\w\-\/]*)$/;
+        const validPathRegex = /^([\w\-\/]+(\.[\w]+)?(\?.*)?)$/;
         if (!validPathRegex.test(pathFramer)) {
             console.log(`Неверный путь запроса: "${pathFramer}"`);
             return {
@@ -27,6 +38,7 @@ const myHandler = async (event, context) => {
                 body: `Неверный путь запроса: ${pathFramer}`,
             };
         }
+
 
         // 2. Получение значения заголовка x-nf-builder-cache
         const cacheHeader = event.headers['x-nf-builder-cache'] || event.headers['X-NF-BUILDER-CACHE'];
