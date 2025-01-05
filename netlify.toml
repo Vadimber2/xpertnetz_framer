@@ -9,6 +9,13 @@ functions = "netlify/functions"
   YANDEX_METRIKA_ID = "93795198"
   CACHE_MAX_AGE = "10800"
 
+
+#[[redirects]]
+#from = "/*/"
+#to = "/:splat"
+#status = 301
+#force = true
+
 [[redirects]]
 from = "/"
 to = "/.netlify/builders/pages-builder2"
