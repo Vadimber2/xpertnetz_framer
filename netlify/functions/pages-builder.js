@@ -4,7 +4,7 @@
 const { builder } = require('@netlify/functions');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { minify } = require('html-minifier');
+//const { minify } = require('html-minifier');
 
 const myHandler = async (event, context) => {
     try {
