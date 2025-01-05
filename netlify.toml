@@ -53,6 +53,6 @@ force = true
 
 [[redirects]]
 from = "/*"
-to = "/.netlify/builders/pages-builder"
+to = "/.netlify/builders/pages-builder2"
 status = 200
 force = true
