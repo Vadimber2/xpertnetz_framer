@@ -1,0 +1,2 @@
+# Redirect URLs with trailing slash to without trailing slash using regex
+/^(.+)\/$/ /$1 301!

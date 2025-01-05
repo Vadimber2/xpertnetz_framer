@@ -15,11 +15,11 @@ CACHE_MAX_AGE = "10800" # 3 часа
 #status = 301
 #force = true
 
-#[[redirects]]
-#from = "^(.*)/$"
-#to = "$1"
-#status = 301
-#force = true
+[[redirects]]
+from = "/_redirects"
+to = "/_redirects"
+status = 200
+force = true
 #regex = true
 
 [[redirects]]
