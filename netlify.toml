@@ -10,11 +10,18 @@ YANDEX_METRIKA_ID = "93795198"
 CACHE_MAX_AGE = "10800" # 3 часа
 
 # 1. Правило для удаления конечных слешей
-#[[redirects]]
-#from = "/*/"
-#to = "/:splat"
-#status = 301
-#force = true
+[[redirects]]
+from = "^/(.+)/$"
+to = "/$1"
+status = 301
+force = true
+regex = true
+
+[[redirects]]
+from = "/:splat/"
+to = "/:splat"
+status = 301
+force = true
 
 [[redirects]]
 from = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"

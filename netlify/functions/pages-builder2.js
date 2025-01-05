@@ -267,10 +267,11 @@ ${JSON.stringify(structuredData)}
         //const newCanonicalURL = `${process.env.SITE_BASE_URL}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
 
         const siteBaseURL = process.env.SITE_BASE_URL || "https://xpertnet.cx";
+        
         const urlCanonical = new URL(pathFramer, siteBaseURL);
         // Удаление конечного слеша из pathname, если он есть
         urlCanonical.pathname = urlCanonical.pathname.replace(/\/$/, '');
-        const newCanonicalURL = url.toString();
+        const newCanonicalURL = urlCanonical.toString();
 
         console.log(newCanonicalURL); // Например: https://xpertnet.cx/news
 
