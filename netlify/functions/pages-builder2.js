@@ -11,16 +11,16 @@ const myHandler = async (event, context) => {
         // 1. Извлечение пути из параметров
         let pathFramer = event.path || "/";
 
-        const cleanPath = pathFramer.endsWith('/') && pathFramer !== '/' ? pathFramer.slice(0, -1) : pathFramer;
-        if (cleanPath !== pathFramer) {
-            return {
-                statusCode: 301, // Редирект с добавлением пути без слэша
-                headers: {
-                    "Location": cleanPath,
-                    "Content-Type": "text/html; charset=utf-8",
-                },
-            };
-        }
+        // const cleanPath = pathFramer.endsWith('/') && pathFramer !== '/' ? pathFramer.slice(0, -1) : pathFramer;
+        // if (cleanPath !== pathFramer) {
+        //     return {
+        //         statusCode: 301, // Редирект с добавлением пути без слэша
+        //         headers: {
+        //             "Location": cleanPath,
+        //             "Content-Type": "text/html; charset=utf-8",
+        //         },
+        //     };
+        // }
 
         // Удаление ведущего слеша
         if (pathFramer.startsWith('/')) {
