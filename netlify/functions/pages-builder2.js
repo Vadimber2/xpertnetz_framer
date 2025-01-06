@@ -57,18 +57,18 @@ const myHandler = async (event, context) => {
         const cacheHeader = event.headers['x-nf-builder-cache'] || event.headers['X-NF-BUILDER-CACHE'];
         console.log(`Значение заголовка x-nf-builder-cache: ${cacheHeader}`);
 
+        const ttl = parseInt(process.env.CACHE_MAX_AGE) || 10800; // 3 часа
         if (cacheHeader === 'revalidate') {
             // 3. Обработка фонового запроса для обновления кеша
             console.log('Фоновый запрос для обновления кеша.');
 
             // Формирование URL к Framer
-            const framerBase = process.env.FRAMER_BASE_URL || "https://tan-website-724184.framer.app";
+            const framerBase = process.env.FRAMER_BASE_URL || "https://dandy-topic-603313.framer.app";
             //let framerUrl = `${framerBase}/${pathFramer}`.replace(/([^:])\/{2,}/g, "$1/");
             const url = new URL(pathFramer, framerBase);
             // Удаление последнего слеша из pathname, если он есть
             url.pathname = url.pathname.replace(/\/$/, '');
             let framerUrl = url.toString();
-
             console.log(`Проксируем запрос к URL: ${framerUrl}`);
 
             // Извлечение и добавление параметров запроса, если они есть
@@ -84,42 +84,41 @@ const myHandler = async (event, context) => {
             }
             console.log(`Проксируем запрос к URL с параметрами: ${framerUrl}`);
 
-            // Запрос к Framer с использованием axios
-            let response;
             try {
-                response = await axios.get(framerUrl, { maxRedirects: 5, validateStatus: null });
+                const headResponse = await axios.head(framerUrl);
+                const framerETag = headResponse.headers.etag;
+                const framerLastModified = headResponse.headers['last-modified'];
+
+                const cachedETag = event.headers['if-none-match'];
+                const cachedLastModified = event.headers['if-modified-since'];
+
+                console.log("=== Проверка кеша и заголовков ===");
+                console.log(`Framer ETag: ${framerETag || "нет данных"}`);
+                console.log(`Framer Last-Modified: ${framerLastModified || "нет данных"}`);
+                console.log(`Cached ETag: ${cachedETag || "нет данных"}`);
+                console.log(`Cached Last-Modified: ${cachedLastModified || "нет данных"}`);
+                console.log("===================================");
+
+                if (framerETag && cachedETag && framerETag === cachedETag) {
+                    console.log("Контент не изменился, используем закешированную версию.");
+                    return {
+                        statusCode: 304,
+                        headers: { "ETag": framerETag, "Last-Modified": framerLastModified },
+                        ttl: ttl
+                    };
+                }
+
+                if (framerLastModified && cachedLastModified && new Date(framerLastModified) <= new Date(cachedLastModified)) {
+                    console.log("Контент не изменился, используем закешированную версию.");
+                    return {
+                        statusCode: 304,
+                        headers: { "ETag": framerETag, "Last-Modified": framerLastModified },
+                        ttl: ttl
+                    };
+                }
             } catch (error) {
-                console.error(`Не удалось выполнить запрос к Framer: ${error.message}`);
-                return {
-                    statusCode: 500,
-                    body: `Внутренняя ошибка сервера: ${error.message}`,
-                };
+                console.warn("Не удалось проверить обновления, загружаем заново:", error.message);
             }
-
-            // Обработка статусов ответа
-            if (response.status === 404) {
-                console.log(`Страница не найдена на Framer: ${framerUrl}`);
-                return {
-                    statusCode: 302, // Используйте 301 для постоянного редиректа, если это необходимо
-                    headers: {
-                        "Location": `${process.env.SITE_BASE_URL}/404.html`,
-                        "Content-Type": "text/html; charset=utf-8", // Опционально, можно добавить для поддержки некоторых браузеров
-                    },
-                };
-            } else if (response.status >= 400) {
-                console.log(`Ошибка при запросе к Framer: ${response.status} ${response.statusText}`);
-                return {
-                    statusCode: response.status,
-                    body: `Ошибка при загрузке страницы: ${response.statusText}`,
-                };
-            }
-
-            // Если всё прошло успешно, возвращаем статус 200 без тела, так как это фоновый запрос
-            return {
-                statusCode: 200,
-                body: '',
-                ttl: 3600, // Пример: кешировать 1 час
-            };
         }
 
         // Если запрос не является фоновым, обрабатываем его как первичный
@@ -429,7 +428,7 @@ ${JSON.stringify(structuredData)}
 
 
         // 3. Добавление TTL для кеширования
-        const ttl = parseInt(process.env.CACHE_MAX_AGE) || 10800; // 3 часа
+        //const ttl = parseInt(process.env.CACHE_MAX_AGE) || 10800; // 3 часа
         console.log(`Устанавливаем TTL: ${ttl} секунд`);
 
         const headers = {
@@ -472,6 +471,24 @@ ${JSON.stringify(structuredData)}
                 headers[header] = responseHeaders[header];
             }
         }
+
+        // Явно логируем полученные `ETag` и `Last-Modified`
+        const cachedETag = responseHeaders['etag'] || undefined;
+        const cachedLastModified = responseHeaders['last-modified'] || undefined;
+
+        console.log("=== Устанавливаем заголовки кеша ===");
+        console.log(`Cached ETag: ${cachedETag}`);
+        console.log(`Cached Last-Modified: ${cachedLastModified}`);
+        console.log("=====================================");
+
+        // Добавляем `ETag` и `Last-Modified` в заголовки ответа
+        headers["ETag"] = cachedETag !== undefined ? cachedETag : undefined;
+        headers["Last-Modified"] = cachedLastModified !== undefined ? cachedLastModified : undefined;
+
+        console.log("=== Значение в headers ===");
+        console.log(`Cached ETag: ${headers["ETag"]}`);
+        console.log(`Cached Last-Modified: ${headers["Last-Modified"]}`);
+        console.log("=====================================");
 
         const finalHtml = $.html();
         // 5. Возвращение ответа с TTL
