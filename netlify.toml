@@ -55,7 +55,11 @@ force = true
 from = "/picture-poisk-po-kartinkam_old"
 to = "/picture-poisk-po-kartinkam"
 status = 301
-#force = true
+
+[[redirects]]
+from = "/product"
+to = "/new-products"
+status = 301
 
 [[redirects]]
 from = "/*"
