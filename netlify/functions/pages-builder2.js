@@ -436,45 +436,45 @@ ${JSON.stringify(structuredData)}
             "Permissions-Policy": "browsing-topics=()",
         };
 
-        // 6. Добавление Заголовков из Ответа Axios
-        const allowedHeaders = [
-            'cache-control',
-            'expires',
-            'pragma',
-            'last-modified',
-            'content-language',
-            'content-type',
-            'etag',
-            'x-powered-by',
-            'vary',
-            'access-control-allow-origin',
-            'access-control-allow-credentials',
-            'access-control-allow-headers',
-            'access-control-allow-methods',
-            'access-control-max-age',
-            'strict-transport-security',
-            'content-security-policy',
-            'x-content-type-options',
-            'x-frame-options',
-            'referrer-policy',
-            'feature-policy',
-            // Добавьте другие заголовки, которые вы хотите перенаправить
-        ];
-
-        const responseHeaders = {};
-        for (const [key, value] of Object.entries(responsePrimary.headers)) {
-            responseHeaders[key.toLowerCase()] = value;
-        }
-
-        for (const header of allowedHeaders) {
-            if (responseHeaders[header]) {
-                headers[header] = responseHeaders[header];
-            }
-        }
+        // // 6. Добавление Заголовков из Ответа Axios
+        // const allowedHeaders = [
+        //     'cache-control',
+        //     'expires',
+        //     'pragma',
+        //     'last-modified',
+        //     'content-language',
+        //     'content-type',
+        //     'etag',
+        //     'x-powered-by',
+        //     'vary',
+        //     'access-control-allow-origin',
+        //     'access-control-allow-credentials',
+        //     'access-control-allow-headers',
+        //     'access-control-allow-methods',
+        //     'access-control-max-age',
+        //     'strict-transport-security',
+        //     'content-security-policy',
+        //     'x-content-type-options',
+        //     'x-frame-options',
+        //     'referrer-policy',
+        //     'feature-policy',
+        //     // Добавьте другие заголовки, которые вы хотите перенаправить
+        // ];
+        //
+        // const responseHeaders = {};
+        // for (const [key, value] of Object.entries(responsePrimary.headers)) {
+        //     responseHeaders[key.toLowerCase()] = value;
+        // }
+        //
+        // for (const header of allowedHeaders) {
+        //     if (responseHeaders[header]) {
+        //         headers[header] = responseHeaders[header];
+        //     }
+        // }
 
         // Явно логируем полученные `ETag` и `Last-Modified`
-        const cachedETag = responseHeaders['etag'] || undefined;
-        const cachedLastModified = responseHeaders['last-modified'] || undefined;
+        const cachedETag = responsePrimary['etag'] || undefined;
+        const cachedLastModified = responsePrimary['last-modified'] || undefined;
 
         console.log("=== Устанавливаем заголовки кеша ===");
         console.log(`Cached ETag: ${cachedETag}`);
