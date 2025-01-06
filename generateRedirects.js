@@ -162,8 +162,8 @@ const downloadAndChangeUrlInSitemap = async () => {
 
         console.log('Successfully downloaded and updated sitemap.xml');
         //await generateRedirects(response.data);
-        //await sendDataToYandex(response.data);
-        //await createRSSfromSitemap(response.data);
+        await sendDataToYandex(response.data);
+        await createRSSfromSitemap(response.data);
 
     } catch (error) {
         console.error('Failed to download and update sitemap:', error);
@@ -190,12 +190,29 @@ async function generateRedirects(data) {
                 //  return;
                 //}
                 //console.log(path);
+                // if (path !== "/") {
+                //     parsedToml.redirects.push({
+                //         from: path+"/",
+                //         to: path,
+                //         status: 302,
+                //         force: true
+                //     });
+                // }
                 parsedToml.redirects.push({
                     from: path,
                     to: netlifyBuilderFunction,//url,
                     status: 200,
                     force: true
                 });
+
+                // if (path !== "/"){
+                //     parsedToml.redirects.push({
+                //     from: "^"+path+"$",
+                //     to: netlifyBuilderFunction,//url,
+                //     status: 200,
+                //     force: true
+                //     });
+                // }
             });
 
             // Add redirect for 'public/static' to itself
