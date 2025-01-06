@@ -52,6 +52,12 @@ status = 200
 force = true
 
 [[redirects]]
+from = "/picture-poisk-po-kartinkam_old"
+to = "/picture-poisk-po-kartinkam"
+status = 301
+#force = true
+
+[[redirects]]
 from = "/*"
 to = "/.netlify/builders/pages-builder2"
 status = 200
