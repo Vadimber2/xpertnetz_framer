@@ -62,6 +62,13 @@ to = "/new-products"
 status = 301
 
 [[redirects]]
+from = "/generation-content"
+to = "/generator-teksta"
+status = 301
+
+
+
+[[redirects]]
 from = "/*"
 to = "/.netlify/builders/pages-builder2"
 status = 200
