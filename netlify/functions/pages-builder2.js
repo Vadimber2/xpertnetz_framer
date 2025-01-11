@@ -182,6 +182,14 @@ const myHandler = async (event, context) => {
         // Парсинг HTML с помощью Cheerio
         const $ = cheerio.load(pageHtmlPrimary);
 
+        $('script').each((i, el) => {
+            const src = $(el).attr('src') || '';
+            if (src.includes('events.framer.com/script')) {
+                console.log('Отключаем скрипт Framer events.framer.com/script');
+                $(el).remove();
+            }
+        });
+
         // Скрытие баннера Framer вместо его удаления
         const framerBadge = $('#__framer-badge-container');
         if (framerBadge.length) {
