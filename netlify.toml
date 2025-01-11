@@ -16,6 +16,12 @@ status = 200
 force = true
 
 [[redirects]]
+from = "/yandex_a29082b5b783b0ec.html"
+to = "/yandex_a29082b5b783b0ec.html"
+status = 200
+force = true
+
+[[redirects]]
 from = "/404.html"
 to = "/404.html"
 status = 200
