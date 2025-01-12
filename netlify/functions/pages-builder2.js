@@ -162,7 +162,7 @@ const myHandler = async (event, context) => {
         if (responsePrimary.status === 404) {
             console.log(`Страница не найдена на Framer: ${framerUrlPrimary}`);
             return {
-                statusCode: 302, // Используйте 301 для постоянного редиректа, если это необходимо
+                statusCode: 301, // Используйте 301 для постоянного редиректа, если это необходимо
                 headers: {
                     "Location": `${process.env.SITE_BASE_URL}/404.html`,
                     "Content-Type": "text/html; charset=utf-8", // Опционально, можно добавить для поддержки некоторых браузеров
