@@ -68,6 +68,11 @@ to = "/new-products"
 status = 301
 
 [[redirects]]
+from = "/bots"
+to = "/new-bots"
+status = 301
+
+[[redirects]]
 from = "/generation-content"
 to = "/generator-teksta"
 status = 301
