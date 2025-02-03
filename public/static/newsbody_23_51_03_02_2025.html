@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*background: #f6f6f6;*/
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Исходная сетка: по умолчанию 3 колонки (для больших экранов ≥ 1200px) */
+        body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-items: center;
+        }
+
+        /* Стили для каждой новости */
+        .news-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 350px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Дата */
+        .news-item p:first-child {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Заголовок и ссылки */
+        .news-item h2 {
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .news-item h2 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-item h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Картинка */
+        .news-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Текст */
+        .news-item p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+            margin: 0 0 15px;
+        }
+
+        .news-item p strong {
+            font-weight: 600;
+        }
+
+        /* Адаптивность */
+        /* Когда экран меньше 1190px, но больше или равен 810px - 2 колонки */
+        @media (max-width:1190px) {
+            body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Когда экран меньше 810px - 1 колонка */
+        @media (max-width:810px) {
+            body {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        /* Когда экран меньше 375px - чуть менее плотная верстка */
+        @media (max-width:375px) {
+            body {
+                padding: 10px;
+            }
+            .news-item {
+                padding: 10px;
+            }
+            .news-item h2 {
+                font-size: 18px;
+            }
+            .news-item p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/878158/" target="_blank">США опередили Китай в разработке лучшего AI</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/71c/2c4/1fd/71c2c41fd4c461a6996e176e9f85cdf7.png" alt="США опередили Китай в разработке лучшего AI">
+        <p>Уступите место, DeepSeek. В городе появился новый чемпион по искусственному интеллекту — и он американец. В четверг Ai2, некоммерческий исследовательский институт искусственного интеллекта из Сиэтла, выпустил модель, которая, по его утверждению, превосходит DeepSeek V3, одну из ведущих систем китайской компании DeepSeek.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #AI #Сиэтл</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/878138/" target="_blank">SoftBank Планирует Инвестировать до $25 млрд в OpenAI</a></h2>
+        <img src="https://habrastorage.org/r/w390/getpro/habr/upload_files/deb/d93/3f7/debd933f7aae3e9b7bd37aec9dfe23f7.jpg" alt="SoftBank Планирует Инвестировать до $25 млрд в OpenAI">
+        <p>SoftBank ведет переговоры об инвестировании до 25 миллиардов долларов в OpenAI, что потенциально может сравниться с Microsoft в качестве крупнейшего инвестора в эту компанию, занимающуюся разработкой искусственного интеллекта. Источники сообщают, что SoftBank планирует инвестировать от $15 до $25 млрд напрямую в OpenAI, в дополнение к более чем $15 млрд, уже выделенным на их совместный проект Stargate. Это может довести общие инвестиции SoftBank до $40 млрд. Для основателя SoftBank Масаеси Сона это станет одной из его крупнейших сделок на сегодняшний день, после инвестиций компании в OpenAI в размере $2 млрд в прошлом году.</p>
+        <p><strong>Хештеги:</strong> #SoftBank #OpenAI #Инвестиции</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/878134/" target="_blank">Анонс Llama 4 и стратегия Meta в AI на 2025 год</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/4d6/a4a/9ad/4d6a4a9ad6f420fa09d6f66838b75919.png" alt="Анонс Llama 4 и стратегия Meta в AI на 2025 год">
+        <p>Генеральный директор Meta Марк Цукерберг в своем последнем квартальном отчете поделился мыслями о стратегии компании в области искусственного интеллекта на 2025 год, уделив особое внимание новой языковой модели Llama 4 и расширению возможностей помощника Meta AI.</p>
+        <p><strong>Хештеги:</strong> #ИскусственныйИнтеллект #Meta #Llama4</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/companies/bothub/news/878128/" target="_blank">85% пользователей мобильных устройств ChatGPT — мужчины</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/53a/ddf/aed/53addfaed39ad5a4683aa8992420251f.png" alt="85% пользователей мобильных устройств ChatGPT — мужчины">
+        <p>По данным аналитической компании Appfigures, во главе с ChatGPT от OpenAI общие расходы на приложения AI в 2024 году подскочили до 1,42 млрд долларов. Это на 274% больше, чем в 2023 году (приложение было запущено в мае того года). Среди десятков тысяч конкурирующих приложений — некоторые из которых лицензируют собственную технологию OpenAI — ChatGPT настолько доминирует, что постоянно зарабатывает больше, чем совокупный доход других ведущих приложений-помощников AI.</p>
+        <p><strong>Хештеги:</strong> #ChatGPT #AI #МобильныеПриложения</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://the-decoder.com/anthropic-releases-updated-smarter-claude-haiku-3-5-and-sonnet-3-5-model/" target="_blank">Генеральный директор Anthropic опровергает слухи о стоимости разработки Claude 3.5 Sonnet</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/cb8/648/2d1/cb86482d1b5292c64da58cceca5e3f85.png" alt="Генеральный директор Anthropic опровергает слухи о стоимости разработки Claude 3.5 Sonnet">
+        <p>Генеральный директор Anthropic Дарио Амодеи хочет развеять некоторые заблуждения о Claude 3.5 Sonnet. Разработка модели AI обошлась гораздо дешевле, чем предполагают недавние слухи, и она не была создана с использованием более продвинутых секретных моделей, как утверждают некоторые. По словам Амодеи, обучение Claude 3.5 Sonnet — в настоящее время считающегося самой способной языковой моделью AI — обошлось примерно в несколько десятков миллионов долларов, а не в миллиарды, как предполагалось в недавних отчетах. Он также опровергает предположения о том, что Sonnet был разработан с использованием синтетических данных, сгенерированных более сложными, невыпущенными моделями, такими как Opus 3.5 .</p>
+        <p><strong>Хештеги:</strong> #Claude35Sonnet #AI #Anthropic</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/companies/iva_tech/news/877954/" target="_blank">IVA One Включена в Реестр Российского ПО</a></h2>
+        <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/df1/f53/11c/df1f5311c964c4464061480160e59d55.png" alt="IVA One Включена в Реестр Российского ПО">
+        <p>Платформе IVA One присвоен регистрационный номер 26114, что открывает новые возможности для её использования в госструктурах и предприятиях сферы КИИ. Платформа интегрирует различные инструменты для корпоративных коммуникаций в одном интерфейсе, что способствует повышению продуктивности сотрудников и обеспечению безопасности данных.</p>
+        <p><strong>Хештеги:</strong> #IVAOne #РоссийскоеПО #КорпоративныеКоммуникации</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/news/878052/" target="_blank">Инференс нейросетей в Hugging Face</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/c03/68c/a0d/c0368ca0da59c9f526f8ea3ce3b2ec3d.jpeg" alt="Инференс нейросетей в Hugging Face">
+        <p>В блоге Hugging Face рассказали, что теперь пользователи могут получить инференс нейросети на её странице. Это поможет быстро интегрировать модели в собственные проекты с помощью единого интерфейса.</p>
+        <p><strong>Хештеги:</strong> #HuggingFace #Нейросети #Инференс</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/news/877996/" target="_blank">МегаФон: В 2024 году россияне начали активнее покупать смартфоны с ИИ</a></h2>
+        <img src="None" alt="МегаФон: В 2024 году россияне начали активнее покупать смартфоны с ИИ">
+        <p>Россияне в 2024 году проявили повышенный интерес к нестандартным смартфонам и их новым функциям. Продажи гибких устройств выросли более чем на 107%, а гаджеты с возможностями искусственного интеллекта стали приобретать в 1,8 раза чаще, чем годом ранее. Об этом свидетельствуют данные объединённой розничной сети «МегаФона» и Yota, рассказали Хабру в пресс‑службе компании.</p>
+        <p><strong>Хештеги:</strong> #Смартфоны #ИскусственныйИнтеллект #МегаФон</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/news/877982/" target="_blank">Обязанность регистрации на маркетплейсах через «Госуслуги» опровергнута Минцифры</a></h2>
+        <img src="https://habrastorage.org/r/w780/getpro/habr/upload_files/a51/0cc/276/a510cc276133a047aabb2b5b434dc791.jpg" alt="Обязанность регистрации на маркетплейсах через «Госуслуги» опровергнута Минцифры">
+        <p>Forbes сообщил о предложении правительства о внедрении обязательной регистрации пользователей маркетплейсов через «Госуслуги». Однако Минцифры опровергло эту информацию, отметив, что пакет поправок, включающий требования к регистратуре и биометрии, все еще обсуждается.</p>
+        <p><strong>Хештеги:</strong> #Госуслуги #Маркетплейсы #Антимошенничество</p>
+    </div>
+    
+    <div class="news-item">
+        <p>30-01-2025</p>
+        <h2><a href="https://habr.com/ru/news/877980/" target="_blank">SoftBank инвестирует до $25 млрд в OpenAI</a></h2>
+        <img src="https://habrastorage.org/r/w780/webt/4g/oz/ey/4gozeyrvj2vkidplbu1oni3saz4.jpeg" alt="SoftBank инвестирует до $25 млрд в OpenAI">
+        <p>Японский холдинг SoftBank ведёт переговоры об инвестировании $25 млрд в OpenAI, что сделает его крупнейшим спонсором компании. Во второй половине января обе компании объявили, что вложат миллиарды долларов в инфраструктурный проект по созданию центров обработки данных Stargate.</p>
+        <p><strong>Хештеги:</strong> #SoftBank #OpenAI #Инвестиции</p>
+    </div>
+    
+        <p style="text-align:center; margin-top:20px;">
+            <a href="/static/newsbody_23_01_30_01_2025.html" 
+               style="color:#666; text-decoration:none; font-weight:bold; font-size:16px;">
+               Еще новости прошлых дней...
+            </a>
+        </p>
+        
+
+<script>
+    function sendHeight() {
+        const height = document.documentElement.scrollHeight
+        window.parent.postMessage({ frameHeight: height }, '*')
+    }
+
+    // Основные обработчики событий
+    window.addEventListener('load', () => {
+        sendHeight()
+
+        // Отслеживание загрузки изображений
+        const images = document.querySelectorAll('img')
+        let loadingImages = images.length
+
+        const imageLoadHandler = () => {
+            if (--loadingImages === 0) sendHeight()
+        }
+
+        images.forEach(img => {
+            if (!img.complete) {
+                img.addEventListener('load', imageLoadHandler)
+                img.addEventListener('error', imageLoadHandler)
+            }
+        })
+
+        // Подстраховка через 2 секунды
+        setTimeout(sendHeight, 2000)
+    })
+
+    window.addEventListener('resize', sendHeight)
+
+    // Детальный наблюдатель за изменениями
+    new MutationObserver(() => {
+        sendHeight()
+    }).observe(document.body, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributeOldValue: true
+    })
+
+    // Обработка запросов от родителя
+    window.addEventListener('message', (event) => {
+        if (event.data?.type === 'REQUEST_HEIGHT') {
+            sendHeight()
+        }
+    })
+</script>
+</body>
