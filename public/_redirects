@@ -1,8 +1,1 @@
-# Redirect URLs with trailing slash to without trailing slash using regex
 /^(.+)\/$/ /$1 301!
-
-http://xpertnet.ai/*   https://xpertnet.cx/:splat  301!
-http://www.xpertnet.ai/*   https://xpertnet.cx/:splat  301!
-
-https://xpertnet.ai/*  https://xpertnet.cx/:splat  301!
-https://www.xpertnet.ai/*   https://xpertnet.cx/:splat  301!
