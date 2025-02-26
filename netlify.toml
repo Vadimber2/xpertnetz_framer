@@ -9,78 +9,86 @@ BASE_URL = "xpertnet.cx"
 YANDEX_METRIKA_ID = "93795198"
 CACHE_MAX_AGE = "10800" # 3 часа
 
+# netlify.toml для xpertnet.cx
 [[redirects]]
-from = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
-to = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
-status = 200
-force = true
+    from = "/*"
+    to = "https://xpertnet.ai/:splat"
+    status = 301
+    force = true
 
-[[redirects]]
-from = "/yandex_a29082b5b783b0ec.html"
-to = "/yandex_a29082b5b783b0ec.html"
-status = 200
-force = true
 
-[[redirects]]
-from = "/404.html"
-to = "/404.html"
-status = 200
-force = true
-
-[[redirects]]
-from = "/legal/*"
-to = "/legal/*"
-status = 200
+#[[redirects]]
+#from = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
+#to = "/hwJ9rb6e8kYgEpKvG37z5Ra4yfWVUP.txt"
+#status = 200
 #force = true
-
-[[redirects]]
-from = "/static/*"
-to = "/static/*"
-status = 200
+#
+#[[redirects]]
+#from = "/yandex_a29082b5b783b0ec.html"
+#to = "/yandex_a29082b5b783b0ec.html"
+#status = 200
 #force = true
-
-[[redirects]]
-from = "/sitemap.xml"
-to = "/sitemap.xml"
-status = 200
-force = true
-
-[[redirects]]
-from = "/rss.xml"
-to = "/rss.xml"
-status = 200
-force = true
-
-[[redirects]]
-from = "/robots.txt"
-to = "/robots.txt"
-status = 200
-force = true
-
-[[redirects]]
-from = "/picture-poisk-po-kartinkam_old"
-to = "/picture-poisk-po-kartinkam"
-status = 301
-
-[[redirects]]
-from = "/product"
-to = "/new-products"
-status = 301
-
-[[redirects]]
-from = "/bots"
-to = "/new-bots"
-status = 301
-
-[[redirects]]
-from = "/generation-content"
-to = "/generator-teksta"
-status = 301
-
-
-
-[[redirects]]
-from = "/*"
-to = "/.netlify/builders/pages-builder2"
-status = 200
-force = true
+#
+#[[redirects]]
+#from = "/404.html"
+#to = "/404.html"
+#status = 200
+#force = true
+#
+#[[redirects]]
+#from = "/legal/*"
+#to = "/legal/*"
+#status = 200
+##force = true
+#
+#[[redirects]]
+#from = "/static/*"
+#to = "/static/*"
+#status = 200
+##force = true
+#
+#[[redirects]]
+#from = "/sitemap.xml"
+#to = "/sitemap.xml"
+#status = 200
+#force = true
+#
+#[[redirects]]
+#from = "/rss.xml"
+#to = "/rss.xml"
+#status = 200
+#force = true
+#
+#[[redirects]]
+#from = "/robots.txt"
+#to = "/robots.txt"
+#status = 200
+#force = true
+#
+#[[redirects]]
+#from = "/picture-poisk-po-kartinkam_old"
+#to = "/picture-poisk-po-kartinkam"
+#status = 301
+#
+#[[redirects]]
+#from = "/product"
+#to = "/new-products"
+#status = 301
+#
+#[[redirects]]
+#from = "/bots"
+#to = "/new-bots"
+#status = 301
+#
+#[[redirects]]
+#from = "/generation-content"
+#to = "/generator-teksta"
+#status = 301
+#
+#
+#
+#[[redirects]]
+#from = "/*"
+#to = "/.netlify/builders/pages-builder2"
+#status = 200
+#force = true
